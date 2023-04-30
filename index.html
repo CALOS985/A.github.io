@@ -170,9 +170,7 @@
       color: #fff;
     }
 
-    table tbody tr:nth-child(odd) {
-      background-color: #eee;
-    }
+
 
     table tbody tr:hover {
       background-color: #ccc;
@@ -269,9 +267,7 @@
       color: #e77416;
     }
 
-    table tbody tr:nth-child(odd) {
-      background-color: #eee;
-    }
+ 
 
     /* 按钮美化 */
     div button {
@@ -659,9 +655,7 @@ align-items: center;
   
   </script>
   <!-- 夜间模式切换按钮 -->
-  <div>
-    <button>更多精彩内容请查看侧栏百宝箱</button>
-  </div>
+ 
   <!-- <div>
     <button id="color-scheme-toggle" onclick="changeText()">切换夜间模式</button>
   </div> -->
@@ -676,7 +670,14 @@ align-items: center;
         src="https://time-counter.onmicrosoft.cn/room/1"></iframe></center>
     <!-- 引入不蒜子计数 -->
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+<style>
+  #busuanzi_value_site_pv{
+    color: rgb(236, 18, 18);
+  }
+  #busuanzi_value_site_uv{
+    color: rgb(236, 18, 18);
+  }
+</style>
     <center>
       浏览量：<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>👀 | 访客数：<span
         id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>👦
@@ -688,7 +689,7 @@ align-items: center;
           Date("4/7/2023 0:00:00");
         Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000;
         a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60);
-        runtime_span.innerHTML = "🕑本站快乐运行: " + A + "天" + B + "小时" + C + "分" + D + "秒"
+        runtime_span.innerHTML = "🕑本站已快乐运行: " + A + "天" + B + "小时" + C + "分" + D + "秒"
       } show_runtime();</script>
     <div>
 
@@ -724,7 +725,7 @@ align-items: center;
       <style type="text/css">
         #date-info {
      position: absolute;
-     top: 100px;
+     top: 50px;
      left: 50%;
      transform: translateX(-50%);
      text-align: center;
