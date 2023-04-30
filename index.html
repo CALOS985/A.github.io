@@ -821,11 +821,78 @@ align-items: center;
   </script>
       <!-- 开关按钮 -->
 
-      <div class="kaiguan">
+      <!-- <div class="kaiguan">
         <div class="bai" id="anniu"></div>
-      </div>
+      </div> -->
 
-
+      <style>
+  
+        .dark-class {
+           color: rgb(47, 209, 14);
+           background-color: rgb(17, 16, 16);
+        }
+    
+        .toggleButton {
+           width: 5rem;
+           height: 2rem;
+           position: relative;
+           display: inline-block;
+           position: absolute;
+     top: 35px;
+     right: 50px;
+        }
+        .toggleButton input {
+           opacity: 0;
+        }
+        .roundButton {
+           background-color: rgb(34, 33, 33);
+           top: 0;
+           left: 0;
+           position: absolute;
+           right: 0;
+           bottom: 0;
+           cursor: pointer;
+        }
+        .roundButton:before {
+           left: 0;
+           bottom: 0;
+           position: absolute;
+           content: "";
+           background-color: grey;
+           transition: 1s;
+           height: 2rem;
+           width: 2rem;
+        }
+        input:checked+.roundButton {
+           background-color: white;
+        }
+        input:checked+.roundButton:before {
+           transform: translateX(3rem);
+        }
+        .roundButton.circle {
+           border-radius: 2rem;
+        }
+        .roundButton.circle:before {
+           border-radius: 50%;
+        }
+     </style>
+     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+     Integrity = "sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+     crossorigin = "anonymous" referrerpolicy = "no-referrer"> </script>
+     <label class = "toggleButton">
+      <input type = "checkbox" id = "toggle">
+      <div class = "roundButton circle" ></div>
+   </label>
+   <script>
+      // If the input checkbox is checked, activate dark mode by adding dark-class to the body
+      $('#toggle').change(() => {
+         if ($('#toggle').is(":checked")) {
+            $("body").addClass("dark-class");
+         } else {
+            $("body").removeClass("dark-class")
+         }
+      })
+   </script>
       <!-- 下方是侧栏内容 -->
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -3338,7 +3405,7 @@ http://www.desktx.com/cursors/ */
 
   </script> -->
   <!-- 开关JS -->
-  <script>
+  <!-- <script>
     var anniu = document.getElementById('anniu');
     var kaiguan = document.querySelector('.kaiguan');
     var body1 = document.getElementById('body');
@@ -3370,7 +3437,7 @@ http://www.desktx.com/cursors/ */
 
     )
 
-  </script>
+  </script> -->
   <!-- <script>
     // 点击切换模式
     document.getElementById("dark-mode").onclick = function () {
