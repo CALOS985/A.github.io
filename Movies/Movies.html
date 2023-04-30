@@ -181,9 +181,7 @@
       color: #fff;
     }
 
-    table tbody tr:nth-child(odd) {
-      background-color: #eee;
-    }
+
 
     table tbody tr:hover {
       background-color: #ccc;
@@ -280,9 +278,7 @@
       color: #e77416;
     }
 
-    table tbody tr:nth-child(odd) {
-      background-color: #eee;
-    }
+ 
 
     /* 按钮美化 */
     div button {
@@ -597,7 +593,6 @@ align-items: center;
         "❤七宗罪：傲慢、妒忌、暴怒、懒惰、贪婪、贪食、色欲。——《七宗罪》❤",
         "❤过得好的人，更容易成为好人。——《寄生虫》❤",
         "❤还想知道更多名句名言?请V我50——《肯德基疯狂星期四》❤"
-  
 		];
 
     var intervals = {};
@@ -644,9 +639,7 @@ align-items: center;
   
   </script>
   <!-- 夜间模式切换按钮 -->
-  <div>
-    <button>更多精彩内容请查看侧栏百宝箱</button>
-  </div>
+ 
   <!-- <div>
     <button id="color-scheme-toggle" onclick="changeText()">切换夜间模式</button>
   </div> -->
@@ -661,7 +654,14 @@ align-items: center;
         src="https://time-counter.onmicrosoft.cn/room/1"></iframe></center>
     <!-- 引入不蒜子计数 -->
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+<style>
+  #busuanzi_value_site_pv{
+    color: rgb(236, 18, 18);
+  }
+  #busuanzi_value_site_uv{
+    color: rgb(236, 18, 18);
+  }
+</style>
     <center>
       浏览量：<span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span>👀 | 访客数：<span
         id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>👦
@@ -673,13 +673,13 @@ align-items: center;
           Date("4/7/2023 0:00:00");
         Y = new Date(); T = (Y.getTime() - X.getTime()); M = 24 * 60 * 60 * 1000;
         a = T / M; A = Math.floor(a); b = (a - A) * 24; B = Math.floor(b); c = (b - B) * 60; C = Math.floor((b - B) * 60); D = Math.floor((c - C) * 60);
-        runtime_span.innerHTML = "🕑本站快乐运行: " + A + "天" + B + "小时" + C + "分" + D + "秒"
+        runtime_span.innerHTML = "🕑本站已快乐运行: " + A + "天" + B + "小时" + C + "分" + D + "秒"
       } show_runtime();</script>
     <div>
 
       <div class="content">
         <div class="mode">
-          <p id="light-mode" style="display: none">
+          <p id="light-mode" >
             <svg width="24" height="24">
               <rect width="24" height="24" fill="none" rx="0" ry="0" />
               <path fill-rule="evenodd" clip-rule="evenodd"
@@ -688,7 +688,7 @@ align-items: center;
             </svg>
             <span>日间模式</span>
           </p>
-          <p id="dark-mode">
+          <p id="dark-mode" style="display: none">
             <svg width="24" height="24">
               <rect width="24" height="24" fill="none" rx="0" ry="0" />
               <path fill-rule="evenodd" clip-rule="evenodd"
@@ -705,16 +705,178 @@ align-items: center;
           </p>
         </div>
       </div>
+      <!-- 今年已过天数统计 -->
+      <style type="text/css">
+        #date-info {
+     position: absolute;
+     top: 50px;
+     left: 50%;
+     transform: translateX(-50%);
+     text-align: center;
+     font-size: small;
+ }
+         #date-info p {
+             color: rgb(143, 140, 140);
+         }
+         #date-info span {
+             color: red;
+         }
+     </style>
+      <div id="date-info">
+        <!-- 计算结果将显示在这里 -->
+    </div>
+    <script type="text/javascript">
+        // 获取当前日期
+        var today = new Date();
+        // 计算今年已过天数
+        var dayOfYear = Math.ceil((today - new Date(today.getFullYear(), 0, 1)) / 86400000);
+        // 计算占全年的百分比
+        var percentOfYear = (dayOfYear / 365 * 100).toFixed(1);
+        // 将计算结果显示在网页上
+        document.getElementById("date-info").innerHTML = "<p>今天是" + today.getFullYear() + "年的第<span>" + dayOfYear + "</span>天,"  + "占全年的百分之<span>" + percentOfYear + "</span>%。</p>";
+    </script>
+<!-- 幸福开关 -->
+<style>
 
+  #love-button {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 24px;
+    background-color: pink;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  #love-button:hover {
+    transform: translate(-50%, 0);
+  }
+  .love-text {
+    position: absolute;
+    font-family: sans-serif;
+    animation: float 10s ease-in infinite;
+    font-weight: bold;
+  }
+  @keyframes float {
+    0% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(0, -200vh);
+      opacity: 0;
+    }
+  }
 
-
+</style>
+<button id="love-button">幸福开关</button>
+  <script>
+    const loveButton = document.getElementById('love-button');
+    loveButton.addEventListener('click', () => {
+      const loveText = document.createElement('div');
+      loveText.classList.add('love-text');
+      loveText.innerText = 'I love you';
+      loveText.style.fontSize = getRandomSize();
+      loveText.style.color = getRandomColor();
+      loveText.style.left = getRandomXPosition();
+      loveText.style.top = getRandomYPosition();
+      document.body.appendChild(loveText);
+    });
+    function getRandomSize() {
+      const sizes = ['24px', '32px', '40px', '48px', '56px'];
+      return sizes[Math.floor(Math.random() * sizes.length)];
+    }
+    function getRandomColor() {
+      const colors = ['#ff69b4', '#ff7f50', '#6495ed', '#8fbc8f', '#ffa07a'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    function getRandomXPosition() {
+      const screenWidth = window.innerWidth;
+      const textWidth = 200;
+      return Math.floor(Math.random() * (screenWidth - textWidth)) + 'px';
+    }
+    function getRandomYPosition() {
+      const screenHeight = window.innerHeight;
+      return Math.floor(Math.random() * screenHeight) + 'px';
+    }
+  </script>
       <!-- 开关按钮 -->
 
-      <div class="kaiguan">
+      <!-- <div class="kaiguan">
         <div class="bai" id="anniu"></div>
-      </div>
+      </div> -->
 
-
+      <style>
+  
+        .dark-class {
+           color: rgb(47, 209, 14);
+           background-color: rgb(17, 16, 16);
+        }
+    
+        .toggleButton {
+           width: 5rem;
+           height: 2rem;
+           position: relative;
+           display: inline-block;
+           position: absolute;
+     top: 35px;
+     right: 50px;
+        }
+        .toggleButton input {
+           opacity: 0;
+        }
+        .roundButton {
+           background-color: rgb(34, 33, 33);
+           top: 0;
+           left: 0;
+           position: absolute;
+           right: 0;
+           bottom: 0;
+           cursor: pointer;
+        }
+        .roundButton:before {
+           left: 0;
+           bottom: 0;
+           position: absolute;
+           content: "";
+           background-color: grey;
+           transition: 1s;
+           height: 2rem;
+           width: 2rem;
+        }
+        input:checked+.roundButton {
+           background-color: white;
+        }
+        input:checked+.roundButton:before {
+           transform: translateX(3rem);
+        }
+        .roundButton.circle {
+           border-radius: 2rem;
+        }
+        .roundButton.circle:before {
+           border-radius: 50%;
+        }
+     </style>
+     <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+     Integrity = "sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+     crossorigin = "anonymous" referrerpolicy = "no-referrer"> </script>
+     <label class = "toggleButton">
+      <input type = "checkbox" id = "toggle">
+      <div class = "roundButton circle" ></div>
+   </label>
+   <script>
+      // If the input checkbox is checked, activate dark mode by adding dark-class to the body
+      $('#toggle').change(() => {
+         if ($('#toggle').is(":checked")) {
+            $("body").addClass("dark-class");
+         } else {
+            $("body").removeClass("dark-class")
+         }
+      })
+   </script>
       <!-- 下方是侧栏内容 -->
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -1198,59 +1360,61 @@ http://www.desktx.com/cursors/ */
 
     </div>
     <style>
-      input[type=text] {
-padding: 6px;
-border: 1px solid #ccc;
-border-radius: 4px;
-box-sizing: border-box;
-}
-button[type=submit] {
-background-color: #4CAF50;
-color: white;
-padding: 6px 12px;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-font-size: small;
-}
-</style>
-<!-- 筛选功能 -->
-<script>
-  function filterTable() {
-    var input, filter, table, tr, td, i, j, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      tds = tr[i].getElementsByTagName("td");
-      for (j = 0; j < tds.length; j++) {
-        td = tds[j];
-        if (td) {
-          txtValue = td.textContent || td.innerText;
-          if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-            break;
-          } else {
-            tr[i].style.display = "none";
+            input[type=text] {
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: small;
+    }
+    </style>
+
+    <!-- 筛选功能 -->
+    <script>
+        function filterTable() {
+          var input, filter, table, tr, td, i, j, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+          for (i = 0; i < tr.length; i++) {
+            tds = tr[i].getElementsByTagName("td");
+            for (j = 0; j < tds.length; j++) {
+              td = tds[j];
+              if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                  break;
+                } else {
+                  tr[i].style.display = "none";
+                }
+              }
+            }
           }
         }
-      }
-    }
-  }
-  
-  function resetFilter() {
-    document.getElementById("myInput").value = "";
-    filterTable();
-  }
-  </script>
+        
+        function resetFilter() {
+          document.getElementById("myInput").value = "";
+          filterTable();
+        }
+        </script>
     <div class="felx juzhong">
       <table id="myTable">
         <caption>
-          <p>卡洛斯的分享库[建议收藏]</p>
+          <p>卡洛斯的分享库[建议收藏] </p>
+
           <span style="white-space: nowrap;"><input type="text" id="myInput" placeholder="请输入筛选条件...">
-            <button type="submit" onclick="filterTable()">确认</button>
-              <button type="submit" onclick="resetFilter()">重置</button></span>
+          <button type="submit" onclick="filterTable()">确认</button>
+            <button type="submit" onclick="resetFilter()">重置</button></span>
         </caption>
         <thead>
           <tr>
@@ -2099,10 +2263,9 @@ font-size: small;
          
         </tbody>
 
-      </tbody>
         <tfoot>
           <tr>
-            <td style="text-align: center;" colspan="5">电影区，持续更新中</td>
+            <td style="text-align: center;" colspan="5">动漫分享几乎更新完毕，请在分类导航中查看电影区分享。</td>
           </tr>
         </tfoot>
       </table>
@@ -2484,178 +2647,188 @@ font-size: small;
       }
     </script>
 
-<div>
-  <!-- 音乐播放器 -->
-  <!-- require APlayer -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-  <!-- require MetingJS -->
-  <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<div >
+    </script>
+    <!-- 音乐播放器 -->
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <!-- require MetingJS -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
-  <meting-js server="netease" type="playlist" id="60198" mutex="true" autoplay="false">
+    <meting-js server="netease" type="playlist" id="60198" mutex="true" autoplay="false">
 
-  </meting-js>
-</div>
-</div>
-<script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+    </meting-js>
+  </div>
+  <!--音乐播放器-->
+<!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+<script src="https://myhkw.cn/player/js/player.js" id="myhk" key="demo" m="1"></script> -->
 
-<script>
-/*https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json*/
-L2Dwidget.init({
-  "model": {
-    jsonPath:
-      "https://calos985.github.io/B.github.io/model/HyperdimensionNeptunia/vert_swimwear/index.json",
-    "scale": 1
-  }, "display": {
-    "position": "right", "width": 160, "height": 180,
-    "hOffset": 0, "vOffset": -20
-  }, "mobile": { "show": true, "scale": 0.5 },
-  "react": { "opacityDefault": 1, "opacityOnHover": 0.1 }
-});
-</script>
-<script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
-<!-- 夜间模式 -->
-<!-- <script>
-// Get the color scheme toggle button and the HTML body element
-const toggle = document.querySelector("#color-scheme-toggle");
-const body = document.querySelector("body");
+  </div>
+  <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
 
-// Listen for a click on the toggle button
-toggle.addEventListener("click", function () {
-  // Toggle the body class between "light" and "dark"
-  body.classList.toggle("dark");
+  <script>
+    /*https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json*/
+    L2Dwidget.init({
+      "model": {
+        jsonPath:
+          "https://calos985.github.io/B.github.io/model/HyperdimensionNeptunia/vert_swimwear/index.json",
+        "scale": 1
+      }, "display": {
+        "position": "right", "width": 160, "height": 180,
+        "hOffset": 0, "vOffset": -20
+      }, "mobile": { "show": true, "scale": 0.5 },
+      "react": { "opacityDefault": 1, "opacityOnHover": 0.1 }
+    });
+  </script>
 
-  // Store the selected color scheme in local storage
-  localStorage.setItem("color-scheme", body.classList.contains("dark") ? "dark" : "light");
-});
+  <script src="https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+  <!-- 夜间模式 -->
+  <!-- <script>
+    // Get the color scheme toggle button and the HTML body element
+    const toggle = document.querySelector("#color-scheme-toggle");
+    const body = document.querySelector("body");
 
-// Check if a color scheme is already stored in local storage and apply it
-const storedColorScheme = localStorage.getItem("color-scheme");
-if (storedColorScheme && storedColorScheme === "dark") {
-  body.classList.add("dark");
-}
+    // Listen for a click on the toggle button
+    toggle.addEventListener("click", function () {
+      // Toggle the body class between "light" and "dark"
+      body.classList.toggle("dark");
 
-</script> -->
-<!-- 开关JS -->
-<script>
-var anniu = document.getElementById('anniu');
-var kaiguan = document.querySelector('.kaiguan');
-var body1 = document.getElementById('body');
+      // Store the selected color scheme in local storage
+      localStorage.setItem("color-scheme", body.classList.contains("dark") ? "dark" : "light");
+    });
 
-var temp = 1;
-anniu.addEventListener('click', function () {
-  if (temp == 1) {
-    this.className = 'hei';
-    temp = 0;
-    kaiguan.style.border = '2px solid  rgb(11, 243, 81)';
-    body1.style.backgroundColor = 'rgb(7, 7, 29)';
+    // Check if a color scheme is already stored in local storage and apply it
+    const storedColorScheme = localStorage.getItem("color-scheme");
+    if (storedColorScheme && storedColorScheme === "dark") {
+      body.classList.add("dark");
+    }
 
-    body1.style.color = 'Orange';
-  } else {
-    this.className = 'bai';
-    temp = 1;
-    kaiguan.style.border = '2px solid black';
-    body1.style.backgroundColor = 'white';
+  </script> -->
+  <!-- 开关JS -->
+  <!-- <script>
+    var anniu = document.getElementById('anniu');
+    var kaiguan = document.querySelector('.kaiguan');
+    var body1 = document.getElementById('body');
 
-    body1.style.color = 'black';
-  }
+    var temp = 1;
+    anniu.addEventListener('click', function () {
+      if (temp == 1) {
+        this.className = 'hei';
+        temp = 0;
+        kaiguan.style.border = '2px solid  rgb(11, 243, 81)';
+        body1.style.backgroundColor = 'rgb(7, 7, 29)';
 
-}
+        body1.style.color = 'Orange';
+        document.getElementById("light-mode").style.display = "none";
+      document.getElementById("dark-mode").style.display ="flex"; 
+      } else {
+        this.className = 'bai';
+        temp = 1;
+        kaiguan.style.border = '2px solid black';
+        body1.style.backgroundColor = 'white';
 
+        body1.style.color = 'black';
+        document.getElementById("light-mode").style.display = "flex";
+      document.getElementById("dark-mode").style.display = "none";
+      }
 
-)
-
-</script>
-<!-- <script>
-// 点击切换模式
-document.getElementById("dark-mode").onclick = function () {
-  let bodyEl = document.body;
-  bodyEl.classList.add("dark-mode");
-  document.getElementById("light-mode").style.display = "flex";
-  document.getElementById("dark-mode").style.display = "none";
-};
-document.getElementById("anniu").onclick = function () {
-  let bodyEl = document.body;
-  bodyEl.classList.add("dark-mode");
-  document.getElementById("light-mode").style.display = "flex";
-  document.getElementById("dark-mode").style.display = "none";
-};
-document.getElementById("light-mode").onclick = function () {
-  let bodyEl = document.body;
-  bodyEl.classList.remove("dark-mode");
-  document.getElementById("light-mode").style.display = "none";
-  document.getElementById("dark-mode").style.display = "flex";
-};
-</script> -->
-<!-- 返回顶部 -->
-<style>
-#myBtn {
-
-  display: none;
-
-  position: fixed;
-
-  bottom: 300px;
-
-  right: 5px;
-
-  z-index: 99;
-
-  border: none;
-
-  outline: none;
-
-  background-color: skyblue;
-
-  color: white;
-
-  cursor: pointer;
-
-  padding: 15px;
-
-  border-radius: 10px;
-
-}
+    }
 
 
+    )
 
-#myBtn:hover {
+  </script> -->
+  <!-- <script>
+    // 点击切换模式
+    document.getElementById("dark-mode").onclick = function () {
+      let bodyEl = document.body;
+      bodyEl.classList.add("dark-mode");
+      document.getElementById("light-mode").style.display = "flex";
+      document.getElementById("dark-mode").style.display = "none";
+    };
+    document.getElementById("anniu").onclick = function () {
+      let bodyEl = document.body;
+      bodyEl.classList.add("dark-mode");
+      document.getElementById("light-mode").style.display = "flex";
+      document.getElementById("dark-mode").style.display = "none";
+    };
+    document.getElementById("light-mode").onclick = function () {
+      let bodyEl = document.body;
+      bodyEl.classList.remove("dark-mode");
+      document.getElementById("light-mode").style.display = "none";
+      document.getElementById("dark-mode").style.display = "flex";
+    };
+  </script> -->
+  <!-- 返回顶部 -->
+  <style>
+    #myBtn {
 
-  background-color: plum;
+      display: none;
 
-}
-</style>
-<script>
-// 当网页向下滑动 20px 出现"返回顶部" 按钮
+      position: fixed;
 
-window.onscroll = function () { scrollFunction() };
+      bottom: 300px;
 
-function scrollFunction() {
-  console.log(121);
+      right: 5px;
 
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      z-index: 99;
 
-    document.getElementById("myBtn").style.display = "block";
+      border: none;
 
-  } else {
+      outline: none;
 
-    document.getElementById("myBtn").style.display = "none";
+      background-color: skyblue;
 
-  }
+      color: white;
 
-}
+      cursor: pointer;
 
-// 点击按钮，返回顶部
+      padding: 15px;
 
-function topFunction() {
+      border-radius: 10px;
 
-  document.body.scrollTop = 0;
+    }
 
-  document.documentElement.scrollTop = 0;
 
-}
-</script>
-<button onclick="topFunction()" id="myBtn" title="回顶部">返回顶部</button>
+
+    #myBtn:hover {
+
+      background-color: plum;
+
+    }
+  </style>
+  <script>
+    // 当网页向下滑动 20px 出现"返回顶部" 按钮
+
+    window.onscroll = function () { scrollFunction() };
+
+    function scrollFunction() {
+      console.log(121);
+
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+
+        document.getElementById("myBtn").style.display = "block";
+
+      } else {
+
+        document.getElementById("myBtn").style.display = "none";
+
+      }
+
+    }
+
+    // 点击按钮，返回顶部
+
+    function topFunction() {
+
+      document.body.scrollTop = 0;
+
+      document.documentElement.scrollTop = 0;
+
+    }
+  </script>
+  <button onclick="topFunction()" id="myBtn" title="回顶部">返回顶部</button>
 </body>
 
 
