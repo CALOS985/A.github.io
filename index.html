@@ -888,8 +888,12 @@ align-items: center;
       $('#toggle').change(() => {
          if ($('#toggle').is(":checked")) {
             $("body").addClass("dark-class");
+            document.getElementById("light-mode").style.display = "none";
+      document.getElementById("dark-mode").style.display ="flex"; 
          } else {
             $("body").removeClass("dark-class")
+            document.getElementById("light-mode").style.display = "flex"; 
+      document.getElementById("dark-mode").style.display ="none";
          }
       })
    </script>
@@ -3371,7 +3375,7 @@ http://www.desktx.com/cursors/ */
     L2Dwidget.init({
       "model": {
         jsonPath:
-          "https://calos985.github.io/B.github.io/model/HyperdimensionNeptunia/vert_classic/index.json",
+          "https://fastly.jsdelivr.net/gh/CALOS985/B.github.io@0.02/model/HyperdimensionNeptunia/vert_classic/index.json",
         "scale": 1
       }, "display": {
         "position": "right", "width": 160, "height": 180,
