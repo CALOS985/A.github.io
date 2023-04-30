@@ -720,7 +720,36 @@ align-items: center;
           </p>
         </div>
       </div>
-
+      <!-- 今年已过天数统计 -->
+      <style type="text/css">
+        #date-info {
+     position: absolute;
+     top: 100px;
+     left: 50%;
+     transform: translateX(-50%);
+     text-align: center;
+     font-size: small;
+ }
+         #date-info p {
+             color: rgb(143, 140, 140);
+         }
+         #date-info span {
+             color: red;
+         }
+     </style>
+      <div id="date-info">
+        <!-- 计算结果将显示在这里 -->
+    </div>
+    <script type="text/javascript">
+        // 获取当前日期
+        var today = new Date();
+        // 计算今年已过天数
+        var dayOfYear = Math.ceil((today - new Date(today.getFullYear(), 0, 1)) / 86400000);
+        // 计算占全年的百分比
+        var percentOfYear = (dayOfYear / 365 * 100).toFixed(1);
+        // 将计算结果显示在网页上
+        document.getElementById("date-info").innerHTML = "<p>今天是" + today.getFullYear() + "年的第<span>" + dayOfYear + "</span>天,"  + "占全年的百分之<span>" + percentOfYear + "</span>%。</p>";
+    </script>
 <!-- 幸福开关 -->
 <style>
 
