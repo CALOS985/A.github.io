@@ -694,7 +694,7 @@ align-items: center;
 
       <div class="content">
         <div class="mode">
-          <p id="light-mode" style="display: none">
+          <p id="light-mode" >
             <svg width="24" height="24">
               <rect width="24" height="24" fill="none" rx="0" ry="0" />
               <path fill-rule="evenodd" clip-rule="evenodd"
@@ -703,7 +703,7 @@ align-items: center;
             </svg>
             <span>日间模式</span>
           </p>
-          <p id="dark-mode">
+          <p id="dark-mode" style="display: none">
             <svg width="24" height="24">
               <rect width="24" height="24" fill="none" rx="0" ry="0" />
               <path fill-rule="evenodd" clip-rule="evenodd"
@@ -3351,6 +3351,8 @@ http://www.desktx.com/cursors/ */
         body1.style.backgroundColor = 'rgb(7, 7, 29)';
 
         body1.style.color = 'Orange';
+        document.getElementById("light-mode").style.display = "none";
+      document.getElementById("dark-mode").style.display ="flex"; 
       } else {
         this.className = 'bai';
         temp = 1;
@@ -3358,6 +3360,8 @@ http://www.desktx.com/cursors/ */
         body1.style.backgroundColor = 'white';
 
         body1.style.color = 'black';
+        document.getElementById("light-mode").style.display = "flex";
+      document.getElementById("dark-mode").style.display = "none";
       }
 
     }
