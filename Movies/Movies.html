@@ -872,8 +872,12 @@ align-items: center;
       $('#toggle').change(() => {
          if ($('#toggle').is(":checked")) {
             $("body").addClass("dark-class");
+            document.getElementById("light-mode").style.display = "none";
+      document.getElementById("dark-mode").style.display ="flex"; 
          } else {
-            $("body").removeClass("dark-class")
+            $("body").removeClass("dark-class");
+            document.getElementById("light-mode").style.display = "flex"; 
+      document.getElementById("dark-mode").style.display ="none";
          }
       })
    </script>
