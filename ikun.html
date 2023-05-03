@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>网址资源管理器</title>
+
+  <!-- 禁止F12 -->
+
+<script type='text/javascript'>
+  //屏蔽右键菜单
+  document.oncontextmenu = function (event) {
+    if (window.event) {
+      event = window.event;
+    }
+    try {
+      var the = event.srcElement;
+      if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+        return false;
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+  //屏蔽粘贴
+  document.onpaste = function (event) {
+    if (window.event) {
+      event = window.event;
+    }
+    try {
+      var the = event.srcElement;
+      if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+        return false;
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+  //屏蔽复制
+  
+  //屏蔽剪切
+  document.oncut = function (event) {
+    if (window.event) {
+      event = window.event;
+    }
+    try {
+      var the = event.srcElement;
+      if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+        return false;
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+  //禁止f12
+  
+  function fuckyou() {
+    window.close(); //关闭当前窗口(防抽)
+    window.location = "about:blank"; //将当前窗口跳转置空白页
+  }
+  //禁止Ctrl+U
+  var arr = [123, 17, 18];
+  document.oncontextmenu = new Function("event.returnValue=false;"), //禁用右键
+  
+    window.onkeydown = function (e) {
+      var keyCode = e.keyCode || e.which || e.charCode;
+      var ctrlKey = e.ctrlKey || e.metaKey;
+      console.log(keyCode + "--" + keyCode);
+      if (ctrlKey && keyCode == 85) {
+        e.preventDefault();
+      }
+      if (arr.indexOf(keyCode) > -1) {
+        e.preventDefault();
+      }
+    }
+  
+  function ck() {
+    console.profile();
+    console.profileEnd();
+    //我们判断一下profiles里面有没有东西，如果有，肯定有人按F12了，没错！！
+    if (console.clear) {
+      console.clear()
+    };
+    if (typeof console.profiles == "object") {
+      return console.profiles.length > 0;
+    }
+  }
+  
+  function hehe() {
+    if ((window.console && (console.firebug || console.table && /firebug/i.test(console.table()))) || (
+        typeof opera ==
+        'object' && typeof opera.postError == 'function' && console.profile.length > 0)) {
+      fuckyou();
+    }
+    if (typeof console.profiles == "object" && console.profiles.length > 0) {
+      fuckyou();
+    }
+  }
+  hehe();
+  window.onresize = function () {
+    if ((window.outerHeight - window.innerHeight) > 200)
+      //判断当前窗口内页高度和窗口高度，如果差值大于200，那么呵呵
+      fuckyou();
+  }
+  
+  document.onkeydown = function (event) {
+    if ((event.keyCode == 112) || //屏蔽 F1
+      (event.keyCode == 113) || //屏蔽 F2
+      (event.keyCode == 114) || //屏蔽 F3
+      (event.keyCode == 115) || //屏蔽 F4
+      // (event.keyCode == 116) || //屏蔽 F5
+      (event.keyCode == 117) || //屏蔽 F6
+      (event.keyCode == 118) || //屏蔽 F7
+      (event.keyCode == 119) || //屏蔽 F8
+      (event.keyCode == 120) || //屏蔽 F9
+      (event.keyCode == 121) || //屏蔽 F10
+      (event.keyCode == 122) || //屏蔽 F11
+      (event.keyCode == 123)) //屏蔽 F12
+    {
+      return false;
+    }
+  }
+  window.onhelp = function () {
+    return false;
+  }
+  </script>
+  <script>
+    //按键触发
+  document.onkeydown = function(){
+    //禁止ctrl+s
+      if (event.ctrlKey && window.event.keyCode==83){
+      return false;
+      }
+      }
+  </script>
+
+  <style>
+    /* 鼠标指针 */
+    body {
+          cursor: url(https://pic2.imgdb.cn/item/64528b7d0d2dde5777b39418.png), auto;
+        }
+       
+        a {
+          cursor: url(' https://pic2.imgdb.cn/item/64528b6d0d2dde5777b389f0.png'), auto;
+        }
+
+        a:active {
+          cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/work.cur), alias
+        }
+    body {
+      background-image: url("https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png");
+      background-size: cover;
+      background-position: center center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    /* 定义谷歌浏览器图标 */
+    .chrome-icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-image: url("https://res.cloudinary.com/dg3urvo89/image/upload/v1681805183/chrome_uhldr0.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    /* 定义文件夹图标 */
+    .item span {
+      color: black;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+
+    .folder-icon {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background-image: url("https://pic2.imgdb.cn/item/643e49710d2dde577775337b.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    /* 定义文件图标 */
+    .file-icon {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-image: url("https://pic2.imgdb.cn/item/644de2330d2dde5777936f41.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    /* 定义文件夹和文件的样式 */
+    .item {
+      cursor: pointer;
+      margin-bottom: 5px;
+      padding-left: 20px;
+    }
+
+    /* 定义文件夹和文件的悬停样式
+		.item:hover {
+			background-color: #3aeb0e;
+		} */
+
+    /* 定义文件夹和文件的展开样式 */
+    /* .item.open {
+			background-color: #e0e0e0;
+		} */
+
+    /* 定义文件夹和文件的子项容器 */
+    .children {
+      display: none;
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 1px solid #ccc;
+      box-shadow: none;
+    }
+
+    /* 定义文件夹和文件的子项容器的展开样式 */
+    .item.open>.children {
+      display: block;
+    }
+
+    a:hover {
+      color: red;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 顶部栏 -->
+  <style>
+    /* 顶部黑色半透明网页顶栏样式 */
+    .top-bar {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo img {
+    margin-right: 10px;
+  }
+
+    .nav-links a {
+      color: #fff;
+      margin-left: 20px;
+      margin-right: 30px;
+      text-decoration: none;
+
+    }
+
+
+
+    .nav-links a:first-child {
+      margin-left: 0;
+    }
+
+    /* 弹窗样式 */
+    .modal-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      display: none;
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    .modal {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+      left: 50%;
+      position: fixed;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      z-index: 3;
+    }
+
+    .modal-content {
+      padding: 20px;
+    }
+
+    .close-button {
+      background-color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 10px;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+
+    .show .menu-icon {
+      display: block;
+    }
+
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+    }
+ 
+    @media (min-width: 600px) {
+    .text {
+      display: block;
+      margin-left: 10px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .logo {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .text {
+      display: block;
+      margin-top: 5px;
+    }
+  }
+
+  .nav-links a:hover {
+     
+      color: red; /* 新增 */
+    }
+
+ 
+  </style>
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <div class="logo">
+        <img
+          src="https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg"
+          alt="Logo" width="50" height="50">
+          <span class="text">坤坤的电脑</span>
+      </div>
+
+  
+      <div class="nav-links">
+        <a href="https://calos985.github.io/A.github.io/" target="_blank" >Home</a>
+        <a href="#" class="about-link">About</a>
+        <a href="https://calos985.github.io/" target="_blank">Contact</a>
+      </div>
+
+    </div>
+ 
+  </div>
+
+  <div class="modal-container">
+    <div class="modal">
+      <div class="modal-content">
+        <h2>About</h2>
+        <p>哎呦，你干嘛！唉唉哟..........！</p>
+        <button class="close-button">关闭</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const aboutLink = document.querySelector('.about-link');
+    const modalContainer = document.querySelector('.modal-container');
+    const closeButton = document.querySelector('.close-button');
+
+    aboutLink.addEventListener('click', () => {
+      modalContainer.style.display = 'block';
+    });
+
+    closeButton.addEventListener('click', () => {
+      modalContainer.style.display = 'none';
+    });
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuIcon.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+  </script>
+  <div class="container">
+    <!-- 页面主体内容 -->
+
+    <!-- 第一个文件夹 -->
+    <div class="item folder" onclick="toggle(this)">
+      <span class="folder-icon"></span>
+      <span><a href="#">IKUN文件夹</a></span>
+      <div class="children">
+        <!-- 第一个子文件夹 -->
+        <div class="item folder" onclick="toggle(this, event)">
+          <span class="folder-icon"></span>
+          <span><a href="#">IKUN万岁</a></span>
+          <div class="children">
+            <!-- 第一个网址文件 -->
+            <div class="item file">
+              <span class="file-icon"></span>
+              <a href="https://www.google.com/">Google</a>
+            </div>
+            <!-- 第二个网址文件 -->
+            <div class="item file">
+              <span class="file-icon"></span>
+              <a href="https://www.baidu.com/">百度</a>
+            </div>
+          </div>
+          <!-- 上面是子文件夹区域 -->
+          <!-- 第一个网址文件 -->
+          <div class="item file">
+            <span class="file-icon"></span>
+            <a href="https://www.google.com/">Google</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 切换文件夹和文件的展开状态
+    function toggle(item) {
+      if (item.classList.contains("folder")) {
+        item.classList.toggle("open");
+      }
+    }
+    function toggle(item, event) {
+      if (event && event.stopPropagation) {
+        event.stopPropagation();
+      }
+      if (item.classList.contains("folder")) {
+        item.classList.toggle("open");
+      }
+    }
+  </script>
+</body>
+
+</html>
