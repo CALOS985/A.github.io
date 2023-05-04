@@ -564,7 +564,7 @@
     .popup-container {
       display: none;
       position: fixed;
-      top: 394px;
+      bottom: 40px;
       /* Updated */
       left: 5px;
       width: 392px;
@@ -583,10 +583,10 @@
     @media (max-width: 600px) {
     .popup-container {
         transform: scale(0.7);
-        position: fixed;
-      top: 465px;
+      
+        bottom: -30px;
       /* Updated */
-      left: -55px;
+      left: -60px;
     }
 }
     .popup-container .left {
@@ -649,6 +649,7 @@
       var popup = document.getElementById("popup");
       popup.classList.toggle("show");
     }
+
   </script>
 </body>
 
