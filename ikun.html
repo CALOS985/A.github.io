@@ -2,720 +2,1042 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta charset="UTF-8" />
-  <title>坤の⚡脑</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>坤の⚡脑</title>
 
-  <!-- 禁止F12 -->
+    <!-- 禁止F12 -->
 
-  <script type="text/javascript">
-    //屏蔽右键菜单
-    document.oncontextmenu = function (event) {
-      if (window.event) {
-        event = window.event;
-      }
-      try {
-        var the = event.srcElement;
-        if (
-          !(
-            (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
-            the.tagName == "TEXTAREA"
-          )
-        ) {
-          return false;
+    <script type="text/javascript">
+        //屏蔽右键菜单
+        document.oncontextmenu = function (event) {
+            if (window.event) {
+                event = window.event;
+            }
+            try {
+                var the = event.srcElement;
+                if (
+                    !(
+                        (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
+                        the.tagName == "TEXTAREA"
+                    )
+                ) {
+                    return false;
+                }
+                return true;
+            } catch (e) {
+                return false;
+            }
+        };
+        //屏蔽粘贴
+        document.onpaste = function (event) {
+            if (window.event) {
+                event = window.event;
+            }
+            try {
+                var the = event.srcElement;
+                if (
+                    !(
+                        (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
+                        the.tagName == "TEXTAREA"
+                    )
+                ) {
+                    return false;
+                }
+                return true;
+            } catch (e) {
+                return false;
+            }
+        };
+        //屏蔽复制
+
+        //屏蔽剪切
+        document.oncut = function (event) {
+            if (window.event) {
+                event = window.event;
+            }
+            try {
+                var the = event.srcElement;
+                if (
+                    !(
+                        (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
+                        the.tagName == "TEXTAREA"
+                    )
+                ) {
+                    return false;
+                }
+                return true;
+            } catch (e) {
+                return false;
+            }
+        };
+        //禁止f12
+
+        function fuckyou() {
+            window.close(); //关闭当前窗口(防抽)
+            window.location = "about:blank"; //将当前窗口跳转置空白页
         }
-        return true;
-      } catch (e) {
-        return false;
-      }
-    };
-    //屏蔽粘贴
-    document.onpaste = function (event) {
-      if (window.event) {
-        event = window.event;
-      }
-      try {
-        var the = event.srcElement;
-        if (
-          !(
-            (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
-            the.tagName == "TEXTAREA"
-          )
-        ) {
-          return false;
+        //禁止Ctrl+U
+        var arr = [123, 17, 18];
+        (document.oncontextmenu = new Function("event.returnValue=false;")), //禁用右键
+            (window.onkeydown = function (e) {
+                var keyCode = e.keyCode || e.which || e.charCode;
+                var ctrlKey = e.ctrlKey || e.metaKey;
+                console.log(keyCode + "--" + keyCode);
+                if (ctrlKey && keyCode == 85) {
+                    e.preventDefault();
+                }
+                if (arr.indexOf(keyCode) > -1) {
+                    e.preventDefault();
+                }
+            });
+
+        function ck() {
+            console.profile();
+            console.profileEnd();
+            //我们判断一下profiles里面有没有东西，如果有，肯定有人按F12了，没错！！
+            if (console.clear) {
+                console.clear();
+            }
+            if (typeof console.profiles == "object") {
+                return console.profiles.length > 0;
+            }
         }
-        return true;
-      } catch (e) {
-        return false;
-      }
-    };
-    //屏蔽复制
 
-    //屏蔽剪切
-    document.oncut = function (event) {
-      if (window.event) {
-        event = window.event;
-      }
-      try {
-        var the = event.srcElement;
-        if (
-          !(
-            (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
-            the.tagName == "TEXTAREA"
-          )
-        ) {
-          return false;
+        function hehe() {
+            if (
+                (window.console &&
+                    (console.firebug ||
+                        (console.table && /firebug/i.test(console.table())))) ||
+                (typeof opera == "object" &&
+                    typeof opera.postError == "function" &&
+                    console.profile.length > 0)
+            ) {
+                fuckyou();
+            }
+            if (
+                typeof console.profiles == "object" &&
+                console.profiles.length > 0
+            ) {
+                fuckyou();
+            }
         }
-        return true;
-      } catch (e) {
-        return false;
-      }
-    };
-    //禁止f12
+        hehe();
+        window.onresize = function () {
+            if (window.outerHeight - window.innerHeight > 200)
+                //判断当前窗口内页高度和窗口高度，如果差值大于200，那么呵呵
+                fuckyou();
+        };
 
-    function fuckyou() {
-      window.close(); //关闭当前窗口(防抽)
-      window.location = "about:blank"; //将当前窗口跳转置空白页
-    }
-    //禁止Ctrl+U
-    var arr = [123, 17, 18];
-    (document.oncontextmenu = new Function("event.returnValue=false;")), //禁用右键
-      (window.onkeydown = function (e) {
-        var keyCode = e.keyCode || e.which || e.charCode;
-        var ctrlKey = e.ctrlKey || e.metaKey;
-        console.log(keyCode + "--" + keyCode);
-        if (ctrlKey && keyCode == 85) {
-          e.preventDefault();
+        document.onkeydown = function (event) {
+            if (
+                event.keyCode == 112 || //屏蔽 F1
+                event.keyCode == 113 || //屏蔽 F2
+                event.keyCode == 114 || //屏蔽 F3
+                event.keyCode == 115 || //屏蔽 F4
+                // (event.keyCode == 116) || //屏蔽 F5
+                event.keyCode == 117 || //屏蔽 F6
+                event.keyCode == 118 || //屏蔽 F7
+                event.keyCode == 119 || //屏蔽 F8
+                event.keyCode == 120 || //屏蔽 F9
+                event.keyCode == 121 || //屏蔽 F10
+                event.keyCode == 122 || //屏蔽 F11
+                event.keyCode == 123
+            ) {
+                //屏蔽 F12
+                return false;
+            }
+        };
+        window.onhelp = function () {
+            return false;
+        };
+    </script>
+    <script>
+        //按键触发
+        document.onkeydown = function () {
+            //禁止ctrl+s
+            if (event.ctrlKey && window.event.keyCode == 83) {
+                return false;
+            }
+        };
+    </script>
+
+    <style>
+        /* 鼠标指针 */
+        body {
+            cursor: url(https://pic2.imgdb.cn/item/64528b7d0d2dde5777b39418.png),
+                auto;
         }
-        if (arr.indexOf(keyCode) > -1) {
-          e.preventDefault();
+
+        a {
+            cursor: url(" https://pic2.imgdb.cn/item/64528b6d0d2dde5777b389f0.png"),
+                auto;
         }
-      });
 
-    function ck() {
-      console.profile();
-      console.profileEnd();
-      //我们判断一下profiles里面有没有东西，如果有，肯定有人按F12了，没错！！
-      if (console.clear) {
-        console.clear();
-      }
-      if (typeof console.profiles == "object") {
-        return console.profiles.length > 0;
-      }
-    }
+        a:active {
+            cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/work.cur),
+                alias;
+        }
 
-    function hehe() {
-      if (
-        (window.console &&
-          (console.firebug ||
-            (console.table && /firebug/i.test(console.table())))) ||
-        (typeof opera == "object" &&
-          typeof opera.postError == "function" &&
-          console.profile.length > 0)
-      ) {
-        fuckyou();
-      }
-      if (
-        typeof console.profiles == "object" &&
-        console.profiles.length > 0
-      ) {
-        fuckyou();
-      }
-    }
-    hehe();
-    window.onresize = function () {
-      if (window.outerHeight - window.innerHeight > 200)
-        //判断当前窗口内页高度和窗口高度，如果差值大于200，那么呵呵
-        fuckyou();
-    };
+        body {
+            background-image: url("https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png");
+            background-size: cover;
+            background-position: center center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
 
-    document.onkeydown = function (event) {
-      if (
-        event.keyCode == 112 || //屏蔽 F1
-        event.keyCode == 113 || //屏蔽 F2
-        event.keyCode == 114 || //屏蔽 F3
-        event.keyCode == 115 || //屏蔽 F4
-        // (event.keyCode == 116) || //屏蔽 F5
-        event.keyCode == 117 || //屏蔽 F6
-        event.keyCode == 118 || //屏蔽 F7
-        event.keyCode == 119 || //屏蔽 F8
-        event.keyCode == 120 || //屏蔽 F9
-        event.keyCode == 121 || //屏蔽 F10
-        event.keyCode == 122 || //屏蔽 F11
-        event.keyCode == 123
-      ) {
-        //屏蔽 F12
-        return false;
-      }
-    };
-    window.onhelp = function () {
-      return false;
-    };
-  </script>
-  <script>
-    //按键触发
-    document.onkeydown = function () {
-      //禁止ctrl+s
-      if (event.ctrlKey && window.event.keyCode == 83) {
-        return false;
-      }
-    };
-  </script>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
 
-  <style>
-    /* 鼠标指针 */
-    body {
-      cursor: url(https://pic2.imgdb.cn/item/64528b7d0d2dde5777b39418.png),
-        auto;
-    }
+        /* 定义谷歌浏览器图标 */
+        .chrome-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url("https://pic2.imgdb.cn/item/645290920d2dde5777b9eaa2.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
 
-    a {
-      cursor: url(" https://pic2.imgdb.cn/item/64528b6d0d2dde5777b389f0.png"),
-        auto;
-    }
+        /* 定义文件夹图标 */
+        .item span {
+            color: black;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
 
-    a:active {
-      cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/work.cur),
-        alias;
-    }
+        .folder-icon {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-image: url("https://pic2.imgdb.cn/item/64528f550d2dde5777b8ede2.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
 
-    body {
-      background-image: url("https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png");
-      background-size: cover;
-      background-position: center center;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-    }
+        /* 定义文件图标 */
+        .file-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-image: url("https://pic2.imgdb.cn/item/645290920d2dde5777b9eaa2.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
 
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-    }
+        /* 定义文件夹和文件的样式 */
+        .item {
+            cursor: pointer;
+            margin-bottom: 5px;
+            padding-left: 20px;
+        }
 
-    /* 定义谷歌浏览器图标 */
-    .chrome-icon {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      background-image: url("https://pic2.imgdb.cn/item/645290920d2dde5777b9eaa2.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
-
-    /* 定义文件夹图标 */
-    .item span {
-      color: black;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-    }
-
-    .folder-icon {
-      display: inline-block;
-      width: 36px;
-      height: 36px;
-      background-image: url("https://pic2.imgdb.cn/item/64528f550d2dde5777b8ede2.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
-
-    /* 定义文件图标 */
-    .file-icon {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      background-image: url("https://pic2.imgdb.cn/item/645290920d2dde5777b9eaa2.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      vertical-align: middle;
-      margin-right: 5px;
-    }
-
-    /* 定义文件夹和文件的样式 */
-    .item {
-      cursor: pointer;
-      margin-bottom: 5px;
-      padding-left: 20px;
-    }
-
-    /* 定义文件夹和文件的悬停样式
+        /* 定义文件夹和文件的悬停样式
 		.item:hover {
 			background-color: #3aeb0e;
 		} */
 
-    /* 定义文件夹和文件的展开样式 */
-    /* .item.open {
+        /* 定义文件夹和文件的展开样式 */
+        /* .item.open {
 			background-color: #e0e0e0;
 		} */
 
-    /* 定义文件夹和文件的子项容器 */
-    .children {
-      display: none;
-      margin-left: 20px;
-      padding-left: 20px;
-      border-left: 1px solid #ccc;
-      box-shadow: none;
-    }
+        /* 定义文件夹和文件的子项容器 */
+        .children {
+            display: none;
+            margin-left: 20px;
+            padding-left: 20px;
+            border-left: 1px solid #ccc;
+            box-shadow: none;
+        }
 
-    /* 定义文件夹和文件的子项容器的展开样式 */
-    .item.open>.children {
-      display: block;
-    }
+        /* 定义文件夹和文件的子项容器的展开样式 */
+        .item.open>.children {
+            display: block;
+        }
 
-    a:hover {
-      color: red;
-    }
+        a:hover {
+            color: red;
+        }
 
-    a {
-      text-decoration: none;
-      color: black;
-    }
-  </style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
 </head>
 
 <body>
-  <!-- 顶部栏 -->
-  <style>
-    /* 顶部黑色半透明网页顶栏样式 */
-    .top-bar {
-      background-color: rgba(0, 0, 0, 0.5);
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      padding: 10px;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1;
-    }
+    <!-- 顶部栏 -->
+    <style>
+        /* 顶部黑色半透明网页顶栏样式 */
+        .top-bar {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
 
-    .top-bar-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
 
-    .logo {
-      display: flex;
-      align-items: center;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
 
-    .logo img {
-      margin-right: 10px;
-      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-    }
+        .logo img {
+            margin-right: 10px;
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        }
 
-    .nav-links a {
-      color: #fff;
-      margin-left: 20px;
-      margin-right: 30px;
-      text-decoration: none;
-    }
+        .nav-links a {
+            color: #fff;
+            margin-left: 20px;
+            margin-right: 30px;
+            text-decoration: none;
+        }
 
-    .nav-links a:first-child {
-      margin-left: 0;
-    }
+        .nav-links a:first-child {
+            margin-left: 0;
+        }
 
-    /* 弹窗样式 */
-    .modal-container {
-      background-color: rgba(255, 255, 255, 0.8);
-      display: none;
-      height: 100%;
-      left: 0;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 2;
-    }
+        /* 弹窗样式 */
+        .modal-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            display: none;
+            height: 100%;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2;
+        }
 
-    .modal {
-      background-color: #fff;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-      left: 50%;
-      position: fixed;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 80%;
-      z-index: 3;
-    }
+        .modal {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+            left: 50%;
+            position: fixed;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            z-index: 3;
+        }
 
-    .modal-content {
-      padding: 20px;
-    }
+        .modal-content {
+            padding: 20px;
+        }
 
-    .close-button {
-      background-color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      padding: 10px;
-      position: absolute;
-      right: 20px;
-      top: 20px;
-    }
+        .close-button {
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
 
-    .show .menu-icon {
-      display: block;
-    }
+        .show .menu-icon {
+            display: block;
+        }
 
-    .menu-icon {
-      display: block;
-      cursor: pointer;
-    }
+        .menu-icon {
+            display: block;
+            cursor: pointer;
+        }
 
-    @media (min-width: 600px) {
-      .text {
-        display: block;
-        margin-left: 10px;
-      }
-    }
+        @media (min-width: 600px) {
+            .text {
+                display: block;
+                margin-left: 10px;
+            }
+        }
 
-    @media (max-width: 600px) {
-      .logo {
-        flex-direction: column;
-        align-items: center;
-      }
+        @media (max-width: 600px) {
+            .logo {
+                flex-direction: column;
+                align-items: center;
+            }
 
-      .text {
-        display: block;
-        margin-top: 5px;
-      }
-    }
-/* 文字特效 */
-.typing {
-    color: white;
-    
-    width: 5em;
-    height: 1.5em;
-    border-right: 1px solid transparent;
-    animation: typing 1s steps(21, end), blink-caret 1s step-end infinite;
-    font-family: Consolas, Monaco;
-    word-break: break-all;
-    overflow: hidden;
-}
-/* 打印效果 */
-@keyframes typing {
-    from {
-        width: 0;
-    }
+            .text {
+                display: block;
+                margin-top: 5px;
+            }
+        }
 
-    to {
-        width: 5em;
-    }
-}
+        /* 文字特效 */
+        .typing {
+            color: white;
 
-/* 光标 */
-@keyframes blink-caret {
+            width: 5em;
+            height: 1.5em;
+            border-right: 1px solid transparent;
+            animation: typing 1s steps(21, end), blink-caret 1s step-end infinite;
+            font-family: Consolas, Monaco;
+            word-break: break-all;
+            overflow: hidden;
+        }
 
-    from,
-    to {
-        border-color: transparent;
-    }
+        /* 打印效果 */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
 
-    50% {
-        border-color: currentColor;
-    }
-}
-    .nav-links a:hover {
-      color: red;
-      /* 新增 */
-    }
-  </style>
-  <div class="top-bar">
-    <div class="top-bar-content">
-      <div class="logo">
-        <img src="https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg" alt="Logo" width="50" height="50" />
-        <span class="text typing">坤坤的电脑</span>
-      </div>
+            to {
+                width: 5em;
+            }
+        }
 
-      <div class="nav-links">
-        <a href="https://calos985.github.io/A.github.io/" target="_blank">Home</a>
-        <a href="#" class="about-link">About</a>
-        <a href="https://calos985.github.io/" target="_blank">Contact</a>
-      </div>
-    </div>
-  </div>
+        /* 光标 */
+        @keyframes blink-caret {
 
-  <div class="modal-container">
-    <div class="modal">
-      <div class="modal-content">
-        <h2>About</h2>
-        <p>哎呦，你干嘛！唉唉哟..........！</p>
-        <button class="close-button">关闭</button>
-      </div>
-    </div>
-  </div>
-  <script>
-    const aboutLink = document.querySelector(".about-link");
-    const modalContainer = document.querySelector(".modal-container");
-    const closeButton = document.querySelector(".close-button");
+            from,
+            to {
+                border-color: transparent;
+            }
 
-    aboutLink.addEventListener("click", () => {
-      modalContainer.style.display = "block";
-    });
+            50% {
+                border-color: currentColor;
+            }
+        }
 
-    closeButton.addEventListener("click", () => {
-      modalContainer.style.display = "none";
-    });
-    const menuIcon = document.querySelector(".menu-icon");
-    const navLinks = document.querySelector(".nav-links");
-
-    menuIcon.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
-    });
-  </script>
-  <div class="container">
-    <!-- 页面主体内容 -->
-
-    <!-- 第一个文件夹 -->
-    <div class="item folder" onclick="toggle(this)">
-      <span class="folder-icon"></span>
-      <span><a href="#">IKUN文件夹</a></span>
-      <div class="children">
-        <!-- 第一个子文件夹 -->
-        <div class="item folder" onclick="toggle(this, event)">
-          <span class="folder-icon"></span>
-          <span><a href="#">IKUN万岁</a></span>
-          <div class="children">
-            <!-- 第一个网址文件 -->
-            <div class="item file">
-              <span class="file-icon"></span>
-              <a href="https://www.google.com/">Google</a>
+        .nav-links a:hover {
+            color: red;
+            /* 新增 */
+        }
+    </style>
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="logo">
+                <img src="https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg" alt="Logo" width="50" height="50" />
+                <span class="text typing">坤坤的电脑</span>
             </div>
-            <!-- 第二个网址文件 -->
-            <div class="item file">
-              <span class="file-icon"></span>
-              <a href="https://www.baidu.com/">百度</a>
+
+            <div class="nav-links">
+                <a href="https://calos985.github.io/A.github.io/" target="_blank">Home</a>
+                <a href="#" class="about-link">About</a>
+                <a href="https://calos985.github.io/" target="_blank">Contact</a>
             </div>
-          </div>
-          <!-- 上面是子文件夹区域 -->
-          <!-- 第一个网址文件 -->
-          <div class="item file">
-            <span class="file-icon"></span>
-            <a href="https://www.google.com/">Google</a>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 
-  <script>
-    // 切换文件夹和文件的展开状态
-    function toggle(item) {
-      if (item.classList.contains("folder")) {
-        item.classList.toggle("open");
-      }
-    }
-    function toggle(item, event) {
-      if (event && event.stopPropagation) {
-        event.stopPropagation();
-      }
-      if (item.classList.contains("folder")) {
-        item.classList.toggle("open");
-      }
-    }
-  </script>
-  <!-- 底部栏 -->
-  <style>
-    footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      height: 40px;
-      background-color: rgba(155, 154, 241, 0.685);
-      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-        display: flex;
-    }
+    <div class="modal-container">
+        <div class="modal">
+            <div class="modal-content">
+                <h2>About</h2>
+                <p>哎呦，你干嘛！唉唉哟..........！</p>
+                <button class="close-button">关闭</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const aboutLink = document.querySelector(".about-link");
+        const modalContainer = document.querySelector(".modal-container");
+        const closeButton = document.querySelector(".close-button");
 
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 100%;
-      align-items: center;
-    }
+        aboutLink.addEventListener("click", () => {
+            modalContainer.style.display = "block";
+        });
 
-    .container:last-child {
-  display: flex;
-  align-items: center; /* 垂直方向上居中对齐 */
-  width: 146px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  border-radius: 5px;
-  background: linear-gradient(to bottom right, #ffffff, #ffa500);
-}
-.container:last-child span {
-  margin-left: 5px;
-}
-    .icon-container {
-      width: 54px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      display: flex;
-    }
-    .icon-container1 {
-      width: 54px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      display: flex;
-    }
+        closeButton.addEventListener("click", () => {
+            modalContainer.style.display = "none";
+        });
+        const menuIcon = document.querySelector(".menu-icon");
+        const navLinks = document.querySelector(".nav-links");
 
-    .icon-container:hover {
-      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-    }
-
-    .icon-container img {
-      padding: 5x;
-     
-    }
-
-    .icon-container img {
-      width: 35px;
-      height: 35px;
-    }
-    .icon-container1 img {
-      padding: 5x;
-     
-    }
-
-    .icon-container1 img {
-      width: 35px;
-      height: 35px;
-    }
-
-  </style>
-  <footer>
+        menuIcon.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
+    </script>
     <div class="container">
-      <div class="icon-container" onclick="togglePopup()">
-        <img src="https://pic2.imgdb.cn/item/64531d490d2dde57772c7806.png" alt="Icon 1" />
-      </div>
+        <!-- 页面主体内容 -->
+
+        <!-- 第一个文件夹 -->
+        <div class="item folder" onclick="toggle(this)">
+            <span class="folder-icon"></span>
+            <span><a href="#">IKUN文件夹</a></span>
+            <div class="children">
+                <!-- 第一个子文件夹 -->
+                <div class="item folder" onclick="toggle(this, event)">
+                    <span class="folder-icon"></span>
+                    <span><a href="#">IKUN万岁</a></span>
+                    <div class="children">
+                        <!-- 第一个网址文件 -->
+                        <div class="item file">
+                            <span class="file-icon"></span>
+                            <a href="https://www.google.com/">Google</a>
+                        </div>
+                        <!-- 第二个网址文件 -->
+                        <div class="item file">
+                            <span class="file-icon"></span>
+                            <a href="https://www.baidu.com/">百度</a>
+                        </div>
+                    </div>
+                    <!-- 上面是子文件夹区域 -->
+                    <!-- 第一个网址文件 -->
+                    <div class="item file">
+                        <span class="file-icon"></span>
+                        <a href="https://www.google.com/">Google</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="container">
-      <div class="icon-container1" >
-        <img src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png" alt="Icon 1" />
-      </div>
-      
+
+    <script>
+        // 切换文件夹和文件的展开状态
+        function toggle(item) {
+            if (item.classList.contains("folder")) {
+                item.classList.toggle("open");
+            }
+        }
+        function toggle(item, event) {
+            if (event && event.stopPropagation) {
+                event.stopPropagation();
+            }
+            if (item.classList.contains("folder")) {
+                item.classList.toggle("open");
+            }
+        }
+    </script>
+    <!-- 底部栏 -->
+    <style>
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background-color: rgba(155, 154, 241, 0.685);
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            align-items: center;
+        }
+
+        .container:last-child {
+            display: flex;
+            align-items: center;
+            /* 垂直方向上居中对齐 */
+            width: 146px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            border-radius: 5px;
+            background: linear-gradient(to bottom right, #ffffff, #ffa500);
+        }
+
+        .container:last-child span {
+            margin-left: 5px;
+        }
+
+        .icon-container {
+            width: 54px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            display: flex;
+        }
+
+        .icon-container1 {
+            width: 54px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            display: flex;
+        }
+
+        .icon-container:hover {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        }
+
+        .icon-container img {
+            padding: 5x;
+
+        }
+
+        .icon-container img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .icon-container1 img {
+            padding: 5x;
+
+        }
+
+        .icon-container1 img {
+            width: 35px;
+            height: 35px;
+        }
+    </style>
+    <footer>
+        <div class="container">
+            <div class="icon-container" onclick="togglePopup()">
+                <img src="https://pic2.imgdb.cn/item/64531d490d2dde57772c7806.png" alt="Icon 1" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="icon-container">
+                <img src="https://pic2.imgdb.cn/item/6453e9110d2dde577752990a.png" alt="Icon 1" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="icon-container">
+                <img src="https://pic2.imgdb.cn/item/6453e8960d2dde5777522268.png" alt="Icon 1" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="icon-container">
+                <img src="https://pic2.imgdb.cn/item/6453bec40d2dde57771cf138.png" alt="Icon 1" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="icon-container">
+                <img src="https://pic2.imgdb.cn/item/6453e4150d2dde57774d6f66.png" alt="Icon 1" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="icon-container">
+                <img src="https://pic2.imgdb.cn/item/6453e4db0d2dde57774e4029.png" alt="Icon 1" />
+            </div>
+        </div>
+        <div class="container" onclick="togglePopup1()">
+            <div class="icon-container1">
+                <img src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png" alt="Icon 1" />
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- 微信弹出框设计 -->
+    <!-- 弹出窗口样式 -->
+    <style>
+        .popup1 {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 380px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, .4) 0px 2px 4px, rgba(0, 0, 0, .3) inset -1px -3px #fff, inset -1.2em -1.2em #f3f4f7,
+                inset .5em .5em #fff;
+            z-index: 999;
+            display: none;
+        }
+
+        .popup-active {
+            display: flex;
+        }
+
+        .popup1 span {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .popup1 span:hover {
+            background-color: rgba(155, 154, 241, 0.685);
+        }
+
+        .popup-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .popup-section {
+            flex-grow: 1;
+        }
+
+        .popup-section:first-of-type {
+            height: 30px;
+            color: #888;
+            padding: 6px;
+            font-size: 14px;
+        }
+
+        .popup-section:nth-of-type(2) {
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+        }
+
+        .popup-section:nth-of-type(2) img {
+            width: 80px;
+            height: 80px;
+
+            border-radius: 5px;
+        }
+
+        .text-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1 px;
+        }
+
+        .text-container p {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .popup-section:nth-of-type(3) {
+            display: flex;
+            justify-content: center;
+        }
+
+        .enter-button {
+            width: 176px;
+            height: 34px;
+            background-color: rgb(11, 216, 11);
+            color: white;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+
+            padding: 8px;
+        }
+
+        .enter-button:hover {
+            cursor: pointer;
+            background-color: darkgreen;
+        }
+
+        .text-container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .text-container1 a {
+            font-size: 14px;
+            text-decoration: none;
+            color: rgb(43, 89, 126);
+            margin: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .text-container1 a:hover {
+            color: darkgreen;
+            text-decoration: underline;
+            color: darkgreen;
+        }
+
+        /* 打字机效果 */
+        .typing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .typing-text {
+            font-family: Consolas, Monaco, monospace;
+            font-size: 2em;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid #fff;
+            animation:
+                typing 3s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+
+        /* 响应式布局 */
+        @media screen and (max-width: 768px) {
+            .typing-text {
+                font-size: 1.5em;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .typing-text {
+                font-size: 1em;
+            }
+        }
+
+        /* 打字机效果 */
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        /* 光标闪烁 */
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #fff
+            }
+        }
+    </style>
+
+    <!-- 弹出窗口 -->
+    <div class="popup1 popup-active"> <span onclick="togglePopup1()">X</span>
+        <div class="popup-content">
+            <div class="popup-section">微信</div>
+            <div class="popup-section">
+                <img src="https://pic2.imgdb.cn/item/6453d0f00d2dde577735a415.png" alt="your-image" />
+                <div class="text-container">
+                    <p>坤坤子</p>
+                </div>
+            </div>
+
+            <div class="popup-section"><button onclick="openPopup()" class="enter-button">进入微信</button></div>
+            <div class="text-container1">
+                <a href="#">切换账号</a>
+                <a href="#">仅传输文件</a>
+            </div>
+        </div>
     </div>
-  </footer>
-  <!-- 弹出框设计 -->
-  <style>
-    .container1 {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 50px;
-      height: 50px;
-      background-color: #fff;
-      border: 1px solid #000;
-      border-radius: 10px 0 0 0;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    <!-- JavaScript脚本 -->
+    <script> function togglePopup1() { var popup = document.querySelector('.popup1'); popup.classList.toggle('popup-active'); } </script>
 
-/* 弹出框 */
 
-    .popup-container {
-      display: none;
-      position: fixed;
-      bottom: 40px;
-      /* Updated */
-      left: 5px;
-      width: 392px;
-      height: 465px;
-      background: linear-gradient(to bottom,
-          rgb(127, 157, 180),
-          rgb(40, 66, 105),
-          rgb(166, 204, 235));
-      /* Updated */
-      /* border: 1px solid #000; */
-      border-radius: 10px 10px 10px 0;
-      z-index: 2;
-      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      padding: 10px;
-    }
-    @media (max-width: 600px) {
-    .popup-container {
-        transform: scale(0.7);
-      
-        bottom: -30px;
-      /* Updated */
-      left: -60px;
-    }
-}
-    .popup-container .left {
-      width: 66.67%;
-      height: auto;
-      margin-right: 10px 10px 10px 10px;
-      /* Added */
-      background-color: #fff;
-      /* Added */
-      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-      border-radius: 5px;
-      display: flex;
-      /* Added */
-      flex-direction: column;
-      /* Added */
-      padding: 4px;
-    }
+    <!-- 警告弹窗 -->
+    <div id="popup3" class="popup3">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <div class="content">
+            <img src="https://pic2.imgdb.cn/item/6453e0150d2dde5777491404.png" alt="图片">
+            <div class="typing-container">
+                <div class="typing-text">
+                    此时，坤坤子迅速冲上来，并坐在你的腿上，并阻止了你的行为！
+                </div>
+            </div>
 
-    .popup-container .left .link {
-      height: 39px;
-
-      display: flex;
-      align-items: center;
-      border-radius: 3px;
-    }
-
-    .popup-container .left .link:hover {
-      color: #000;
-      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.493), rgba(9, 119, 209, 0.473));
-      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-    }
-
-    .popup-container .left .link img {
-      margin-right: 10px;
-      width: 40px;
-      height: 40px;
-    }
-
-    .popup-container .right {
-      width: 33.33%;
-      height: 100%;
-    }
-
-    .popup-container.show {
-      display: flex;
-    }
-  </style>
-  <div class="popup-container" id="popup">
-    <div class="left">
-      <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png">微信（马保国:你不讲武德）</a>
+        </div>
     </div>
-    <div class="right"></div>
-  </div>
-  <script>
-    function togglePopup() {
-      var popup = document.getElementById("popup");
-      popup.classList.toggle("show");
-    }
+    <style>
+        .popup3 {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
 
-  </script>
+        .popup3 .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .popup3 .content img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function openPopup() {
+            document.getElementById("popup3").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup3").style.display = "none";
+        }
+
+    </script>
+    <!-- 弹出框设计 -->
+    <style>
+        .container1 {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 10px 0 0 0;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 弹出框 */
+
+        .popup-container {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            /* Updated */
+            left: 5px;
+            width: 392px;
+            height: 465px;
+            background: linear-gradient(to bottom,
+                    rgb(127, 157, 180),
+                    rgb(40, 66, 105),
+                    rgb(166, 204, 235));
+            /* Updated */
+            /* border: 1px solid #000; */
+            border-radius: 10px 10px 10px 0;
+            z-index: 2;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            padding: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .popup-container {
+                transform: scale(0.7);
+
+                bottom: -30px;
+                /* Updated */
+                left: -60px;
+            }
+        }
+
+        .popup-container .left {
+            width: 66.67%;
+            height: auto;
+            margin-right: 10px 10px 10px 10px;
+            /* Added */
+            background-color: #fff;
+            /* Added */
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+            border-radius: 5px;
+            display: flex;
+            /* Added */
+            flex-direction: column;
+            /* Added */
+            padding: 4px;
+        }
+
+        .popup-container .left .link {
+            height: 39px;
+
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+        }
+
+        .popup-container .left .link:hover {
+            color: #000;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.493), rgba(9, 119, 209, 0.473));
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        }
+
+        .popup-container .left .link img {
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .popup-container .right {
+            width: 33.33%;
+            height: 100%;
+        }
+
+        .popup-container.show {
+            display: flex;
+        }
+    </style>
+    <div class="popup-container" id="popup">
+        <div class="left">
+            <a href="" id="link" class="link"><img
+                    src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png">微信（马保国:你不讲武德）</a>
+            <a href="" id="link" class="link"><img
+                    src="https://pic2.imgdb.cn/item/6453e9110d2dde577752990a.png">IE浏览器</a>
+
+            <a href="" id="link" class="link"><img
+                    src="https://pic2.imgdb.cn/item/6453e8960d2dde5777522268.png">chrome浏览器</a>
+            <a href="" id="link" class="link"><img
+                    src="https://pic2.imgdb.cn/item/6453e84d0d2dde577751e20d.png">Facebook</a>
+            <a href="" id="link" class="link"><img
+                    src="https://pic2.imgdb.cn/item/6453e7ff0d2dde5777519737.png">Steam</a>
+            <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/6453e75b0d2dde577750f90c.png">QQ</a>
+            <a href="" id="link" class="link"><img
+                    src="https://pic2.imgdb.cn/item/6453bec40d2dde57771cf138.png">百度网盘</a>
+        </div>
+        <div class="right"></div>
+    </div>
+    <script>
+        function togglePopup() {
+            var popup = document.getElementById("popup");
+            popup.classList.toggle("show");
+        }
+
+    </script>
+
+
 </body>
 
 </html>
