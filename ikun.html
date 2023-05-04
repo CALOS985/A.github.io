@@ -580,7 +580,15 @@
       box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
       padding: 10px;
     }
-
+    @media (max-width: 600px) {
+    .popup-container {
+        transform: scale(0.7);
+        position: fixed;
+      top: 465px;
+      /* Updated */
+      left: -55px;
+    }
+}
     .popup-container .left {
       width: 66.67%;
       height: auto;
