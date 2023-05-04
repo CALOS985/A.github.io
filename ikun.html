@@ -2,155 +2,183 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
   <title>坤の⚡脑</title>
 
   <!-- 禁止F12 -->
 
-<script type='text/javascript'>
-  //屏蔽右键菜单
-  document.oncontextmenu = function (event) {
-    if (window.event) {
-      event = window.event;
-    }
-    try {
-      var the = event.srcElement;
-      if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+  <script type="text/javascript">
+    //屏蔽右键菜单
+    document.oncontextmenu = function (event) {
+      if (window.event) {
+        event = window.event;
+      }
+      try {
+        var the = event.srcElement;
+        if (
+          !(
+            (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
+            the.tagName == "TEXTAREA"
+          )
+        ) {
+          return false;
+        }
+        return true;
+      } catch (e) {
         return false;
       }
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
-  //屏蔽粘贴
-  document.onpaste = function (event) {
-    if (window.event) {
-      event = window.event;
-    }
-    try {
-      var the = event.srcElement;
-      if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
-        return false;
-      }
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
-  //屏蔽复制
-  
-  //屏蔽剪切
-  document.oncut = function (event) {
-    if (window.event) {
-      event = window.event;
-    }
-    try {
-      var the = event.srcElement;
-      if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
-        return false;
-      }
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
-  //禁止f12
-  
-  function fuckyou() {
-    window.close(); //关闭当前窗口(防抽)
-    window.location = "about:blank"; //将当前窗口跳转置空白页
-  }
-  //禁止Ctrl+U
-  var arr = [123, 17, 18];
-  document.oncontextmenu = new Function("event.returnValue=false;"), //禁用右键
-  
-    window.onkeydown = function (e) {
-      var keyCode = e.keyCode || e.which || e.charCode;
-      var ctrlKey = e.ctrlKey || e.metaKey;
-      console.log(keyCode + "--" + keyCode);
-      if (ctrlKey && keyCode == 85) {
-        e.preventDefault();
-      }
-      if (arr.indexOf(keyCode) > -1) {
-        e.preventDefault();
-      }
-    }
-  
-  function ck() {
-    console.profile();
-    console.profileEnd();
-    //我们判断一下profiles里面有没有东西，如果有，肯定有人按F12了，没错！！
-    if (console.clear) {
-      console.clear()
     };
-    if (typeof console.profiles == "object") {
-      return console.profiles.length > 0;
+    //屏蔽粘贴
+    document.onpaste = function (event) {
+      if (window.event) {
+        event = window.event;
+      }
+      try {
+        var the = event.srcElement;
+        if (
+          !(
+            (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
+            the.tagName == "TEXTAREA"
+          )
+        ) {
+          return false;
+        }
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+    //屏蔽复制
+
+    //屏蔽剪切
+    document.oncut = function (event) {
+      if (window.event) {
+        event = window.event;
+      }
+      try {
+        var the = event.srcElement;
+        if (
+          !(
+            (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
+            the.tagName == "TEXTAREA"
+          )
+        ) {
+          return false;
+        }
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+    //禁止f12
+
+    function fuckyou() {
+      window.close(); //关闭当前窗口(防抽)
+      window.location = "about:blank"; //将当前窗口跳转置空白页
     }
-  }
-  
-  function hehe() {
-    if ((window.console && (console.firebug || console.table && /firebug/i.test(console.table()))) || (
-        typeof opera ==
-        'object' && typeof opera.postError == 'function' && console.profile.length > 0)) {
-      fuckyou();
+    //禁止Ctrl+U
+    var arr = [123, 17, 18];
+    (document.oncontextmenu = new Function("event.returnValue=false;")), //禁用右键
+      (window.onkeydown = function (e) {
+        var keyCode = e.keyCode || e.which || e.charCode;
+        var ctrlKey = e.ctrlKey || e.metaKey;
+        console.log(keyCode + "--" + keyCode);
+        if (ctrlKey && keyCode == 85) {
+          e.preventDefault();
+        }
+        if (arr.indexOf(keyCode) > -1) {
+          e.preventDefault();
+        }
+      });
+
+    function ck() {
+      console.profile();
+      console.profileEnd();
+      //我们判断一下profiles里面有没有东西，如果有，肯定有人按F12了，没错！！
+      if (console.clear) {
+        console.clear();
+      }
+      if (typeof console.profiles == "object") {
+        return console.profiles.length > 0;
+      }
     }
-    if (typeof console.profiles == "object" && console.profiles.length > 0) {
-      fuckyou();
+
+    function hehe() {
+      if (
+        (window.console &&
+          (console.firebug ||
+            (console.table && /firebug/i.test(console.table())))) ||
+        (typeof opera == "object" &&
+          typeof opera.postError == "function" &&
+          console.profile.length > 0)
+      ) {
+        fuckyou();
+      }
+      if (
+        typeof console.profiles == "object" &&
+        console.profiles.length > 0
+      ) {
+        fuckyou();
+      }
     }
-  }
-  hehe();
-  window.onresize = function () {
-    if ((window.outerHeight - window.innerHeight) > 200)
-      //判断当前窗口内页高度和窗口高度，如果差值大于200，那么呵呵
-      fuckyou();
-  }
-  
-  document.onkeydown = function (event) {
-    if ((event.keyCode == 112) || //屏蔽 F1
-      (event.keyCode == 113) || //屏蔽 F2
-      (event.keyCode == 114) || //屏蔽 F3
-      (event.keyCode == 115) || //屏蔽 F4
-      // (event.keyCode == 116) || //屏蔽 F5
-      (event.keyCode == 117) || //屏蔽 F6
-      (event.keyCode == 118) || //屏蔽 F7
-      (event.keyCode == 119) || //屏蔽 F8
-      (event.keyCode == 120) || //屏蔽 F9
-      (event.keyCode == 121) || //屏蔽 F10
-      (event.keyCode == 122) || //屏蔽 F11
-      (event.keyCode == 123)) //屏蔽 F12
-    {
+    hehe();
+    window.onresize = function () {
+      if (window.outerHeight - window.innerHeight > 200)
+        //判断当前窗口内页高度和窗口高度，如果差值大于200，那么呵呵
+        fuckyou();
+    };
+
+    document.onkeydown = function (event) {
+      if (
+        event.keyCode == 112 || //屏蔽 F1
+        event.keyCode == 113 || //屏蔽 F2
+        event.keyCode == 114 || //屏蔽 F3
+        event.keyCode == 115 || //屏蔽 F4
+        // (event.keyCode == 116) || //屏蔽 F5
+        event.keyCode == 117 || //屏蔽 F6
+        event.keyCode == 118 || //屏蔽 F7
+        event.keyCode == 119 || //屏蔽 F8
+        event.keyCode == 120 || //屏蔽 F9
+        event.keyCode == 121 || //屏蔽 F10
+        event.keyCode == 122 || //屏蔽 F11
+        event.keyCode == 123
+      ) {
+        //屏蔽 F12
+        return false;
+      }
+    };
+    window.onhelp = function () {
       return false;
-    }
-  }
-  window.onhelp = function () {
-    return false;
-  }
+    };
   </script>
   <script>
     //按键触发
-  document.onkeydown = function(){
-    //禁止ctrl+s
-      if (event.ctrlKey && window.event.keyCode==83){
-      return false;
+    document.onkeydown = function () {
+      //禁止ctrl+s
+      if (event.ctrlKey && window.event.keyCode == 83) {
+        return false;
       }
-      }
+    };
   </script>
 
   <style>
     /* 鼠标指针 */
     body {
-          cursor: url(https://pic2.imgdb.cn/item/64528b7d0d2dde5777b39418.png), auto;
-        }
-       
-        a {
-          cursor: url(' https://pic2.imgdb.cn/item/64528b6d0d2dde5777b389f0.png'), auto;
-        }
+      cursor: url(https://pic2.imgdb.cn/item/64528b7d0d2dde5777b39418.png),
+        auto;
+    }
 
-        a:active {
-          cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/work.cur), alias
-        }
+    a {
+      cursor: url(" https://pic2.imgdb.cn/item/64528b6d0d2dde5777b389f0.png"),
+        auto;
+    }
+
+    a:active {
+      cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/work.cur),
+        alias;
+    }
+
     body {
       background-image: url("https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png");
       background-size: cover;
@@ -274,23 +302,20 @@
     }
 
     .logo {
-    display: flex;
-    align-items: center;
-  }
+      display: flex;
+      align-items: center;
+    }
 
-  .logo img {
-    margin-right: 10px;
-  }
+    .logo img {
+      margin-right: 10px;
+    }
 
     .nav-links a {
       color: #fff;
       margin-left: 20px;
       margin-right: 30px;
       text-decoration: none;
-
     }
-
-
 
     .nav-links a:first-child {
       margin-left: 0;
@@ -343,51 +368,44 @@
       display: block;
       cursor: pointer;
     }
- 
+
     @media (min-width: 600px) {
-    .text {
-      display: block;
-      margin-left: 10px;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .logo {
-      flex-direction: column;
-      align-items: center;
+      .text {
+        display: block;
+        margin-left: 10px;
+      }
     }
 
-    .text {
-      display: block;
-      margin-top: 5px;
-    }
-  }
+    @media (max-width: 600px) {
+      .logo {
+        flex-direction: column;
+        align-items: center;
+      }
 
-  .nav-links a:hover {
-     
-      color: red; /* 新增 */
+      .text {
+        display: block;
+        margin-top: 5px;
+      }
     }
 
- 
+    .nav-links a:hover {
+      color: red;
+      /* 新增 */
+    }
   </style>
   <div class="top-bar">
     <div class="top-bar-content">
       <div class="logo">
-        <img
-          src="https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg"
-          alt="Logo" width="50" height="50">
-          <span class="text">坤坤的电脑</span>
+        <img src="https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg" alt="Logo" width="50" height="50" />
+        <span class="text">坤坤的电脑</span>
       </div>
 
-  
       <div class="nav-links">
-        <a href="https://calos985.github.io/A.github.io/" target="_blank" >Home</a>
+        <a href="https://calos985.github.io/A.github.io/" target="_blank">Home</a>
         <a href="#" class="about-link">About</a>
         <a href="https://calos985.github.io/" target="_blank">Contact</a>
       </div>
-
     </div>
- 
   </div>
 
   <div class="modal-container">
@@ -400,24 +418,23 @@
     </div>
   </div>
   <script>
-    const aboutLink = document.querySelector('.about-link');
-    const modalContainer = document.querySelector('.modal-container');
-    const closeButton = document.querySelector('.close-button');
+    const aboutLink = document.querySelector(".about-link");
+    const modalContainer = document.querySelector(".modal-container");
+    const closeButton = document.querySelector(".close-button");
 
-    aboutLink.addEventListener('click', () => {
-      modalContainer.style.display = 'block';
+    aboutLink.addEventListener("click", () => {
+      modalContainer.style.display = "block";
     });
 
-    closeButton.addEventListener('click', () => {
-      modalContainer.style.display = 'none';
+    closeButton.addEventListener("click", () => {
+      modalContainer.style.display = "none";
     });
-    const menuIcon = document.querySelector('.menu-icon');
-    const navLinks = document.querySelector('.nav-links');
+    const menuIcon = document.querySelector(".menu-icon");
+    const navLinks = document.querySelector(".nav-links");
 
-    menuIcon.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
     });
-
   </script>
   <div class="container">
     <!-- 页面主体内容 -->
@@ -468,6 +485,161 @@
       if (item.classList.contains("folder")) {
         item.classList.toggle("open");
       }
+    }
+  </script>
+  <!-- 底部栏 -->
+  <style>
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.5);
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .icon-container {
+      width: 54px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .icon-container:hover {
+      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
+        rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
+        rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
+        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    }
+
+    .icon-container img {
+      padding: 5x;
+    }
+
+    .icon-container:first-child img {
+      width: 39px;
+      height: 35px;
+    }
+  </style>
+  <footer>
+    <div class="container">
+      <div class="icon-container" onclick="togglePopup()">
+        <img src="https://pic2.imgdb.cn/item/64531d490d2dde57772c7806.png" alt="Icon 1" />
+      </div>
+    </div>
+  </footer>
+  <style>
+    .container1 {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border: 1px solid #000;
+      border-radius: 10px 0 0 0;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .button {
+      background-image: url("button-bg.jpg");
+      background-size: cover;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+
+    .popup-container {
+      display: none;
+      position: fixed;
+      top: 387px;
+      /* Updated */
+      left: 5px;
+      width: 392px;
+      height: 465px;
+      background: linear-gradient(to bottom,
+          rgb(127, 157, 180),
+          rgb(40, 66, 105),
+          rgb(166, 204, 235));
+      /* Updated */
+      /* border: 1px solid #000; */
+      border-radius: 10px 10px 10px 0;
+      z-index: 2;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      padding: 10px;
+    }
+
+    .popup-container .left {
+      width: 66.67%;
+      height: auto;
+      margin-right: 10px 10px 10px 10px;
+      /* Added */
+      background-color: #fff;
+      /* Added */
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      border-radius: 5px;
+      display: flex;
+      /* Added */
+      flex-direction: column;
+      /* Added */
+      padding: 4px;
+    }
+
+    .popup-container .left .link {
+      height: 39px;
+
+      display: flex;
+      align-items: center;
+      border-radius: 3px;
+    }
+
+    .popup-container .left .link:hover {
+      color: #000;
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.493), rgba(9, 119, 209, 0.473));
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    }
+
+    .popup-container .left .link img {
+      margin-right: 10px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .popup-container .right {
+      width: 33.33%;
+      height: 100%;
+    }
+
+    .popup-container.show {
+      display: flex;
+    }
+  </style>
+  <div class="popup-container" id="popup">
+    <div class="left">
+      <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png">你好</a>
+    </div>
+    <div class="right"></div>
+  </div>
+  <script>
+    function togglePopup() {
+      var popup = document.getElementById("popup");
+      popup.classList.toggle("show");
     }
   </script>
 </body>
