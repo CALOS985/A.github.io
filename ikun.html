@@ -308,6 +308,7 @@
 
     .logo img {
       margin-right: 10px;
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     }
 
     .nav-links a {
@@ -387,7 +388,41 @@
         margin-top: 5px;
       }
     }
+/* 文字特效 */
+.typing {
+    color: white;
+    
+    width: 5em;
+    height: 1.5em;
+    border-right: 1px solid transparent;
+    animation: typing 1s steps(21, end), blink-caret 1s step-end infinite;
+    font-family: Consolas, Monaco;
+    word-break: break-all;
+    overflow: hidden;
+}
+/* 打印效果 */
+@keyframes typing {
+    from {
+        width: 0;
+    }
 
+    to {
+        width: 5em;
+    }
+}
+
+/* 光标 */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: currentColor;
+    }
+}
     .nav-links a:hover {
       color: red;
       /* 新增 */
@@ -397,7 +432,7 @@
     <div class="top-bar-content">
       <div class="logo">
         <img src="https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg" alt="Logo" width="50" height="50" />
-        <span class="text">坤坤的电脑</span>
+        <span class="text typing">坤坤的电脑</span>
       </div>
 
       <div class="nav-links">
