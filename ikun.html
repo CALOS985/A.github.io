@@ -529,10 +529,11 @@
       bottom: 0;
       width: 100%;
       height: 40px;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(155, 154, 241, 0.685);
       box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
         rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
         rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        display: flex;
     }
 
     .container {
@@ -540,30 +541,58 @@
       justify-content: space-between;
       align-items: center;
       height: 100%;
+      align-items: center;
     }
 
+    .container:last-child {
+  display: flex;
+  align-items: center; /* 垂直方向上居中对齐 */
+  width: 146px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border-radius: 5px;
+  background: linear-gradient(to bottom right, #ffffff, #ffa500);
+}
+.container:last-child span {
+  margin-left: 5px;
+}
     .icon-container {
       width: 54px;
       height: 40px;
       display: flex;
       justify-content: center;
+      display: flex;
+    }
+    .icon-container1 {
+      width: 54px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      display: flex;
     }
 
     .icon-container:hover {
-      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px,
-        rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px,
-        rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px,
-        rgba(0, 0, 0, 0.07) 0px 32px 64px;
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     }
 
     .icon-container img {
       padding: 5x;
+     
     }
 
-    .icon-container:first-child img {
-      width: 39px;
+    .icon-container img {
+      width: 35px;
       height: 35px;
     }
+    .icon-container1 img {
+      padding: 5x;
+     
+    }
+
+    .icon-container1 img {
+      width: 35px;
+      height: 35px;
+    }
+
   </style>
   <footer>
     <div class="container">
@@ -571,7 +600,14 @@
         <img src="https://pic2.imgdb.cn/item/64531d490d2dde57772c7806.png" alt="Icon 1" />
       </div>
     </div>
+    <div class="container">
+      <div class="icon-container1" >
+        <img src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png" alt="Icon 1" />
+      </div>
+      
+    </div>
   </footer>
+  <!-- 弹出框设计 -->
   <style>
     .container1 {
       position: fixed;
@@ -588,13 +624,7 @@
       align-items: center;
     }
 
-    .button {
-      background-image: url("button-bg.jpg");
-      background-size: cover;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-    }
+/* 弹出框 */
 
     .popup-container {
       display: none;
@@ -675,7 +705,7 @@
   </style>
   <div class="popup-container" id="popup">
     <div class="left">
-      <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png">微信（没人找你的！）</a>
+      <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png">微信（马保国:你不讲武德）</a>
     </div>
     <div class="right"></div>
   </div>
