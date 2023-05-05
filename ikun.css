@@ -1,0 +1,626 @@
+  /* 鼠标指针 */
+  body {
+    cursor: url(https://pic2.imgdb.cn/item/64528b7d0d2dde5777b39418.png),
+        auto;
+}
+
+a {
+    cursor: url(" https://pic2.imgdb.cn/item/64528b6d0d2dde5777b389f0.png"),
+        auto;
+}
+
+a:active {
+    cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/work.cur),
+        alias;
+}
+
+body {
+    background-image: url("https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png");
+    background-size: cover;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* 定义谷歌浏览器图标 */
+.chrome-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("https://pic2.imgdb.cn/item/645290920d2dde5777b9eaa2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* 定义文件夹图标 */
+.item span {
+    color: black;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.folder-icon {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-image: url("https://pic2.imgdb.cn/item/64528f550d2dde5777b8ede2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* 定义文件图标 */
+.file-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url("https://pic2.imgdb.cn/item/645290920d2dde5777b9eaa2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* 定义文件夹和文件的样式 */
+.item {
+    cursor: pointer;
+    margin-bottom: 5px;
+    padding-left: 20px;
+}
+
+/* 定义文件夹和文件的悬停样式
+.item:hover {
+    background-color: #3aeb0e;
+} */
+
+/* 定义文件夹和文件的展开样式 */
+/* .item.open {
+    background-color: #e0e0e0;
+} */
+
+/* 定义文件夹和文件的子项容器 */
+.children {
+    display: none;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid #ccc;
+    box-shadow: none;
+}
+
+/* 定义文件夹和文件的子项容器的展开样式 */
+.item.open>.children {
+    display: block;
+}
+
+a:hover {
+    color: red;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* <!-- 顶部栏 --> */
+
+    /* 顶部黑色半透明网页顶栏样式 */
+    .top-bar {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .top-bar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        margin-right: 10px;
+        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    }
+
+    .nav-links a {
+        color: #fff;
+        margin-left: 20px;
+        margin-right: 30px;
+        text-decoration: none;
+    }
+
+    .nav-links a:first-child {
+        margin-left: 0;
+    }
+
+    /* 弹窗样式 */
+    .modal-container {
+        background-color: rgba(255, 255, 255, 0.8);
+        display: none;
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .modal {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        left: 50%;
+        position: fixed;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        z-index: 3;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .close-button {
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 10px;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .show .menu-icon {
+        display: block;
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    @media (min-width: 600px) {
+        .text {
+            display: block;
+            margin-left: 10px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .logo {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .text {
+            display: block;
+            margin-top: 5px;
+        }
+    }
+
+    /* 文字特效 */
+    .typing {
+        color: white;
+
+        width: 5em;
+        height: 1.5em;
+        border-right: 1px solid transparent;
+        animation: typing 1s steps(21, end), blink-caret 1s step-end infinite;
+        font-family: Consolas, Monaco;
+        word-break: break-all;
+        overflow: hidden;
+    }
+
+    /* 打印效果 */
+    @keyframes typing {
+        from {
+            width: 0;
+        }
+
+        to {
+            width: 5em;
+        }
+    }
+
+    /* 光标 */
+    @keyframes blink-caret {
+
+        from,
+        to {
+            border-color: transparent;
+        }
+
+        50% {
+            border-color: currentColor;
+        }
+    }
+
+    .nav-links a:hover {
+        color: red;
+        /* 新增 */
+    }
+
+    /* <!-- 底部栏 --> */
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background-color: rgba(155, 154, 241, 0.685);
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+            display: flex;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            align-items: center;
+        }
+
+        .container:last-child {
+            display: flex;
+            align-items: center;
+            /* 垂直方向上居中对齐 */
+            width: 146px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            border-radius: 5px;
+            background: linear-gradient(to bottom right, #ffffff, #ffa500);
+        }
+
+        .container:last-child span {
+            margin-left: 5px;
+        }
+
+        .icon-container {
+            width: 54px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            display: flex;
+        }
+
+        .icon-container1 {
+            width: 54px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            display: flex;
+        }
+
+        .icon-container:hover {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        }
+
+        .icon-container img {
+            padding: 5x;
+
+        }
+
+        .icon-container img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .icon-container1 img {
+            padding: 5x;
+
+        }
+
+        .icon-container1 img {
+            width: 35px;
+            height: 35px;
+        }
+
+
+        /* <!-- 微信弹出框设计 -->
+    <!-- 弹出窗口样式 --> */
+
+        .popup1 {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 380px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, .4) 0px 2px 4px, rgba(0, 0, 0, .3) inset -1px -3px #fff, inset -1.2em -1.2em #f3f4f7,
+                inset .5em .5em #fff;
+            z-index: 999;
+            display: none;
+        }
+
+        .popup-active {
+            display: flex;
+        }
+
+        .popup1 span {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 20px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .popup1 span:hover {
+            background-color: rgba(155, 154, 241, 0.685);
+        }
+
+        .popup-content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .popup-section {
+            flex-grow: 1;
+        }
+
+        .popup-section:first-of-type {
+            height: 30px;
+            color: #888;
+            padding: 6px;
+            font-size: 14px;
+        }
+
+        .popup-section:nth-of-type(2) {
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+        }
+
+        .popup-section:nth-of-type(2) img {
+            width: 80px;
+            height: 80px;
+
+            border-radius: 5px;
+        }
+
+        .text-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1 px;
+        }
+
+        .text-container p {
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .popup-section:nth-of-type(3) {
+            display: flex;
+            justify-content: center;
+        }
+
+        .enter-button {
+            width: 176px;
+            height: 34px;
+            background-color: rgb(11, 216, 11);
+            color: white;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+
+            padding: 8px;
+        }
+
+        .enter-button:hover {
+            cursor: pointer;
+            background-color: darkgreen;
+        }
+
+        .text-container1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .text-container1 a {
+            font-size: 14px;
+            text-decoration: none;
+            color: rgb(43, 89, 126);
+            margin: 0 20px;
+            margin-bottom: 30px;
+        }
+
+        .text-container1 a:hover {
+            color: darkgreen;
+            text-decoration: underline;
+            color: darkgreen;
+        }
+
+        /* 打字机效果 */
+        .typing-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .typing-text {
+            font-family: Consolas, Monaco, monospace;
+            font-size: 2em;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid rgb(228, 2, 209);
+            animation:
+                typing 3s steps(40, end),
+                blink-caret .75s step-end infinite;
+                color: #fcfafb;
+                font-weight: bold;
+        }
+
+        /* 响应式布局 */
+        @media screen and (max-width: 768px) {
+            .typing-text {
+                font-size: 1.5em;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .typing-text {
+                font-size: 1em;
+            }
+        }
+
+        /* 打字机效果 */
+        @keyframes typing {
+            from {
+                width: 0
+            }
+
+            to {
+                width: 100%
+            }
+        }
+
+        /* 光标闪烁 */
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #fff
+            }
+        }
+
+
+  
+        .container1 {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 50px;
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 10px 0 0 0;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 弹出框 */
+
+        .popup-container {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            /* Updated */
+            left: 5px;
+            width: 392px;
+            height: 465px;
+            background: linear-gradient(to bottom,
+                    rgb(127, 157, 180),
+                    rgb(40, 66, 105),
+                    rgb(166, 204, 235));
+            /* Updated */
+            /* border: 1px solid #000; */
+            border-radius: 10px 10px 10px 0;
+            z-index: 2;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            padding: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .popup-container {
+                transform: scale(0.7);
+
+                bottom: -30px;
+                /* Updated */
+                left: -60px;
+            }
+        }
+
+        .popup-container .left {
+            width: 66.67%;
+            height: auto;
+            margin-right: 10px 10px 10px 10px;
+            /* Added */
+            background-color: #fff;
+            /* Added */
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+            border-radius: 5px;
+            display: flex;
+            /* Added */
+            flex-direction: column;
+            /* Added */
+            padding: 4px;
+        }
+
+        .popup-container .left .link {
+            height: 39px;
+
+            display: flex;
+            align-items: center;
+            border-radius: 3px;
+        }
+
+        .popup-container .left .link:hover {
+            color: #000;
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.493), rgba(9, 119, 209, 0.473));
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        }
+
+        .popup-container .left .link img {
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .popup-container .right {
+            width: 33.33%;
+            height: 100%;
+        }
+
+        .popup-container.show {
+            display: flex;
+        }
+ 
