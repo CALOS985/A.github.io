@@ -2626,6 +2626,37 @@ http://www.desktx.com/cursors/ */
       .container14:hover {
         right: 0;
       }
+      .container15 {
+        position: fixed;
+        top: 57.9%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(238, 12, 12);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container15:hover {
+        right: 0;
+      }
+
+      .container16 {
+        position: fixed;
+        top: 62.4%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(10, 10, 10);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container16:hover {
+        right: 0;
+      }
       .icon {
         position: absolute;
         /* left: -20px; */
@@ -2634,6 +2665,15 @@ http://www.desktx.com/cursors/ */
         background-color: rgb(22, 21, 22);
         border-radius: 8px;
       }
+      .icon1 {
+        position: absolute;
+        /* left: -20px; */
+        width: 40px;
+        height: 40px;
+        background-color: rgb(248, 242, 248);
+        border-radius: 8px;
+      }
+
       .text1 {
         position: absolute;
         left: 50px;
@@ -2642,8 +2682,17 @@ http://www.desktx.com/cursors/ */
         line-height: 40px;
         font-size: small;
       }
-      .container12:hover .icon {
-  background-image: url('https://res.cloudinary.com/dg3urvo89/image/upload/v1683085260/%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE_1_n4wcpa.png');
+      .text2 {
+        position: absolute;
+        left: 50px;
+        top: 0;
+        height: 20px;
+        line-height: 40px;
+        font-size: small;
+        color: #fff;
+      }
+.container11:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/64551d0c0d2dde5777b9bd08.png');
   background-size: cover;
   background-position: center;
 }
@@ -2664,11 +2713,26 @@ http://www.desktx.com/cursors/ */
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
-.container11:hover .icon {
-  background-image: url('https://res.cloudinary.com/dg3urvo89/image/upload/v1683084886/%E9%82%AE%E7%AE%B1_suebxr.png');
+.container12:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/64551d810d2dde5777ba5897.png');
   background-size: cover;
   background-position: center;
 }
+.container12:hover::before {
+    content: "";
+  display: block;
+  position: absolute;
+  left: -120px; /* 调整图片与容器的距离 */
+  
+  top: 0;
+  width: 100px;
+  height: 110px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: url("https://img.gejiba.com/images/338f87cbf0068ef793b583317d0c299f.png"); /* 替换为您的图片路径和名称 */
+  background-size: cover;
+}
+
 .container13:hover .icon {
   background-image: url('https://pic2.imgdb.cn/item/64550f8a0d2dde5777a39861.png');
   background-size: cover;
@@ -2676,6 +2740,16 @@ http://www.desktx.com/cursors/ */
 }
 .container14:hover .icon {
   background-image: url('https://pic2.imgdb.cn/item/6455103b0d2dde5777a4dec3.png');
+  background-size: cover;
+  background-position: center;
+}
+.container15:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/6453e75b0d2dde577750f90c.png');
+  background-size: cover;
+  background-position: center;
+}
+.container16:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -2711,30 +2785,24 @@ http://www.desktx.com/cursors/ */
 .container14:hover .icon {
   opacity: 1; /* show the icon on hover */
 }
-.container12:hover::before {
-    content: "";
-  display: block;
-  position: absolute;
-  left: -120px; /* 调整图片与容器的距离 */
-  
-  top: 0;
-  width: 100px;
-  height: 110px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
-  background-image: url("https://img.gejiba.com/images/338f87cbf0068ef793b583317d0c299f.png"); /* 替换为您的图片路径和名称 */
-  background-size: cover;
+.container15 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
 }
 
-
-.container12::before {
-  content: '';
-  display: none;
+.container15:hover .icon {
+  opacity: 1; /* show the icon on hover */
 }
 
-.container12:hover::before {
-  display: block;
+.container16 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
 }
+
+.container16:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+
 
     </style>
     <!-- 返回顶部 -->
@@ -2747,14 +2815,26 @@ http://www.desktx.com/cursors/ */
     </script>
     <!-- 返回底部 -->
     <script>
-var container = document.getElementById("container14");
-container.addEventListener("click", function() {
-  window.scrollTo(0, document.body.scrollHeight);
-});
 
+function endFunction() {
+
+$('html, body').animate({ scrollTop: 9999 }, 'fast');//带动画
+}
     </script>
-
-    
+<!-- 粉丝qq群 -->
+<script>
+    var container = document.getElementById("container15");
+    container.addEventListener("click", function() {
+      window.location.href = "https://qm.qq.com/cgi-bin/qm/qr?k=a_RebtURD9r332FqGOpAa7pl0ZUU-GwP&authKey=uqTSUPT63EX7Zw0ZY41NRAvVQ6kXTLs9kPDfmNcxzwY83Jbr/9r5Xt0s4rZH/+JW&noverify=0&personal_qrcode_source=0";
+    });
+  </script>
+  <!-- 坤坤电脑地址 -->
+  <script>
+    var container = document.getElementById("container16");
+    container.addEventListener("click", function() {
+      window.location.href = "https://calos985.github.io/A.github.io/ikun.html#";
+    });
+  </script>
     <div class="container11" >
       <div class="icon"></div>
       <div class="text1">我的邮箱</div>
@@ -2768,11 +2848,18 @@ container.addEventListener("click", function() {
       <div class="icon"></div>
       <div class="text1">返回顶部</div>
     </div>
-    <div id="container14" class="container14">
+    <div class="container14" onclick="endFunction()">
       <div class="icon"></div>
-      <div class="text1">返回底部</div>
+      <div  class="text1">开关音乐</div>
     </div>
-    
+    <div class="container15">
+        <div class="icon"></div>
+        <div  class="text1">粉丝群</div>
+      </div>
+      <div class="container16">
+        <div class="icon"></div>
+        <div  class="text2">坤坤的电脑</div>
+      </div>
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <div id="text-layer2">
     <div style="display:none ;" id='stars'></div>
