@@ -2738,28 +2738,17 @@ http://www.desktx.com/cursors/ */
     </style>
     <!-- 返回顶部 -->
     <script>
-      const container3 = document.querySelector('.container13');
+    function topFunction() {
 
-container3.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-});
 
+        $('html, body').animate({ scrollTop: 0 }, 'fast');//带动画
+}
     </script>
     <!-- 返回底部 -->
     <script>
-        // 获取容器元素
-const container = document.querySelector('.container14');
-
-// 添加点击事件
-container.addEventListener('click', () => {
-  // 平滑滚动到页面底部
-  window.scrollTo({
-    top: document.body.scrollHeight,
-    behavior: 'smooth'
-  });
+var container = document.getElementById("container14");
+container.addEventListener("click", function() {
+  window.scrollTo(0, document.body.scrollHeight);
 });
 
     </script>
@@ -2774,12 +2763,12 @@ container.addEventListener('click', () => {
       <div class="icon"></div>
       <div class="text">微信公众号</div>
     </div>
-    <div class="container13">
+    <div class="container13" onclick="topFunction()" >
       <div class="icon"></div>
       <div class="text">返回顶部</div>
     </div>
-    <div class="container14">
-      <div class="icon"></path></svg></div>
+    <div id="container14" class="container14">
+      <div class="icon"></div>
       <div class="text">返回底部</div>
     </div>
     
