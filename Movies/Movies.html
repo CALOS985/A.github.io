@@ -1879,74 +1879,303 @@ http://www.desktx.com/cursors/ */
     };
   </script> -->
   <!-- 返回顶部 -->
-  <style>
-    #myBtn {
-
-      display: none;
-
-      position: fixed;
-
-      bottom: 300px;
-
-      right: 5px;
-
-      z-index: 99;
-
-      border: none;
-
-      outline: none;
-
-      background-color: skyblue;
-
-      color: white;
-
-      cursor: pointer;
-
-      padding: 15px;
-
-      border-radius: 10px;
-
-    }
-
-
-
-    #myBtn:hover {
-
-      background-color: plum;
-
-    }
-  </style>
-  <script>
-    // 当网页向下滑动 20px 出现"返回顶部" 按钮
-
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-      console.log(121);
-
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-
-        document.getElementById("myBtn").style.display = "block";
-
-      } else {
-
-        document.getElementById("myBtn").style.display = "none";
-
+      <style>
+      .container11 {
+        position: fixed;
+        top: 40%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(80, 195, 248);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container11:hover {
+        right: 0;
       }
 
-    }
 
-    // 点击按钮，返回顶部
+      .container12 {
+        position: fixed;
+        top: 44.5%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(22, 236, 22);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container12:hover {
+        right: 0;
+      }
+      .container13 {
+        position: fixed;
+        top: 49%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(204, 204, 204);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container13:hover {
+        right: 0;
+      }
+      .container14 {
+        position: fixed;
+        top: 53.4%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(189, 238, 12);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container14:hover {
+        right: 0;
+      }
+      .container15 {
+        position: fixed;
+        top: 57.9%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(238, 12, 12);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container15:hover {
+        right: 0;
+      }
 
+      .container16 {
+        position: fixed;
+        top: 62.4%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(10, 10, 10);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container16:hover {
+        right: 0;
+      }
+      .icon {
+        position: absolute;
+        /* left: -20px; */
+        width: 40px;
+        height: 40px;
+        background-color: rgb(22, 21, 22);
+        border-radius: 8px;
+      }
+      .icon1 {
+        position: absolute;
+        /* left: -20px; */
+        width: 40px;
+        height: 40px;
+        background-color: rgb(248, 242, 248);
+        border-radius: 8px;
+      }
+
+      .text1 {
+        position: absolute;
+        left: 50px;
+        top: 0;
+        height: 20px;
+        line-height: 40px;
+        font-size: small;
+      }
+      .text2 {
+        position: absolute;
+        left: 50px;
+        top: 0;
+        height: 20px;
+        line-height: 40px;
+        font-size: small;
+        color: #fff;
+      }
+.container11:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/64551d0c0d2dde5777b9bd08.png');
+  background-size: cover;
+  background-position: center;
+}
+.container11:hover::before {
+  content: "zbl17855478893@163.com";
+  position: absolute;
+  left: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 20px;
+  line-height: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  text-align: center;
+  /* padding-top: 10px; */
+  font-size: 14px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.container12:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/64551d810d2dde5777ba5897.png');
+  background-size: cover;
+  background-position: center;
+}
+.container12:hover::before {
+    content: "";
+  display: block;
+  position: absolute;
+  left: -120px; /* 调整图片与容器的距离 */
+  
+  top: 0;
+  width: 100px;
+  height: 110px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: url("https://img.gejiba.com/images/338f87cbf0068ef793b583317d0c299f.png"); /* 替换为您的图片路径和名称 */
+  background-size: cover;
+}
+
+.container13:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/64550f8a0d2dde5777a39861.png');
+  background-size: cover;
+  background-position: center;
+}
+.container14:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/6455103b0d2dde5777a4dec3.png');
+  background-size: cover;
+  background-position: center;
+}
+.container15:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/6453e75b0d2dde577750f90c.png');
+  background-size: cover;
+  background-position: center;
+}
+.container16:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.container11 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
+}
+
+.container11:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+.container12 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
+}
+
+.container12:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+.container13 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
+}
+
+.container13:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+.container14 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
+}
+
+.container14:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+.container15 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
+}
+
+.container15:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+
+.container16 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
+}
+
+.container16:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+
+
+    </style>
+    <!-- 返回顶部 -->
+    <script>
     function topFunction() {
 
-      document.body.scrollTop = 0;
 
-      document.documentElement.scrollTop = 0;
+        $('html, body').animate({ scrollTop: 0 }, 'fast');//带动画
+}
+    </script>
+    <!-- 返回底部 -->
+    <script>
 
-    }
+function endFunction() {
+
+$('html, body').animate({ scrollTop: 9999 }, 'fast');//带动画
+}
+    </script>
+<!-- 粉丝qq群 -->
+<script>
+    var container = document.getElementById("container15");
+    container.addEventListener("click", function() {
+      window.location.href = "https://qm.qq.com/cgi-bin/qm/qr?k=a_RebtURD9r332FqGOpAa7pl0ZUU-GwP&authKey=uqTSUPT63EX7Zw0ZY41NRAvVQ6kXTLs9kPDfmNcxzwY83Jbr/9r5Xt0s4rZH/+JW&noverify=0&personal_qrcode_source=0";
+    });
   </script>
-  <button onclick="topFunction()" id="myBtn" title="回顶部">返回顶部</button>
+  <!-- 坤坤电脑地址 -->
+  <script>
+    var container = document.getElementById("container16");
+    container.addEventListener("click", function() {
+      window.location.href = "https://calos985.github.io/A.github.io/ikun.html#";
+    });
+  </script>
+    <div class="container11" >
+      <div class="icon"></div>
+      <div class="text1">我的邮箱</div>
+    </div>
+   
+    <div class="container12">
+      <div class="icon"></div>
+      <div class="text1">微信公众号</div>
+    </div>
+    <div class="container13" onclick="topFunction()" >
+      <div class="icon"></div>
+      <div class="text1">返回顶部</div>
+    </div>
+    <div class="container14" onclick="endFunction()">
+      <div class="icon"></div>
+      <div  class="text1">开关音乐</div>
+    </div>
+    <div class="container15">
+        <div class="icon"></div>
+        <div  class="text1">粉丝群</div>
+      </div>
+      <div class="container16">
+        <div class="icon"></div>
+        <div  class="text2">坤坤的电脑</div>
+      </div>
        
       <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
       <div id="text-layer2">
