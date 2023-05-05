@@ -2561,75 +2561,227 @@ http://www.desktx.com/cursors/ */
       document.getElementById("dark-mode").style.display = "flex";
     };
   </script> -->
+
   <!-- 返回顶部 -->
-  <style>
-    #myBtn {
-
-      display: none;
-
-      position: fixed;
-
-      bottom: 300px;
-
-      right: 5px;
-
-      z-index: 99;
-
-      border: none;
-
-      outline: none;
-
-      background-color: skyblue;
-
-      color: white;
-
-      cursor: pointer;
-
-      padding: 15px;
-
-      border-radius: 10px;
-
-    }
-
-
-
-    #myBtn:hover {
-
-      background-color: plum;
-
-    }
-  </style>
-  <script>
-    // 当网页向下滑动 20px 出现"返回顶部" 按钮
-
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-      console.log(121);
-
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-
-        document.getElementById("myBtn").style.display = "block";
-
-      } else {
-
-        document.getElementById("myBtn").style.display = "none";
-
+      <style>
+      .container1 {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(80, 195, 248);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container1:hover {
+        right: 0;
       }
 
-    }
 
-    // 点击按钮，返回顶部
+      .container2 {
+        position: fixed;
+        top: 54.5%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(22, 236, 22);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container2:hover {
+        right: 0;
+      }
+      .container3 {
+        position: fixed;
+        top: 59%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(204, 204, 204);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container3:hover {
+        right: 0;
+      }
+      .container4 {
+        position: fixed;
+        top: 63.4%;
+        transform: translateY(-50%);
+        right: -100px;
+        width: 120px;
+        height: 40px;
+        background-color: rgb(189, 238, 12);
+        transition: right 0.5s ease-out;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+      .container4:hover {
+        right: 0;
+      }
+      .icon {
+        position: absolute;
+        /* left: -20px; */
+        width: 40px;
+        height: 40px;
+        background-color: rgb(22, 21, 22);
+        border-radius: 8px;
+      }
+      .text {
+        position: absolute;
+        left: 50px;
+        top: 0;
+        height: 20px;
+        line-height: 40px;
+        font-size: small;
+      }
+      .container2:hover .icon {
+  background-image: url('https://res.cloudinary.com/dg3urvo89/image/upload/v1683085260/%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE_1_n4wcpa.png');
+  background-size: cover;
+  background-position: center;
+}
+.container1:hover::before {
+  content: "zbl17855478893@163.com";
+  position: absolute;
+  left: -200px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 20px;
+  line-height: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  text-align: center;
+  /* padding-top: 10px; */
+  font-size: 14px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+.container1:hover .icon {
+  background-image: url('https://res.cloudinary.com/dg3urvo89/image/upload/v1683084886/%E9%82%AE%E7%AE%B1_suebxr.png');
+  background-size: cover;
+  background-position: center;
+}
+.container3:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/64550f8a0d2dde5777a39861.png');
+  background-size: cover;
+  background-position: center;
+}
+.container4:hover .icon {
+  background-image: url('https://pic2.imgdb.cn/item/6455103b0d2dde5777a4dec3.png');
+  background-size: cover;
+  background-position: center;
+}
+.container1 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
+}
 
-    function topFunction() {
+.container1:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+.container2 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
+}
 
-      document.body.scrollTop = 0;
+.container2:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+.container3 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
+}
 
-      document.documentElement.scrollTop = 0;
+.container3:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+.container4 .icon {
+  opacity: 0; /* hide the icon by default */
+  transition: opacity 0.2s ease-in-out;
+}
 
-    }
-  </script>
-  <button onclick="topFunction()" id="myBtn" title="回顶部">返回顶部</button>
+.container4:hover .icon {
+  opacity: 1; /* show the icon on hover */
+}
+.container2:hover::before {
+    content: "";
+  display: block;
+  position: absolute;
+  left: -120px; /* 调整图片与容器的距离 */
+  top: 0;
+  width: 100px;
+  height: 110px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+  background-image: url("https://img.gejiba.com/images/338f87cbf0068ef793b583317d0c299f.png"); /* 替换为您的图片路径和名称 */
+  background-size: cover;
+}
+
+
+.container2::before {
+  content: '';
+  display: none;
+}
+
+.container2:hover::before {
+  display: block;
+}
+
+    </style>
+    <!-- 返回顶部 -->
+    <script>
+      const container3 = document.querySelector('.container3');
+
+container3.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+    </script>
+    <!-- 返回底部 -->
+    <script>
+        // 获取容器元素
+const container = document.querySelector('.container4');
+
+// 添加点击事件
+container.addEventListener('click', () => {
+  // 平滑滚动到页面底部
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: 'smooth'
+  });
+});
+
+    </script>
+
+    
+    <div class="container1" >
+      <div class="icon"></div>
+      <div class="text">我的邮箱</div>
+    </div>
+   
+    <div class="container2">
+      <div class="icon"></div>
+      <div class="text">微信公众号</div>
+    </div>
+    <div class="container3">
+      <div class="icon"></div>
+      <div class="text">返回顶部</div>
+    </div>
+    <div class="container4">
+      <div class="icon"></path></svg></div>
+      <div class="text">返回底部</div>
+    </div>
     
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <div id="text-layer2">
