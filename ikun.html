@@ -264,6 +264,16 @@
 			document.body.style.backgroundImage = 'url(' + backgrounds[currentBackground] + ')';
 		}
 	</script>
+	     <div class="containerBG1" onclick="downloadBackground()">下载壁纸</div>
+
+      <script>
+          function downloadBackground() {
+              var link = document.createElement('a');
+              link.download = 'background.jpg';
+              link.href = document.body.style.backgroundImage.replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0];
+              link.click();
+          }
+      </script>
         <!-- 第一个文件夹 -->
         <div class="item folder" onclick="toggle(this)">
             <span class="folder-icon"></span>
