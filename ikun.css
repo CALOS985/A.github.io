@@ -14,15 +14,35 @@ a:active {
         alias;
 }
 
-body {
-    background-image: url("https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png");
-    background-size: cover;
-    background-position: center center;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+ body {
+			margin: 0;
+			padding: 0;
+			background: url(https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+      height: 100vh;
+		}
+		.containerBG {
+  position: fixed;
+  bottom: 70px;
+  right: 0;
+  width: 100px;
+  height: 30px;
+  background-color: rgba(128, 128, 128, 0.5); /* 半透明灰色 */
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  color: aliceblue;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
+.containerBG:hover {
+  background-color: rgba(255, 255, 255, 0.8); /* 鼠标悬停时发亮 */
+color: rgb(13, 14, 13);
+}
 .container {
     display: flex;
     justify-content: center;
