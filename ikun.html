@@ -266,16 +266,21 @@
 	</script>
 	     <div class="containerBG1" onclick="downloadBackground()">下载壁纸</div>
 
-<script>
-    function downloadBackground() {
-        var link = document.createElement('a');
-        var backgroundImage = document.body.style.backgroundImage;
-        var extension = backgroundImage.slice(backgroundImage.lastIndexOf(".") + 1, -2);
-        link.download = 'background.' + extension;
-        link.href = backgroundImage.replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0];
-        link.click();
-    }
-</script>
+      <script>
+        function downloadBackground() {
+            var link = document.createElement('a');
+            var backgroundImage = getComputedStyle(document.body).backgroundImage;
+            var imageUrl = backgroundImage.slice(4, -1).replace(/"/g, "");
+            var extension = imageUrl.slice(imageUrl.lastIndexOf(".") + 1);
+            link.download = 'background.' + extension;
+            link.href = imageUrl;
+            link.target = '_blank';
+            link.onclick = function() {
+                alert('您的浏览器可能已禁止自动下载，请手动保存图片---卡洛斯温馨提示您');
+            };
+            link.click();
+        }
+    </script>
         <!-- 第一个文件夹 -->
         <div class="item folder" onclick="toggle(this)">
             <span class="folder-icon"></span>
