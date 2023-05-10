@@ -513,7 +513,94 @@
         }
 
     </script>
+    <div id="button-containerlanqiu" class="play-video"></div>
 
+    <style>
+      #button-containerlanqiu {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-image: url('https://pic2.imgdb.cn/item/645a18250d2dde57772f67bd.png');
+        background-size: cover;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+      }
+    </style>
+    
+    <script>
+      const buttonContainer = document.getElementById('button-containerlanqiu');
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+    
+      function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+    
+      function getDistance(x1, y1, x2, y2) {
+        const xDistance = x2 - x1;
+        const yDistance = y2 - y1;
+        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+      }
+    
+      function getNewPosition() {
+        const buttonWidth = buttonContainer.offsetWidth;
+        const buttonHeight = buttonContainer.offsetHeight;
+        const buttonRadius = buttonWidth / 2;
+        const minDistance = buttonRadius + 50;
+        const maxDistance = Math.min(screenWidth, screenHeight) / 2 - buttonRadius - 50;
+        const angle = getRandomInt(0, 359);
+        const distance = getRandomInt(minDistance, maxDistance);
+        const x = screenWidth / 2 + distance * Math.cos(angle * Math.PI / 180) - buttonRadius;
+        const y = screenHeight / 2 + distance * Math.sin(angle * Math.PI / 180) - buttonRadius;
+        return { x, y };
+      }
+    
+      function moveButton() {
+        const newPosition = getNewPosition();
+        const currentX = buttonContainer.offsetLeft;
+        const currentY = buttonContainer.offsetTop;
+        const distance = getDistance(currentX, currentY, newPosition.x, newPosition.y);
+        const duration = Math.min(500, distance * 2);
+        const easing = 'cubic-bezier(0.4, 0.0, 0.2, 1)';
+        buttonContainer.style.transition = `all ${duration}ms ${easing}`;
+        buttonContainer.style.left = `${newPosition.x}px`;
+        buttonContainer.style.top = `${newPosition.y}px`;
+      }
+    
+      buttonContainer.addEventListener('mouseenter', moveButton);
+    </script>
+    
+    <video id="background-video" src=""></video>
+    <style>
+        #background-video {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+    
+      height: 100vh;
+      z-index: -1;
+    }
+
+    </style>      
+    <script>
+        const playButton = document.querySelector('.play-video');
+    const video = document.getElementById('background-video');
+    
+    playButton.addEventListener('click', function() {
+      video.style.display = 'block';
+      video.play();
+    });
+    
+    video.addEventListener('ended', function() {
+      video.style.display = 'none';
+    });
+    
+    </script>
 
 </body>
 
