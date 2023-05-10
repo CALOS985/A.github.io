@@ -513,10 +513,12 @@
         }
 
     </script>
-    <div id="button-containerlanqiu" class="play-video"></div>
+	
+	   <!--篮球 162800DE.png -->
+   <div id="button-container" class="play-video"></div>
 
     <style>
-      #button-containerlanqiu {
+      #button-container {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -529,13 +531,23 @@
         cursor: pointer;
         transition: all 0.5s ease-in-out;
       }
+      .text-layer {
+  position: absolute;
+  z-index: 100;
+  font-size:16px ;
+  font-family: serif;
+  font-weight: bold;
+  color: rgb(226, 192, 43);
+}
+
     </style>
     
     <script>
-      const buttonContainer = document.getElementById('button-containerlanqiu');
+      const buttonContainer = document.getElementById('button-container');
       const screenWidth = window.innerWidth;
       const screenHeight = window.innerHeight;
-    
+      let textLayer;
+
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
       }
@@ -569,10 +581,42 @@
         buttonContainer.style.transition = `all ${duration}ms ${easing}`;
         buttonContainer.style.left = `${newPosition.x}px`;
         buttonContainer.style.top = `${newPosition.y}px`;
+// 创建文本元素
+textLayer = document.createElement('div');
+  textLayer.classList.add('text-layer');
+  const textOptions = ['来抓我呀', '救你还想打篮球？', '再看一眼你试试？', '抓到我就陪你打篮球！'];
+  const randomIndex = getRandomInt(0, textOptions.length - 1);
+  const textContent = document.createTextNode(textOptions[randomIndex]);
+  textLayer.appendChild(textContent);
+
+  // 计算文本位置
+  const { x, y } = calculateTextPosition(distance);
+
+  // 设置文本位置
+  textLayer.style.left = `${x}px`;
+  textLayer.style.top = `${y}px`;
+
+  document.body.appendChild(textLayer);
+
+  // 动画结束后删除文本元素
+  setTimeout(() => {
+    textLayer.remove();
+  }, duration);
       }
-    
+      function calculateTextPosition(distance) {
+    const buttonWidth = buttonContainer.offsetWidth;
+    const buttonHeight = buttonContainer.offsetHeight;
+    const buttonRadius = buttonWidth / 2;
+    const textWidth = textLayer.offsetWidth;
+    const textHeight = textLayer.offsetHeight;
+    const angle = getRandomInt(0, 359);
+    const x = screenWidth / 2 + distance * Math.cos(angle * Math.PI / 180) - textWidth / 2;
+    const y = screenHeight / 2 + distance * Math.sin(angle * Math.PI / 180) - textHeight / 2;
+    return { x, y };
+  }
       buttonContainer.addEventListener('mouseenter', moveButton);
     </script>
+
     
     
 	        <style>
