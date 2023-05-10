@@ -211,19 +211,7 @@
             navLinks.classList.toggle("show");
         });
     </script>
-    <div class="container">
-        <!-- 页面主体内容 -->
-	        <style>
-        #background-video {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-    
-      height: 100vh;
-      z-index: -1;
-    }
-	    <video id="background-video" src="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/KUNKUN.mp4" controls autoplay></video>
+
  <div class="containerBG" onclick="changeBackground()">切换壁纸</div>
 
 	<script>
@@ -585,7 +573,19 @@
       buttonContainer.addEventListener('mouseenter', moveButton);
     </script>
     
+        <div class="container">
+        <!-- 页面主体内容 -->
+	        <style>
+        #background-video {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
     
+      height: 100vh;
+      z-index: -1;
+    }
+	    <video id="background-video" src="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/KUNKUN.mp4" controls autoplay></video>
     <script>
         const playButton = document.querySelector('.play-video');
     const video = document.getElementById('background-video');
