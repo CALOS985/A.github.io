@@ -534,10 +534,10 @@
       .text-layer {
   position: absolute;
   z-index: 100;
-  font-size:16px ;
+  font-size:24px ;
   font-family: serif;
   font-weight: bold;
-  color: rgb(226, 192, 43);
+ color: rgb(245, 190, 10);
 }
 
     </style>
@@ -584,7 +584,7 @@
 // 创建文本元素
 textLayer = document.createElement('div');
   textLayer.classList.add('text-layer');
-  const textOptions = ['来抓我呀，大笨蛋！', '就你还想打篮球？', '再看一眼你试试？', '抓到我就陪你打篮球！','哎呀，讨厌死了！','干嘛追着我不放？','追到我我就要嫁给你！','你认识乔丹么？','你太小了把握不住的~(指的是手)',];
+  const textOptions = ['来抓我呀，大笨蛋！', '就你还想打篮球？', '再看一眼你试试？', '抓到我就陪你打篮球！','哎呀，讨厌死了！','干嘛追着人家不放？','追到我我就要嫁给你！','你认识乔丹么？','你太小了把握不住的~(指的是手)',];
   const randomIndex = getRandomInt(0, textOptions.length - 1);
   const textContent = document.createTextNode(textOptions[randomIndex]);
   textLayer.appendChild(textContent);
