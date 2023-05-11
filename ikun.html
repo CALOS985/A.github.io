@@ -624,27 +624,30 @@ textLayer = document.createElement('div');
     </script>
 
     
-    
-	        <style>
-    #background-video {
-  display: none;
-  position: fixed;
- 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-width:auto;
-  height: 100vh;
-  z-index: -1;
-  -webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
-	    object-fit: cover;
-}
-			</style>   
+        <style>
+        #background-video {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        @media screen and (max-width: 767px) {
+            #background-video {
+                display: block;
+            }
+        }
+        @media screen and (min-width: 768px) {
+            #background-video {
+                display: block;
+                min-width: 100%;
+                min-height: 100%;
+            }
+        }
+    </style>
 	    <video id="background-video" src="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/KUNKUN.mp4" controls ></video>
     <script>
         const playButton = document.querySelector('.play-video');
