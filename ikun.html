@@ -3,8 +3,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-	  <meta name=keywords content="蔡徐坤, 坤坤, IKUN, 模拟电脑，篮球，蔡徐坤打篮球，网址导航">
-	<meta name=description content=这是个蔡徐坤粉丝站，里面有篮球和坤坤，最重要的是它模拟的是一个电脑桌面，桌面上存放了一些文件，看上去很重要！！>
+    <meta name=keywords content="蔡徐坤, 坤坤, IKUN, 模拟电脑，篮球，蔡徐坤打篮球，网址导航">
+    <meta name=description content=这是个蔡徐坤粉丝站，里面有篮球和坤坤，最重要的是它模拟的是一个电脑桌面，桌面上存放了一些文件，看上去很重要！！>
     <meta charset="UTF-8" />
     <title>坤の⚡脑</title>
     <link rel="stylesheet" type="text/css" href="ikun.css">
@@ -168,8 +168,8 @@
 </head>
 
 <body>
-   
-    
+
+
     <div class="top-bar">
         <div class="top-bar-content">
             <div class="logo">
@@ -215,88 +215,88 @@
     </script>
     <div class="container">
         <!-- 页面主体内容 -->
- <div class="containerBG" onclick="changeBackground()">切换壁纸</div>
+        <div class="containerBG" onclick="changeBackground()">切换壁纸</div>
 
-	<script>
-		var backgrounds = [
-               'https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png',
-        'https://img.gejiba.com/images/2136e45161e50f03711ca437f190cc6f.jpg',
-        'https://img.gejiba.com/images/00ca50f912a3696c2637726232833b47.jpg',
-        'https://img.gejiba.com/images/a6dab3c57e496f84398aba53b5e5df8b.jpg',
-        'https://img.gejiba.com/images/aca90952f4b60dab121c8bb125cad6ce.png',
-        'https://img.gejiba.com/images/5b9a42ab0b6b6944febdd9d10f551f47.png',
-        'https://img.gejiba.com/images/41f75b28afb06e3e2fa902acea06e7e1.png',
-        'https://img.gejiba.com/images/e45748a628c5da15afa2a995ae8277f1.jpg',
-        'https://img.gejiba.com/images/70af26b64395bd7662bceeadbf4cb55a.jpg',
-        'https://img.gejiba.com/images/62d66d9d0c73a0ff6358d68d82bd7f0a.jpg',
-        'https://img.gejiba.com/images/84d2142c803133a6a08fa3af2af2c41b.jpg',
-        'https://img.gejiba.com/images/2cb0de46722bab95a5caab6eae0ad859.jpg',
-        'https://img.gejiba.com/images/288540a7458cd57bfec8e467dec77efa.jpg',
-        'https://img.gejiba.com/images/ed5fdcca97b91e8869fa30869b9d32b9.png',
-        'https://img.gejiba.com/images/3477e6280440ef6146103ebc318109c0.png',
-        'https://img.gejiba.com/images/b1a17fd9d07bcce240a990e81cf5b081.jpg',
-        'https://img.gejiba.com/images/7730752ae3f5aa69495a80711bc1eb80.jpg',
-        'https://img.gejiba.com/images/382974afd46b769f519a4b993fb17cfc.jpg',
-        'https://img.gejiba.com/images/fcdd2375d873a43d89f82d850d2870f8.jpg',
-        'https://img.gejiba.com/images/ac078cfd17fdf80b313d0b95580c260f.png',
-        'https://img.gejiba.com/images/ec8be42cb8200371aadaf53c84266a28.jpg',
-        'https://img.gejiba.com/images/180d8ca9220eb014dee9775a1ae4a527.jpg',
-        'https://img.gejiba.com/images/236b8cc0483060b894268795c9e35203.png',
-        'https://img.gejiba.com/images/7af7463f6dd4b974ef52bbb5997d8bb7.jpg',
-        'https://img.gejiba.com/images/bd156392ed444d93ccae4cd8f0c29fde.jpg',
-        'https://img.gejiba.com/images/266ad4eefb7dea0e35d75ad3ab99d16e.jpg',
-        'https://img.gejiba.com/images/b7b055db25c24002092b43d6df99328a.png',
-        'https://img.gejiba.com/images/e14a396d924b5365fa96eefb5b25e912.png',
-        'https://img.gejiba.com/images/568567152e3f66039a73d6a010e75ee0.png',
-        'https://img.gejiba.com/images/422cf01ca3148f7b9ce1b7ee919a1811.png',
-        'https://img.gejiba.com/images/e2683c70e19f92196861163272fe8b39.jpg',
-        'https://img.gejiba.com/images/ee2a189f15f9e79b62432ea7934f87b5.png',
-        'https://img.gejiba.com/images/e02980d8fff7d0895e02d3bd3cb0b1d8.jpg',
-        'https://img.gejiba.com/images/769059595af779fa6af0271a515d17c0.jpg',
-        'https://img.gejiba.com/images/d2f5ccb36c09246b886520aa1ae13e58.jpg',
-        'https://img.gejiba.com/images/3c0b9999e8f3f3e967d00448f1e0f922.jpg',
-        'https://img.gejiba.com/images/1e14104d9a69c26bf585ad51d3bbc364.jpg',
-        'https://img.gejiba.com/images/300ab8d94dbd297bfa06f501e46cf46c.png',
-        'https://img.gejiba.com/images/6936bbb6e9ec54713db9425c844cd94d.png',
-        'https://img.gejiba.com/images/0df1e856539ea1bffc823efcd35e9d51.jpg',
-        'https://img.gejiba.com/images/054727d3b1f09ad91c11a2c0974f0145.jpg',
-        'https://img.gejiba.com/images/a1714de8b25a256c2035463cefd8ec91.jpg',
-        'https://img.gejiba.com/images/aba85f90c24b91e85a6353492ecb9006.png',
-        'https://img.gejiba.com/images/475528f1879d9aa5bcc1c80e4a0aa374.jpg',
-        'https://img.gejiba.com/images/a8fbc392aa76da878ab0e0549196cfeb.jpg',
-        'https://img.gejiba.com/images/dfb0fdb2ee3aeede8c500b44f0134a75.png',
-        'https://img.gejiba.com/images/569bf1d518cd914c024932b5835fcfc8.png',
-        'https://img.gejiba.com/images/b59f1cb81233447b099e083d24ffba18.jpg',
-        'https://img.gejiba.com/images/a84c6c1742590af9a0c92da7920f581d.jpg',
-        'https://img.gejiba.com/images/a84742803fe8c87a86f73325e9c76ebb.png'
-        ]; // 背景图片URL数组
-		var currentBackground = 0; // 当前背景图片的索引
+        <script>
+            var backgrounds = [
+                'https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png',
+                'https://img.gejiba.com/images/2136e45161e50f03711ca437f190cc6f.jpg',
+                'https://img.gejiba.com/images/00ca50f912a3696c2637726232833b47.jpg',
+                'https://img.gejiba.com/images/a6dab3c57e496f84398aba53b5e5df8b.jpg',
+                'https://img.gejiba.com/images/aca90952f4b60dab121c8bb125cad6ce.png',
+                'https://img.gejiba.com/images/5b9a42ab0b6b6944febdd9d10f551f47.png',
+                'https://img.gejiba.com/images/41f75b28afb06e3e2fa902acea06e7e1.png',
+                'https://img.gejiba.com/images/e45748a628c5da15afa2a995ae8277f1.jpg',
+                'https://img.gejiba.com/images/70af26b64395bd7662bceeadbf4cb55a.jpg',
+                'https://img.gejiba.com/images/62d66d9d0c73a0ff6358d68d82bd7f0a.jpg',
+                'https://img.gejiba.com/images/84d2142c803133a6a08fa3af2af2c41b.jpg',
+                'https://img.gejiba.com/images/2cb0de46722bab95a5caab6eae0ad859.jpg',
+                'https://img.gejiba.com/images/288540a7458cd57bfec8e467dec77efa.jpg',
+                'https://img.gejiba.com/images/ed5fdcca97b91e8869fa30869b9d32b9.png',
+                'https://img.gejiba.com/images/3477e6280440ef6146103ebc318109c0.png',
+                'https://img.gejiba.com/images/b1a17fd9d07bcce240a990e81cf5b081.jpg',
+                'https://img.gejiba.com/images/7730752ae3f5aa69495a80711bc1eb80.jpg',
+                'https://img.gejiba.com/images/382974afd46b769f519a4b993fb17cfc.jpg',
+                'https://img.gejiba.com/images/fcdd2375d873a43d89f82d850d2870f8.jpg',
+                'https://img.gejiba.com/images/ac078cfd17fdf80b313d0b95580c260f.png',
+                'https://img.gejiba.com/images/ec8be42cb8200371aadaf53c84266a28.jpg',
+                'https://img.gejiba.com/images/180d8ca9220eb014dee9775a1ae4a527.jpg',
+                'https://img.gejiba.com/images/236b8cc0483060b894268795c9e35203.png',
+                'https://img.gejiba.com/images/7af7463f6dd4b974ef52bbb5997d8bb7.jpg',
+                'https://img.gejiba.com/images/bd156392ed444d93ccae4cd8f0c29fde.jpg',
+                'https://img.gejiba.com/images/266ad4eefb7dea0e35d75ad3ab99d16e.jpg',
+                'https://img.gejiba.com/images/b7b055db25c24002092b43d6df99328a.png',
+                'https://img.gejiba.com/images/e14a396d924b5365fa96eefb5b25e912.png',
+                'https://img.gejiba.com/images/568567152e3f66039a73d6a010e75ee0.png',
+                'https://img.gejiba.com/images/422cf01ca3148f7b9ce1b7ee919a1811.png',
+                'https://img.gejiba.com/images/e2683c70e19f92196861163272fe8b39.jpg',
+                'https://img.gejiba.com/images/ee2a189f15f9e79b62432ea7934f87b5.png',
+                'https://img.gejiba.com/images/e02980d8fff7d0895e02d3bd3cb0b1d8.jpg',
+                'https://img.gejiba.com/images/769059595af779fa6af0271a515d17c0.jpg',
+                'https://img.gejiba.com/images/d2f5ccb36c09246b886520aa1ae13e58.jpg',
+                'https://img.gejiba.com/images/3c0b9999e8f3f3e967d00448f1e0f922.jpg',
+                'https://img.gejiba.com/images/1e14104d9a69c26bf585ad51d3bbc364.jpg',
+                'https://img.gejiba.com/images/300ab8d94dbd297bfa06f501e46cf46c.png',
+                'https://img.gejiba.com/images/6936bbb6e9ec54713db9425c844cd94d.png',
+                'https://img.gejiba.com/images/0df1e856539ea1bffc823efcd35e9d51.jpg',
+                'https://img.gejiba.com/images/054727d3b1f09ad91c11a2c0974f0145.jpg',
+                'https://img.gejiba.com/images/a1714de8b25a256c2035463cefd8ec91.jpg',
+                'https://img.gejiba.com/images/aba85f90c24b91e85a6353492ecb9006.png',
+                'https://img.gejiba.com/images/475528f1879d9aa5bcc1c80e4a0aa374.jpg',
+                'https://img.gejiba.com/images/a8fbc392aa76da878ab0e0549196cfeb.jpg',
+                'https://img.gejiba.com/images/dfb0fdb2ee3aeede8c500b44f0134a75.png',
+                'https://img.gejiba.com/images/569bf1d518cd914c024932b5835fcfc8.png',
+                'https://img.gejiba.com/images/b59f1cb81233447b099e083d24ffba18.jpg',
+                'https://img.gejiba.com/images/a84c6c1742590af9a0c92da7920f581d.jpg',
+                'https://img.gejiba.com/images/a84742803fe8c87a86f73325e9c76ebb.png'
+            ]; // 背景图片URL数组
+            var currentBackground = 0; // 当前背景图片的索引
 
-		function changeBackground() {
-			currentBackground++;
-			if (currentBackground >= backgrounds.length) {
-				currentBackground = 0;
-			}
-			document.body.style.backgroundImage = 'url(' + backgrounds[currentBackground] + ')';
-		}
-	</script>
-	     <div class="containerBG1" onclick="downloadBackground()">下载壁纸</div>
+            function changeBackground() {
+                currentBackground++;
+                if (currentBackground >= backgrounds.length) {
+                    currentBackground = 0;
+                }
+                document.body.style.backgroundImage = 'url(' + backgrounds[currentBackground] + ')';
+            }
+        </script>
+        <div class="containerBG1" onclick="downloadBackground()">下载壁纸</div>
 
-      <script>
-        function downloadBackground() {
-            var link = document.createElement('a');
-            var backgroundImage = getComputedStyle(document.body).backgroundImage;
-            var imageUrl = backgroundImage.slice(4, -1).replace(/"/g, "");
-            var extension = imageUrl.slice(imageUrl.lastIndexOf(".") + 1);
-            link.download = 'background.' + extension;
-            link.href = imageUrl;
-            link.target = '_blank';
-            link.onclick = function() {
-                alert('您的浏览器可能已禁止自动下载，请手动保存图片---卡洛斯温馨提示您');
-            };
-            link.click();
-        }
-    </script>
+        <script>
+            function downloadBackground() {
+                var link = document.createElement('a');
+                var backgroundImage = getComputedStyle(document.body).backgroundImage;
+                var imageUrl = backgroundImage.slice(4, -1).replace(/"/g, "");
+                var extension = imageUrl.slice(imageUrl.lastIndexOf(".") + 1);
+                link.download = 'background.' + extension;
+                link.href = imageUrl;
+                link.target = '_blank';
+                link.onclick = function () {
+                    alert('您的浏览器可能已禁止自动下载，请手动保存图片---卡洛斯温馨提示您');
+                };
+                link.click();
+            }
+        </script>
         <!-- 第一个文件夹 -->
         <div class="item folder" onclick="toggle(this)">
             <span class="folder-icon"></span>
@@ -318,7 +318,9 @@
                             <a target="_blank" href="https://www.baidu.com/">百度</a>
                         </div>
                     </div>
-			<div class="children">
+                    <!-- 上面是子文件夹区域 -->
+
+                </div>
                 <!-- 第一个子文件夹 -->
                 <div class="item folder" onclick="toggle(this, event)">
                     <span class="folder-icon"></span>
@@ -327,36 +329,42 @@
                         <!-- 第一个网址文件 -->
                         <div class="item file">
                             <span class="file-icon"></span>
-                            <a target="_blank" href="https://pan.baidu.com/s/10erHVp4stogtyvpr9TUy1g?pwd=6666 ">坤坤篮球场场景</a>
+                            <a target="_blank"
+                                href="https://pan.baidu.com/s/10erHVp4stogtyvpr9TUy1g?pwd=6666 ">蔡徐坤篮球场场景</a>
+                        </div>
+                        <!-- 第二个网址文件 -->
+                        <div class="item file">
+                            <a target="_blank"
+                                href="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/">全女格斗发布页</a>
+                        </div>
+                        <!-- 第三个网址文件 -->
+                        <div class="item file">
+                            <a target="_blank"
+                                href="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/">全女格斗发布页</a>
                         </div>
                         <div class="item file">
-                        <span class="file-icon"></span>
-                        <a target="_blank" href="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/">全女格斗发布页</a>
-                    </div>
-			           <div class="item file">
-                  <span class="file-icon"></span>
-                  <a target="_blank" href="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/CALOS.html">MUGEN答疑指引</a>
-              </div>
-                 
-
+                            <span class="file-icon"></span>
+                            <a target="_blank"
+                                href="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/CALOS.html">MUGEN答疑指引</a>
+                        </div>
                     </div>
                     <!-- 上面是子文件夹区域 -->
-                    <!-- 第一个网址文件 -->
-            
-                    <div class="item file">
-                      <span class="file-icon"></span>
-                      <a target="_blank" href="https://huggingface.co/spaces/ysharma/ChatGPT4">ChatGPT4免费版</a>
-                  </div>
-                  <div class="item file">
+
+                </div>
+                <!-- 第一个网址文件 -->
+
+                <div class="item file">
+                    <span class="file-icon"></span>
+                    <a target="_blank" href="https://huggingface.co/spaces/ysharma/ChatGPT4">ChatGPT4免费版</a>
+                </div>
+                <div class="item file">
                     <span class="file-icon"></span>
                     <a target="_blank" href="https://openmao.panchuang.net/#/">ChatGPT国内接口版本</a>
                 </div>
-         
-			                <div class="item file">
-                  <span class="file-icon"></span>
-                  <a target="_blank" href="https://mkipo4-3000.csb.app/">我自己做的反向代理版本GPT[3.5]</a>
-              </div>
-               
+
+                <div class="item file">
+                    <span class="file-icon"></span>
+                    <a target="_blank" href="https://mkipo4-3000.csb.app/">我自己做的反向代理版本GPT[3.5]</a>
                 </div>
             </div>
         </div>
@@ -378,7 +386,7 @@
             }
         }
     </script>
-    
+
     <footer>
         <div class="container">
             <div class="icon-container" onclick="togglePopup()">
@@ -418,7 +426,7 @@
         </div>
 
     </footer>
-    
+
     <!-- 弹出窗口 -->
     <div class="popup1 popup-active"> <span onclick="togglePopup1()">X</span>
         <div class="popup-content">
@@ -508,7 +516,7 @@
 
     </script>
     <!-- 弹出框设计 -->
-    
+
     <div class="popup-container" id="popup">
         <div class="left">
             <a href="" id="link" class="link"><img
@@ -535,112 +543,112 @@
         }
 
     </script>
-	
-	   <!--篮球 162800DE.png -->
-   <div id="button-container" class="play-video"></div>
+
+    <!--篮球 162800DE.png -->
+    <div id="button-container" class="play-video"></div>
 
     <style>
-      #button-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background-image: url('https://pic2.imgdb.cn/item/645a18250d2dde57772f67bd.png');
-        background-size: cover;
-        cursor: pointer;
-        transition: all 0.5s ease-in-out;
-      }
-      .text-layer {
-  position: absolute;
-  z-index: 100;
-  font-size:24px ;
-  font-family: serif;
-  font-weight: bold;
- color: rgb(245, 190, 10);
-}
+        #button-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-image: url('https://pic2.imgdb.cn/item/645a18250d2dde57772f67bd.png');
+            background-size: cover;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+        }
 
+        .text-layer {
+            position: absolute;
+            z-index: 100;
+            font-size: 24px;
+            font-family: serif;
+            font-weight: bold;
+            color: rgb(245, 190, 10);
+        }
     </style>
-    
+
     <script>
-      const buttonContainer = document.getElementById('button-container');
-      const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
-      let textLayer;
+        const buttonContainer = document.getElementById('button-container');
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+        let textLayer;
 
-      function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      }
-    
-      function getDistance(x1, y1, x2, y2) {
-        const xDistance = x2 - x1;
-        const yDistance = y2 - y1;
-        return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
-      }
-    
-      function getNewPosition() {
-        const buttonWidth = buttonContainer.offsetWidth;
-        const buttonHeight = buttonContainer.offsetHeight;
-        const buttonRadius = buttonWidth / 2;
-        const minDistance = buttonRadius + 50;
-        const maxDistance = Math.min(screenWidth, screenHeight) / 2 - buttonRadius - 50;
-        const angle = getRandomInt(0, 359);
-        const distance = getRandomInt(minDistance, maxDistance);
-        const x = screenWidth / 2 + distance * Math.cos(angle * Math.PI / 180) - buttonRadius;
-        const y = screenHeight / 2 + distance * Math.sin(angle * Math.PI / 180) - buttonRadius;
-        return { x, y };
-      }
-    
-      function moveButton() {
-        const newPosition = getNewPosition();
-        const currentX = buttonContainer.offsetLeft;
-        const currentY = buttonContainer.offsetTop;
-        const distance = getDistance(currentX, currentY, newPosition.x, newPosition.y);
-        const duration = Math.min(500, distance * 2);
-        const easing = 'cubic-bezier(0.4, 0.0, 0.2, 1)';
-        buttonContainer.style.transition = `all ${duration}ms ${easing}`;
-        buttonContainer.style.left = `${newPosition.x}px`;
-        buttonContainer.style.top = `${newPosition.y}px`;
-// 创建文本元素
-textLayer = document.createElement('div');
-  textLayer.classList.add('text-layer');
-  const textOptions = ['来抓我呀，大笨蛋！', '就你还想打篮球？', '再看一眼你试试？', '抓到我就陪你打篮球！','哎呀，讨厌死了！','干嘛追着人家不放？','追到我我就要嫁给你！','你认识乔丹么？','你太小了把握不住的~(指的是手)',];
-  const randomIndex = getRandomInt(0, textOptions.length - 1);
-  const textContent = document.createTextNode(textOptions[randomIndex]);
-  textLayer.appendChild(textContent);
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
 
-  // 计算文本位置
-  const { x, y } = calculateTextPosition(distance);
+        function getDistance(x1, y1, x2, y2) {
+            const xDistance = x2 - x1;
+            const yDistance = y2 - y1;
+            return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
+        }
 
-  // 设置文本位置
-  textLayer.style.left = `${x}px`;
-  textLayer.style.top = `${y}px`;
+        function getNewPosition() {
+            const buttonWidth = buttonContainer.offsetWidth;
+            const buttonHeight = buttonContainer.offsetHeight;
+            const buttonRadius = buttonWidth / 2;
+            const minDistance = buttonRadius + 50;
+            const maxDistance = Math.min(screenWidth, screenHeight) / 2 - buttonRadius - 50;
+            const angle = getRandomInt(0, 359);
+            const distance = getRandomInt(minDistance, maxDistance);
+            const x = screenWidth / 2 + distance * Math.cos(angle * Math.PI / 180) - buttonRadius;
+            const y = screenHeight / 2 + distance * Math.sin(angle * Math.PI / 180) - buttonRadius;
+            return { x, y };
+        }
 
-  document.body.appendChild(textLayer);
+        function moveButton() {
+            const newPosition = getNewPosition();
+            const currentX = buttonContainer.offsetLeft;
+            const currentY = buttonContainer.offsetTop;
+            const distance = getDistance(currentX, currentY, newPosition.x, newPosition.y);
+            const duration = Math.min(500, distance * 2);
+            const easing = 'cubic-bezier(0.4, 0.0, 0.2, 1)';
+            buttonContainer.style.transition = `all ${duration}ms ${easing}`;
+            buttonContainer.style.left = `${newPosition.x}px`;
+            buttonContainer.style.top = `${newPosition.y}px`;
+            // 创建文本元素
+            textLayer = document.createElement('div');
+            textLayer.classList.add('text-layer');
+            const textOptions = ['来抓我呀，大笨蛋！', '就你还想打篮球？', '再看一眼你试试？', '抓到我就陪你打篮球！', '哎呀，讨厌死了！', '干嘛追着人家不放？', '追到我我就要嫁给你！', '你认识乔丹么？', '你太小了把握不住的~(指的是手)',];
+            const randomIndex = getRandomInt(0, textOptions.length - 1);
+            const textContent = document.createTextNode(textOptions[randomIndex]);
+            textLayer.appendChild(textContent);
 
-  // 动画结束后删除文本元素
-  setTimeout(() => {
-    textLayer.remove();
-  }, duration);
-      }
-      function calculateTextPosition(distance) {
-    const buttonWidth = buttonContainer.offsetWidth;
-    const buttonHeight = buttonContainer.offsetHeight;
-    const buttonRadius = buttonWidth / 2;
-    const textWidth = textLayer.offsetWidth;
-    const textHeight = textLayer.offsetHeight;
-    const angle = getRandomInt(0, 359);
-    const x = screenWidth / 2 + distance * Math.cos(angle * Math.PI / 180) - textWidth / 2;
-    const y = screenHeight / 2 + distance * Math.sin(angle * Math.PI / 180) - textHeight / 2;
-    return { x, y };
-  }
-      buttonContainer.addEventListener('mouseenter', moveButton);
+            // 计算文本位置
+            const { x, y } = calculateTextPosition(distance);
+
+            // 设置文本位置
+            textLayer.style.left = `${x}px`;
+            textLayer.style.top = `${y}px`;
+
+            document.body.appendChild(textLayer);
+
+            // 动画结束后删除文本元素
+            setTimeout(() => {
+                textLayer.remove();
+            }, duration);
+        }
+        function calculateTextPosition(distance) {
+            const buttonWidth = buttonContainer.offsetWidth;
+            const buttonHeight = buttonContainer.offsetHeight;
+            const buttonRadius = buttonWidth / 2;
+            const textWidth = textLayer.offsetWidth;
+            const textHeight = textLayer.offsetHeight;
+            const angle = getRandomInt(0, 359);
+            const x = screenWidth / 2 + distance * Math.cos(angle * Math.PI / 180) - textWidth / 2;
+            const y = screenHeight / 2 + distance * Math.sin(angle * Math.PI / 180) - textHeight / 2;
+            return { x, y };
+        }
+        buttonContainer.addEventListener('mouseenter', moveButton);
     </script>
 
-    
-        <style>
+
+    <style>
         #background-video {
             display: none;
             position: fixed;
@@ -651,11 +659,13 @@ textLayer = document.createElement('div');
             z-index: -1;
             object-fit: cover;
         }
+
         @media screen and (max-width: 767px) {
             #background-video {
                 display: none;
             }
         }
+
         @media screen and (min-width: 768px) {
             #background-video {
                 display: none;
@@ -664,20 +674,21 @@ textLayer = document.createElement('div');
             }
         }
     </style>
-	    <video id="background-video" src="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/KUNKUN.mp4" controls ></video>
+    <video id="background-video" src="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/KUNKUN.mp4"
+        controls></video>
     <script>
         const playButton = document.querySelector('.play-video');
-    const video = document.getElementById('background-video');
-    
-    playButton.addEventListener('click', function() {
-      video.style.display = 'block';
-      video.play();
-    });
-    
-    video.addEventListener('ended', function() {
-      video.style.display = 'none';
-    });
-    
+        const video = document.getElementById('background-video');
+
+        playButton.addEventListener('click', function () {
+            video.style.display = 'block';
+            video.play();
+        });
+
+        video.addEventListener('ended', function () {
+            video.style.display = 'none';
+        });
+
     </script>
 
 </body>
