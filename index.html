@@ -2875,6 +2875,8 @@ $('html, body').animate({ scrollTop: 99999 }, 'fast');//带动画
   width: 100%;
   height: 120%;
   transform: rotate(-45deg);
+  pointer-events: none;
+  z-index: 9999;
 }
 
 .star1 {
@@ -3246,7 +3248,7 @@ $('html, body').animate({ scrollTop: 99999 }, 'fast');//带动画
 }
     </style>
  
- <div class="stars1" id="stars1">
+ <div style="display: none;"  class="stars1" id="stars1">
     <div class="star1"></div>
     <div class="star1"></div>
     <div class="star1"></div>
