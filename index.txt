@@ -263,7 +263,8 @@
 
     /* Dark color scheme */
     body.dark {
-      background-color: #333333;
+      /* background-color: #333333; */
+      background: radial-gradient(ellipse at bottom, #091422 0%, #31375c 100%);
       color: #e77416;
     }
 
@@ -892,14 +893,17 @@ align-items: center;
             document.getElementById("light-mode").style.display = "none";
       document.getElementById("dark-mode").style.display ="flex"; 
       document.getElementById("stars").style.display ="block"; 
+      document.getElementById("stars1").style.display ="block"; 
          } else {
             $("body").removeClass("dark-class");
             document.getElementById("light-mode").style.display = "flex"; 
       document.getElementById("dark-mode").style.display ="none";
       document.getElementById("stars").style.display ="none"; 
+      document.getElementById("stars1").style.display ="none"; 
          }
       })
    </script>
+
       <!-- 下方是侧栏内容 -->
       <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -3466,75 +3470,7 @@ http://www.desktx.com/cursors/ */
       document.getElementById("dark-mode").style.display = "flex";
     };
   </script> -->
-  <!-- 返回顶部 -->
-  <style>
-    #myBtn {
-
-      display: none;
-
-      position: fixed;
-
-      bottom: 300px;
-
-      right: 5px;
-
-      z-index: 99;
-
-      border: none;
-
-      outline: none;
-
-      background-color: skyblue;
-
-      color: white;
-
-      cursor: pointer;
-
-      padding: 15px;
-
-      border-radius: 10px;
-
-    }
-
-
-
-    #myBtn:hover {
-
-      background-color: plum;
-
-    }
-  </style>
-  <script>
-    // 当网页向下滑动 20px 出现"返回顶部" 按钮
-
-    window.onscroll = function () { scrollFunction() };
-
-    function scrollFunction() {
-      console.log(121);
-
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-
-        document.getElementById("myBtn").style.display = "block";
-
-      } else {
-
-        document.getElementById("myBtn").style.display = "none";
-
-      }
-
-    }
-
-    // 点击按钮，返回顶部
-
-    function topFunction() {
-
-      document.body.scrollTop = 0;
-
-      document.documentElement.scrollTop = 0;
-
-    }
-  </script>
-  <button onclick="topFunction()" id="myBtn" title="回顶部">返回顶部</button>
+  
      <!-- 星空背景 -->
      <style>
       html {
@@ -3637,11 +3573,737 @@ http://www.desktx.com/cursors/ */
         }
       }
     </style>
-    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-    <div id="text-layer2">
-    <div style="display:none ;" id='stars'></div>
-    <div style="display:none ;" id='stars2'></div>
-    <div style="display:none ;" id='stars3'></div>
+ <!-- 返回顶部 -->
+ <style>
+    .container11 {
+      position: fixed;
+      top: 40%;
+      transform: translateY(-50%);
+      right: -100px;
+      width: 120px;
+      height: 40px;
+      background-color: rgb(80, 195, 248);
+      transition: right 0.5s ease-out;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .container11:hover {
+      right: 0;
+    }
+
+
+    .container12 {
+      position: fixed;
+      top: 44.5%;
+      transform: translateY(-50%);
+      right: -100px;
+      width: 120px;
+      height: 40px;
+      background-color: rgb(22, 236, 22);
+      transition: right 0.5s ease-out;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .container12:hover {
+      right: 0;
+    }
+    .container13 {
+      position: fixed;
+      top: 49%;
+      transform: translateY(-50%);
+      right: -100px;
+      width: 120px;
+      height: 40px;
+      background-color: rgb(204, 204, 204);
+      transition: right 0.5s ease-out;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .container13:hover {
+      right: 0;
+    }
+    .container14 {
+      position: fixed;
+      top: 53.4%;
+      transform: translateY(-50%);
+      right: -100px;
+      width: 120px;
+      height: 40px;
+      background-color: rgb(189, 238, 12);
+      transition: right 0.5s ease-out;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .container14:hover {
+      right: 0;
+    }
+    .container15 {
+      position: fixed;
+      top: 57.9%;
+      transform: translateY(-50%);
+      right: -100px;
+      width: 120px;
+      height: 40px;
+      background-color: rgb(238, 12, 12);
+      transition: right 0.5s ease-out;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .container15:hover {
+      right: 0;
+    }
+
+    .container16 {
+      position: fixed;
+      top: 62.4%;
+      transform: translateY(-50%);
+      right: -100px;
+      width: 120px;
+      height: 40px;
+      background-color: rgb(10, 10, 10);
+      transition: right 0.5s ease-out;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .container16:hover {
+      right: 0;
+    }
+    .icon {
+      position: absolute;
+      /* left: -20px; */
+      width: 40px;
+      height: 40px;
+      background-color: rgb(22, 21, 22);
+      border-radius: 8px;
+    }
+    .icon1 {
+      position: absolute;
+      /* left: -20px; */
+      width: 40px;
+      height: 40px;
+      background-color: rgb(248, 242, 248);
+      border-radius: 8px;
+    }
+
+    .text1 {
+      position: absolute;
+      left: 50px;
+      top: 0;
+      height: 20px;
+      line-height: 40px;
+      font-size: small;
+    }
+    .text2 {
+      position: absolute;
+      left: 50px;
+      top: 0;
+      height: 20px;
+      line-height: 40px;
+      font-size: small;
+      color: #fff;
+    }
+.container11:hover .icon {
+background-image: url('https://pic2.imgdb.cn/item/64551d0c0d2dde5777b9bd08.png');
+background-size: cover;
+background-position: center;
+}
+.container11:hover::before {
+content: "zbl17855478893@163.com";
+position: absolute;
+left: -200px;
+top: 50%;
+transform: translateY(-50%);
+width: 200px;
+height: 20px;
+line-height: 20px;
+background-color: #fff;
+border: 1px solid #ccc;
+text-align: center;
+/* padding-top: 10px; */
+font-size: 14px;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+border-radius: 5px;
+}
+.container12:hover .icon {
+background-image: url('https://pic2.imgdb.cn/item/64551d810d2dde5777ba5897.png');
+background-size: cover;
+background-position: center;
+}
+.container12:hover::before {
+  content: "";
+display: block;
+position: absolute;
+left: -120px; /* 调整图片与容器的距离 */
+
+top: 0;
+width: 100px;
+height: 110px;
+border-radius: 5px;
+box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+background-image: url("https://img.gejiba.com/images/338f87cbf0068ef793b583317d0c299f.png"); /* 替换为您的图片路径和名称 */
+background-size: cover;
+}
+
+.container13:hover .icon {
+background-image: url('https://pic2.imgdb.cn/item/64550f8a0d2dde5777a39861.png');
+background-size: cover;
+background-position: center;
+}
+.container14:hover .icon {
+background-image: url('https://pic2.imgdb.cn/item/6455103b0d2dde5777a4dec3.png');
+background-size: cover;
+background-position: center;
+}
+.container15:hover .icon {
+background-image: url('https://pic2.imgdb.cn/item/6453e75b0d2dde577750f90c.png');
+background-size: cover;
+background-position: center;
+}
+.container16:hover .icon {
+background-image: url('https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg');
+background-size: cover;
+background-position: center;
+}
+.container11 .icon {
+opacity: 0; /* hide the icon by default */
+transition: opacity 0.2s ease-in-out;
+}
+
+.container11:hover .icon {
+opacity: 1; /* show the icon on hover */
+}
+.container12 .icon {
+opacity: 0; /* hide the icon by default */
+transition: opacity 0.2s ease-in-out;
+}
+
+.container12:hover .icon {
+opacity: 1; /* show the icon on hover */
+}
+.container13 .icon {
+opacity: 0; /* hide the icon by default */
+transition: opacity 0.2s ease-in-out;
+}
+
+.container13:hover .icon {
+opacity: 1; /* show the icon on hover */
+}
+.container14 .icon {
+opacity: 0; /* hide the icon by default */
+transition: opacity 0.2s ease-in-out;
+}
+
+.container14:hover .icon {
+opacity: 1; /* show the icon on hover */
+}
+.container15 .icon {
+opacity: 0; /* hide the icon by default */
+transition: opacity 0.2s ease-in-out;
+}
+
+.container15:hover .icon {
+opacity: 1; /* show the icon on hover */
+}
+
+.container16 .icon {
+opacity: 0; /* hide the icon by default */
+transition: opacity 0.2s ease-in-out;
+}
+
+.container16:hover .icon {
+opacity: 1; /* show the icon on hover */
+}
+
+
+  </style>
+  <!-- 返回顶部 -->
+  <script>
+  function topFunction() {
+
+
+      $('html, body').animate({ scrollTop: 0 }, 'fast');//带动画
+}
+  </script>
+  <!-- 返回底部 -->
+  <script>
+
+function endFunction() {
+
+$('html, body').animate({ scrollTop: 99999 }, 'fast');//带动画
+}
+  </script>
+
+  <div class="container11" >
+    <div class="icon"></div>
+    <div class="text1">我的邮箱</div>
+  </div>
+ 
+  <div class="container12">
+    <div class="icon"></div>
+    <div class="text1">微信公众号</div>
+  </div>
+  <div class="container13" onclick="topFunction()" >
+    <div class="icon"></div>
+    <div class="text1">返回顶部</div>
+  </div>
+  <div class="container14" onclick="endFunction()">
+    <div class="icon"></div>
+    <div  class="text1">开关音乐</div>
+  </div>
+  <div class="container15" onclick='window.open("https://qm.qq.com/cgi-bin/qm/qr?k=a_RebtURD9r332FqGOpAa7pl0ZUU-GwP&authKey=uqTSUPT63EX7Zw0ZY41NRAvVQ6kXTLs9kPDfmNcxzwY83Jbr/9r5Xt0s4rZH/+JW&noverify=0&personal_qrcode_source=0")'>
+      <div class="icon"></div>
+      <div  class="text1">粉丝群</div>
+    </div>
+    <div class="container16" onclick='window.open("https://calos985.github.io/A.github.io/ikun.html#")'  >
+      <div class="icon"></div>
+      <div  class="text2">坤坤的电脑</div>
+    </div>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+  <div id="text-layer2">
+  <div style="display:none ;" id='stars'></div>
+  <div style="display:none ;" id='stars2'></div>
+  <div style="display:none ;" id='stars3'></div>
+</div>
+<!-- 流星特效 -->
+<style>
+    /* body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at bottom, #091422 0%, #31375c 100%);
+      overflow: hidden;
+    } */
+    
+    .stars1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  transform: rotate(-45deg);
+}
+
+.star1 {
+    
+  --star1-color: rgb(238, 255, 0);
+  --star1-tail-length: 6em;
+  --star1-tail-height: 2px;
+  --star1-width: calc(var(--star1-tail-length) / 6);
+  --fall-duration: 9s;
+  --tail-fade-duration: var(--fall-duration);
+  position: absolute;
+  top: var(--top-offset);
+  left: 0;
+  width: var(--star1-tail-length);
+  height: var(--star1-tail-height);
+  color: rgb(6, 224, 240);
+  background: linear-gradient(45deg, currentColor, transparent);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 6px currentColor);
+  transform: translate3d(104em, 0, 0);
+  animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
+}
+@media screen and (max-width: 750px) {
+  .star1 {
+    animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
+  }
+}
+.star1:nth-child(1) {
+  --star1-tail-length: 5.57em;
+  --top-offset: 18.74vh;
+  --fall-duration: 8.747s;
+  --fall-delay: 1.105s;
+}
+.star1:nth-child(2) {
+  --star1-tail-length: 7.07em;
+  --top-offset: 81.13vh;
+  --fall-duration: 7.885s;
+  --fall-delay: 7.105s;
+}
+.star1:nth-child(3) {
+  --star1-tail-length: 6.19em;
+  --top-offset: 98.75vh;
+  --fall-duration: 9.264s;
+  --fall-delay: 6.938s;
+}
+.star1:nth-child(4) {
+  --star1-tail-length: 5.62em;
+  --top-offset: 77.67vh;
+  --fall-duration: 7.663s;
+  --fall-delay: 0.763s;
+}
+.star1:nth-child(5) {
+  --star1-tail-length: 6.99em;
+  --top-offset: 95.56vh;
+  --fall-duration: 8.157s;
+  --fall-delay: 4.166s;
+}
+.star1:nth-child(6) {
+  --star1-tail-length: 5.93em;
+  --top-offset: 61.33vh;
+  --fall-duration: 7.699s;
+  --fall-delay: 1.502s;
+}
+.star1:nth-child(7) {
+  --star1-tail-length: 7.2em;
+  --top-offset: 37.79vh;
+  --fall-duration: 7.427s;
+  --fall-delay: 3.132s;
+}
+.star1:nth-child(8) {
+  --star1-tail-length: 5em;
+  --top-offset: 68.67vh;
+  --fall-duration: 7.575s;
+  --fall-delay: 1.245s;
+}
+.star1:nth-child(9) {
+  --star1-tail-length: 7.11em;
+  --top-offset: 64.34vh;
+  --fall-duration: 11.808s;
+  --fall-delay: 3.279s;
+}
+.star1:nth-child(10) {
+  --star1-tail-length: 7.33em;
+  --top-offset: 92.33vh;
+  --fall-duration: 8.993s;
+  --fall-delay: 7.738s;
+}
+.star1:nth-child(11) {
+  --star1-tail-length: 5.9em;
+  --top-offset: 18.49vh;
+  --fall-duration: 10.768s;
+  --fall-delay: 1.158s;
+}
+.star1:nth-child(12) {
+  --star1-tail-length: 5.41em;
+  --top-offset: 93.53vh;
+  --fall-duration: 7.328s;
+  --fall-delay: 7.543s;
+}
+.star1:nth-child(13) {
+  --star1-tail-length: 6.3em;
+  --top-offset: 39.16vh;
+  --fall-duration: 11.872s;
+  --fall-delay: 7.99s;
+}
+.star1:nth-child(14) {
+  --star1-tail-length: 5.58em;
+  --top-offset: 82.25vh;
+  --fall-duration: 10.946s;
+  --fall-delay: 4.899s;
+}
+.star1:nth-child(15) {
+  --star1-tail-length: 7.26em;
+  --top-offset: 30.81vh;
+  --fall-duration: 10.99s;
+  --fall-delay: 5.48s;
+}
+.star1:nth-child(16) {
+  --star1-tail-length: 7.45em;
+  --top-offset: 42.78vh;
+  --fall-duration: 6.486s;
+  --fall-delay: 0.419s;
+}
+.star1:nth-child(17) {
+  --star1-tail-length: 7.21em;
+  --top-offset: 46.89vh;
+  --fall-duration: 6.475s;
+  --fall-delay: 4.548s;
+}
+.star1:nth-child(18) {
+  --star1-tail-length: 5.94em;
+  --top-offset: 93.99vh;
+  --fall-duration: 11.854s;
+  --fall-delay: 7.191s;
+}
+.star1:nth-child(19) {
+  --star1-tail-length: 5.46em;
+  --top-offset: 88.99vh;
+  --fall-duration: 8.216s;
+  --fall-delay: 2.49s;
+}
+.star1:nth-child(20) {
+  --star1-tail-length: 6.02em;
+  --top-offset: 55.71vh;
+  --fall-duration: 6.826s;
+  --fall-delay: 1.733s;
+}
+.star1:nth-child(21) {
+  --star1-tail-length: 6.8em;
+  --top-offset: 28.33vh;
+  --fall-duration: 6.722s;
+  --fall-delay: 7.085s;
+}
+.star1:nth-child(22) {
+  --star1-tail-length: 5.62em;
+  --top-offset: 50.73vh;
+  --fall-duration: 6.274s;
+  --fall-delay: 9.292s;
+}
+.star1:nth-child(23) {
+  --star1-tail-length: 7.08em;
+  --top-offset: 52.42vh;
+  --fall-duration: 9.168s;
+  --fall-delay: 2.848s;
+}
+.star1:nth-child(24) {
+  --star1-tail-length: 5.54em;
+  --top-offset: 46.64vh;
+  --fall-duration: 8.618s;
+  --fall-delay: 3.094s;
+}
+.star1:nth-child(25) {
+  --star1-tail-length: 6.08em;
+  --top-offset: 93.75vh;
+  --fall-duration: 11.861s;
+  --fall-delay: 6.308s;
+}
+.star1:nth-child(26) {
+  --star1-tail-length: 5.69em;
+  --top-offset: 19.71vh;
+  --fall-duration: 7.836s;
+  --fall-delay: 8.632s;
+}
+.star1:nth-child(27) {
+  --star1-tail-length: 6.64em;
+  --top-offset: 84.58vh;
+  --fall-duration: 6.97s;
+  --fall-delay: 2.888s;
+}
+.star1:nth-child(28) {
+  --star1-tail-length: 5.28em;
+  --top-offset: 6.81vh;
+  --fall-duration: 10.436s;
+  --fall-delay: 6.917s;
+}
+.star1:nth-child(29) {
+  --star1-tail-length: 6.87em;
+  --top-offset: 16.91vh;
+  --fall-duration: 8.431s;
+  --fall-delay: 0.697s;
+}
+.star1:nth-child(30) {
+  --star1-tail-length: 5.52em;
+  --top-offset: 18.17vh;
+  --fall-duration: 7.418s;
+  --fall-delay: 1.333s;
+}
+.star1:nth-child(31) {
+  --star1-tail-length: 6.01em;
+  --top-offset: 48.76vh;
+  --fall-duration: 8.236s;
+  --fall-delay: 7.552s;
+}
+.star1:nth-child(32) {
+  --star1-tail-length: 7.18em;
+  --top-offset: 20.03vh;
+  --fall-duration: 11.886s;
+  --fall-delay: 1.052s;
+}
+.star1:nth-child(33) {
+  --star1-tail-length: 6.88em;
+  --top-offset: 73.65vh;
+  --fall-duration: 8.528s;
+  --fall-delay: 0.751s;
+}
+.star1:nth-child(34) {
+  --star1-tail-length: 6.32em;
+  --top-offset: 4.85vh;
+  --fall-duration: 10.893s;
+  --fall-delay: 1.817s;
+}
+.star1:nth-child(35) {
+  --star1-tail-length: 6.19em;
+  --top-offset: 25.81vh;
+  --fall-duration: 6.237s;
+  --fall-delay: 7.13s;
+}
+.star1:nth-child(36) {
+  --star1-tail-length: 5.79em;
+  --top-offset: 16.92vh;
+  --fall-duration: 8.134s;
+  --fall-delay: 7.459s;
+}
+.star1:nth-child(37) {
+  --star1-tail-length: 6.98em;
+  --top-offset: 81.68vh;
+  --fall-duration: 7.128s;
+  --fall-delay: 8.113s;
+}
+.star1:nth-child(38) {
+  --star1-tail-length: 5.43em;
+  --top-offset: 81.44vh;
+  --fall-duration: 7.795s;
+  --fall-delay: 8.411s;
+}
+.star1:nth-child(39) {
+  --star1-tail-length: 5.86em;
+  --top-offset: 65.53vh;
+  --fall-duration: 6.846s;
+  --fall-delay: 3.209s;
+}
+.star1:nth-child(40) {
+  --star1-tail-length: 5.43em;
+  --top-offset: 42.27vh;
+  --fall-duration: 11.333s;
+  --fall-delay: 1.995s;
+}
+.star1:nth-child(41) {
+  --star1-tail-length: 6.68em;
+  --top-offset: 64.5vh;
+  --fall-duration: 11.992s;
+  --fall-delay: 3.95s;
+}
+.star1:nth-child(42) {
+  --star1-tail-length: 5.71em;
+  --top-offset: 33.69vh;
+  --fall-duration: 10.508s;
+  --fall-delay: 9.922s;
+}
+.star1:nth-child(43) {
+  --star1-tail-length: 6.44em;
+  --top-offset: 21.9vh;
+  --fall-duration: 10.696s;
+  --fall-delay: 5.505s;
+}
+.star1:nth-child(44) {
+  --star1-tail-length: 6.41em;
+  --top-offset: 57.08vh;
+  --fall-duration: 9.913s;
+  --fall-delay: 2.311s;
+}
+.star1:nth-child(45) {
+  --star1-tail-length: 5.72em;
+  --top-offset: 60.67vh;
+  --fall-duration: 7.15s;
+  --fall-delay: 7.631s;
+}
+.star1:nth-child(46) {
+  --star1-tail-length: 6.62em;
+  --top-offset: 7.51vh;
+  --fall-duration: 6.464s;
+  --fall-delay: 6.303s;
+}
+.star1:nth-child(47) {
+  --star1-tail-length: 7.12em;
+  --top-offset: 38.61vh;
+  --fall-duration: 8.154s;
+  --fall-delay: 1.598s;
+}
+.star1:nth-child(48) {
+  --star1-tail-length: 6.92em;
+  --top-offset: 88.04vh;
+  --fall-duration: 7.463s;
+  --fall-delay: 8.131s;
+}
+.star1:nth-child(49) {
+  --star1-tail-length: 6.75em;
+  --top-offset: 15.44vh;
+  --fall-duration: 9.192s;
+  --fall-delay: 0.458s;
+}
+.star1:nth-child(50) {
+  --star1-tail-length: 6.42em;
+  --top-offset: 95.9vh;
+  --fall-duration: 9.633s;
+  --fall-delay: 7.624s;
+}
+.star1::before, .star1::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: calc(var(--star1-width) / -2);
+  width: var(--star1-width);
+  height: 100%;
+  background: linear-gradient(45deg, transparent, currentColor, transparent);
+  border-radius: inherit;
+  animation: blink 2s linear infinite;
+}
+.star1::before {
+  transform: rotate(45deg);
+}
+.star1::after {
+  transform: rotate(-45deg);
+}
+
+@keyframes fall {
+  to {
+    transform: translate3d(-30em, 0, 0);
+  }
+}
+@keyframes tail-fade {
+  0%, 50% {
+    width: var(--star1-tail-length);
+    opacity: 1;
+  }
+  70%, 80% {
+    width: 0;
+    opacity: 0.4;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0.6;
+  }
+}
+    </style>
+ 
+ <div class="stars1" id="stars1">
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
+    <div class="star1"></div>
   </div>
 </body>
 
