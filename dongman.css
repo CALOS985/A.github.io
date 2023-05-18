@@ -206,7 +206,8 @@
 
     /* Dark color scheme */
     body.dark {
-      background-color: #333333;
+      /* background-color: #333333; */
+      background: radial-gradient(ellipse at bottom, #091422 0%, #31375c 100%);
       color: #e77416;
     }
 
