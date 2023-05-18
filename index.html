@@ -368,12 +368,13 @@
     loveButton.addEventListener('click', () => {
       const loveText = document.createElement('div');
       loveText.classList.add('love-text');
-      loveText.innerText = 'I love you';
+      loveText.innerText = '我爱你';
       loveText.style.fontSize = getRandomSize();
       loveText.style.color = getRandomColor();
       loveText.style.left = getRandomXPosition();
       loveText.style.top = getRandomYPosition();
       document.body.appendChild(loveText);
+	    loveText.style.pointerEvents = 'none';
     });
     function getRandomSize() {
       const sizes = ['24px', '32px', '40px', '48px', '56px'];
