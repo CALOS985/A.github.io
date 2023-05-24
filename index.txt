@@ -752,73 +752,122 @@ align-items: center;
         // 将计算结果显示在网页上
         document.getElementById("date-info").innerHTML = "<p>今天是" + today.getFullYear() + "年的第<span>" + dayOfYear + "</span>天,"  + "占全年的百分之<span>" + percentOfYear + "</span>%。</p>";
     </script>
-<!-- 幸福开关 -->
-<style>
+  <!-- 幸福开关 -->
 
-  #love-button {
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 24px;
-    background-color: pink;
-    color: white;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-  }
-  #love-button:hover {
-    transform: translate(-50%, 0);
-  }
-  .love-text {
-    position: absolute;
-    font-family: sans-serif;
-    animation: float 10s ease-in infinite;
-    font-weight: bold;
-  }
-  @keyframes float {
-    0% {
-      transform: translate(0, 0);
-      opacity: 1;
+  <style>
+    #love-button {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      padding: 20px 20px;
+      border-radius: 20px;
+      font-size: 24px;
+      background-color: pink;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
     }
-    100% {
-      transform: translate(0, -200vh);
-      opacity: 0;
+    #love-button:hover {
+      transform: translate(-50%, 0);
     }
-  }
-
-</style>
-<button id="love-button">幸福开关</button>
+    .love-text {
+      position: absolute;
+      font-family: sans-serif;
+      font-weight: bold;
+      animation: explode 3s linear infinite, changeColor 0.5s linear infinite;
+      user-select: none;
+      pointer-events: none;
+      z-index: 9999; /* 将显示的文字置于最上层 */
+    }
+    @keyframes explode {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(3);
+        opacity: 0;
+      }
+    }
+    @keyframes changeColor {
+      0% {color: #ff69b4;}
+      20% {color: #ff7f50;}
+      40% {color: #6495ed;}
+      60% {color: #8fbc8f;}
+      80% {color: #ffa07a;}
+      100% {color: #ff69b4;}
+    }
+    #love-text-center {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      font-weight: bold;
+      user-select: none;
+      opacity: 0; /* 初始设置文本透明 */
+      transition: opacity 0.5s ease-in-out; /* 添加过渡效果 */
+      color: #ff69b4;
+      z-index: 9999; /* 将显示的文字置于最上层 */
+    }
+    .show1 { /* 添加显示文本的类 */
+      opacity: 1 !important;
+    }
+  </style>
+  <button id="love-button">幸福开关</button>
+  <div id="love-text-center">I LOVE YOU</div>
+  
   <script>
-    const loveButton = document.getElementById('love-button');
-    loveButton.addEventListener('click', () => {
+  const loveButton = document.getElementById('love-button');
+  const loveTextCenter = document.getElementById('love-text-center'); // 获取文本元素
+  
+  const textCount = 20; // 修改生成的文本数量为20个
+  
+  loveButton.addEventListener('click', () => {
+    const loveTexts = []; // 用于存储生成的文本元素
+  
+    for(let i = 0; i < textCount; i++) {
       const loveText = document.createElement('div');
       loveText.classList.add('love-text');
-      loveText.innerText = 'I love you';
-      loveText.style.fontSize = getRandomSize();
-      loveText.style.color = getRandomColor();
-      loveText.style.left = getRandomXPosition();
-      loveText.style.top = getRandomYPosition();
+      loveText.innerText = '❤️'; // 修改文本内容为心形符号
+      loveText.style.left = '50%'; // 将文字水平居中
+      loveText.style.top = '50%'; // 将文字垂直居中
+      loveText.style.transform = `translate(-50%, -50%) rotate(${i * (360 / textCount)}deg)`; // 设置文字旋转和位置
       document.body.appendChild(loveText);
-    });
-    function getRandomSize() {
-      const sizes = ['24px', '32px', '40px', '48px', '56px'];
-      return sizes[Math.floor(Math.random() * sizes.length)];
+      loveTexts.push(loveText); // 将生成的文本元素添加到数组中
     }
-    function getRandomColor() {
-      const colors = ['#ff69b4', '#ff7f50', '#6495ed', '#8fbc8f', '#ffa07a'];
-      return colors[Math.floor(Math.random() * colors.length)];
+  
+    const heartShape = createHeartShape(loveTexts); // 创建爱心形状
+    document.body.appendChild(heartShape); // 将爱心形状添加到页面中
+  
+    loveTextCenter.classList.add('show1'); // 添加显示文本的类
+  });
+  
+  function createHeartShape(textElements) {
+    const heartShape = document.createElement('div');
+    heartShape.style.position = 'fixed';
+    heartShape.style.top = '50%';
+    heartShape.style.left = '50%';
+    heartShape.style.transform = 'translate(-50%, -50%)';
+    heartShape.style.width = '400px';
+    heartShape.style.height = '400px';
+  
+    const angle = (Math.PI * 2) / textElements.length;
+    const radius = 150;
+  
+    for (let i = 0; i < textElements.length; i++) {
+      const loveText = textElements[i];
+      const x = Math.cos(angle * i) * radius;
+      const y = Math.sin(angle * i) * radius;
+      loveText.style.position = 'absolute';
+      loveText.style.left = `calc(50% + ${x}px)`;
+      loveText.style.top = `calc(50% + ${y}px)`;
+      heartShape.appendChild(loveText);
     }
-    function getRandomXPosition() {
-      const screenWidth = window.innerWidth;
-      const textWidth = 200;
-      return Math.floor(Math.random() * (screenWidth - textWidth)) + 'px';
-    }
-    function getRandomYPosition() {
-      const screenHeight = window.innerHeight;
-      return Math.floor(Math.random() * screenHeight) + 'px';
-    }
+  
+    return heartShape;
+  }
   </script>
 
       <!-- 开关按钮 -->
@@ -881,8 +930,8 @@ align-items: center;
      <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
      Integrity = "sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
      crossorigin = "anonymous" referrerpolicy = "no-referrer"> </script>
-     <label class = "toggleButton">
-      <input type = "checkbox" id = "toggle">
+     <label class = "toggleButton" >
+      <input type = "checkbox" id = "toggle" onclick="stopp()">
       <div class = "roundButton circle" ></div>
    </label>
    <script>
