@@ -639,7 +639,7 @@ a {
 
         .popup-container .left .link {
             height: 39px;
-
+            font-size: 14px;
             display: flex;
             align-items: center;
             border-radius: 3px;
