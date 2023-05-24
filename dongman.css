@@ -396,7 +396,9 @@
          color: red;
      }
  
-       <!-- 幸福开关 -->
+         <!-- 幸福开关 -->
+
+
     #love-button {
       position: fixed;
       top: 20px;
@@ -456,6 +458,7 @@
     .show1 { /* 添加显示文本的类 */
       opacity: 1 !important;
     }
+ 
   
      
    
