@@ -362,63 +362,7 @@
         document.getElementById("date-info").innerHTML = "<p>今天是" + today.getFullYear() + "年的第<span>" + dayOfYear + "</span>天,"  + "占全年的百分之<span>" + percentOfYear + "</span>%。</p>";
     </script>
 
-<!-- 幸福开关 -->
 
-
-  <button id="love-button">幸福开关</button>
-  <div id="love-text-center">I LOVE YOU</div>
-  
-  <script>
-  const loveButton = document.getElementById('love-button');
-  const loveTextCenter = document.getElementById('love-text-center'); // 获取文本元素
-  
-  const textCount = 20; // 修改生成的文本数量为20个
-  
-  loveButton.addEventListener('click', () => {
-    const loveTexts = []; // 用于存储生成的文本元素
-  
-    for(let i = 0; i < textCount; i++) {
-      const loveText = document.createElement('div');
-      loveText.classList.add('love-text');
-      loveText.innerText = '❤️'; // 修改文本内容为心形符号
-      loveText.style.left = '50%'; // 将文字水平居中
-      loveText.style.top = '50%'; // 将文字垂直居中
-      loveText.style.transform = `translate(-50%, -50%) rotate(${i * (360 / textCount)}deg)`; // 设置文字旋转和位置
-      document.body.appendChild(loveText);
-      loveTexts.push(loveText); // 将生成的文本元素添加到数组中
-    }
-  
-    const heartShape = createHeartShape(loveTexts); // 创建爱心形状
-    document.body.appendChild(heartShape); // 将爱心形状添加到页面中
-  
-    loveTextCenter.classList.add('show1'); // 添加显示文本的类
-  });
-  
-  function createHeartShape(textElements) {
-    const heartShape = document.createElement('div');
-    heartShape.style.position = 'fixed';
-    heartShape.style.top = '50%';
-    heartShape.style.left = '50%';
-    heartShape.style.transform = 'translate(-50%, -50%)';
-    heartShape.style.width = '400px';
-    heartShape.style.height = '400px';
-  
-    const angle = (Math.PI * 2) / textElements.length;
-    const radius = 150;
-  
-    for (let i = 0; i < textElements.length; i++) {
-      const loveText = textElements[i];
-      const x = Math.cos(angle * i) * radius;
-      const y = Math.sin(angle * i) * radius;
-      loveText.style.position = 'absolute';
-      loveText.style.left = `calc(50% + ${x}px)`;
-      loveText.style.top = `calc(50% + ${y}px)`;
-      heartShape.appendChild(loveText);
-    }
-  
-    return heartShape;
-  }
-  </script>
 
       <!-- 开关按钮 -->
 
