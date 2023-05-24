@@ -395,42 +395,68 @@
      #date-info span {
          color: red;
      }
-/* 
-     <!-- 幸福开关 --> */
-   
-     
-       #love-button {
-         position: fixed;
-         top: 10px;
-         left: 50%;
-         transform: translate(-50%, -100%);
-         padding: 10px 20px;
-         border-radius: 20px;
-         font-size: 24px;
-         background-color: pink;
-         color: white;
-         cursor: pointer;
-         transition: transform 0.3s ease-in-out;
-       }
-       #love-button:hover {
-         transform: translate(-50%, 0);
-       }
-       .love-text {
-         position: absolute;
-         font-family: sans-serif;
-         animation: float 10s ease-in infinite;
-         font-weight: bold;
-       }
-       @keyframes float {
-         0% {
-           transform: translate(0, 0);
-           opacity: 1;
-         }
-         100% {
-           transform: translate(0, -200vh);
-           opacity: 0;
-         }
-       }
+ 
+       <!-- 幸福开关 -->
+    #love-button {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      padding: 20px 20px;
+      border-radius: 20px;
+      font-size: 24px;
+      background-color: pink;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease-in-out;
+    }
+    #love-button:hover {
+      transform: translate(-50%, 0);
+    }
+    .love-text {
+      position: absolute;
+      font-family: sans-serif;
+      font-weight: bold;
+      animation: explode 3s linear infinite, changeColor 0.5s linear infinite;
+      user-select: none;
+      pointer-events: none;
+      z-index: 9999; /* 将显示的文字置于最上层 */
+    }
+    @keyframes explode {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(3);
+        opacity: 0;
+      }
+    }
+    @keyframes changeColor {
+      0% {color: #ff69b4;}
+      20% {color: #ff7f50;}
+      40% {color: #6495ed;}
+      60% {color: #8fbc8f;}
+      80% {color: #ffa07a;}
+      100% {color: #ff69b4;}
+    }
+    #love-text-center {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      font-weight: bold;
+      user-select: none;
+      opacity: 0; /* 初始设置文本透明 */
+      transition: opacity 0.5s ease-in-out; /* 添加过渡效果 */
+      color: #ff69b4;
+      z-index: 9999; /* 将显示的文字置于最上层 */
+    }
+    .show1 { /* 添加显示文本的类 */
+      opacity: 1 !important;
+    }
+  
      
    
   
