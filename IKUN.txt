@@ -2,184 +2,190 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="UTF-8" />
-    <title>坤の⚡脑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <title>坤の⚡脑</title>
 
-    <!-- 禁止F12 -->
+  <!-- 禁止F12 -->
 
-    <script type="text/javascript">
-        //屏蔽右键菜单
-        document.oncontextmenu = function (event) {
-            if (window.event) {
-                event = window.event;
-            }
-            try {
-                var the = event.srcElement;
-                if (
-                    !(
-                        (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
-                        the.tagName == "TEXTAREA"
-                    )
-                ) {
-                    return false;
-                }
-                return true;
-            } catch (e) {
-                return false;
-            }
-        };
-        //屏蔽粘贴
-        document.onpaste = function (event) {
-            if (window.event) {
-                event = window.event;
-            }
-            try {
-                var the = event.srcElement;
-                if (
-                    !(
-                        (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
-                        the.tagName == "TEXTAREA"
-                    )
-                ) {
-                    return false;
-                }
-                return true;
-            } catch (e) {
-                return false;
-            }
-        };
-        //屏蔽复制
-
-        //屏蔽剪切
-        document.oncut = function (event) {
-            if (window.event) {
-                event = window.event;
-            }
-            try {
-                var the = event.srcElement;
-                if (
-                    !(
-                        (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
-                        the.tagName == "TEXTAREA"
-                    )
-                ) {
-                    return false;
-                }
-                return true;
-            } catch (e) {
-                return false;
-            }
-        };
-        //禁止f12
-
-        function fuckyou() {
-            window.close(); //关闭当前窗口(防抽)
-            window.location = "about:blank"; //将当前窗口跳转置空白页
+  <script type="text/javascript">
+    //屏蔽右键菜单
+    document.oncontextmenu = function (event) {
+      if (window.event) {
+        event = window.event;
+      }
+      try {
+        var the = event.srcElement;
+        if (
+          !(
+            (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
+            the.tagName == "TEXTAREA"
+          )
+        ) {
+          return false;
         }
-        //禁止Ctrl+U
-        var arr = [123, 17, 18];
-        (document.oncontextmenu = new Function("event.returnValue=false;")), //禁用右键
-            (window.onkeydown = function (e) {
-                var keyCode = e.keyCode || e.which || e.charCode;
-                var ctrlKey = e.ctrlKey || e.metaKey;
-                console.log(keyCode + "--" + keyCode);
-                if (ctrlKey && keyCode == 85) {
-                    e.preventDefault();
-                }
-                if (arr.indexOf(keyCode) > -1) {
-                    e.preventDefault();
-                }
-            });
-
-        function ck() {
-            console.profile();
-            console.profileEnd();
-            //我们判断一下profiles里面有没有东西，如果有，肯定有人按F12了，没错！！
-            if (console.clear) {
-                console.clear();
-            }
-            if (typeof console.profiles == "object") {
-                return console.profiles.length > 0;
-            }
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+    //屏蔽粘贴
+    document.onpaste = function (event) {
+      if (window.event) {
+        event = window.event;
+      }
+      try {
+        var the = event.srcElement;
+        if (
+          !(
+            (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
+            the.tagName == "TEXTAREA"
+          )
+        ) {
+          return false;
         }
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+    //屏蔽复制
 
-        function hehe() {
-            if (
-                (window.console &&
-                    (console.firebug ||
-                        (console.table && /firebug/i.test(console.table())))) ||
-                (typeof opera == "object" &&
-                    typeof opera.postError == "function" &&
-                    console.profile.length > 0)
-            ) {
-                fuckyou();
-            }
-            if (
-                typeof console.profiles == "object" &&
-                console.profiles.length > 0
-            ) {
-                fuckyou();
-            }
+    //屏蔽剪切
+    document.oncut = function (event) {
+      if (window.event) {
+        event = window.event;
+      }
+      try {
+        var the = event.srcElement;
+        if (
+          !(
+            (the.tagName == "INPUT" && the.type.toLowerCase() == "text") ||
+            the.tagName == "TEXTAREA"
+          )
+        ) {
+          return false;
         }
-        hehe();
-        window.onresize = function () {
-            if (window.outerHeight - window.innerHeight > 200)
-                //判断当前窗口内页高度和窗口高度，如果差值大于200，那么呵呵
-                fuckyou();
-        };
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+    //禁止f12
 
-        document.onkeydown = function (event) {
-            if (
-                event.keyCode == 112 || //屏蔽 F1
-                event.keyCode == 113 || //屏蔽 F2
-                event.keyCode == 114 || //屏蔽 F3
-                event.keyCode == 115 || //屏蔽 F4
-                // (event.keyCode == 116) || //屏蔽 F5
-                event.keyCode == 117 || //屏蔽 F6
-                event.keyCode == 118 || //屏蔽 F7
-                event.keyCode == 119 || //屏蔽 F8
-                event.keyCode == 120 || //屏蔽 F9
-                event.keyCode == 121 || //屏蔽 F10
-                event.keyCode == 122 || //屏蔽 F11
-                event.keyCode == 123
-            ) {
-                //屏蔽 F12
-                return false;
-            }
-        };
-        window.onhelp = function () {
-            return false;
-        };
-    </script>
-    <script>
-        //按键触发
-        document.onkeydown = function () {
-            //禁止ctrl+s
-            if (event.ctrlKey && window.event.keyCode == 83) {
-                return false;
-            }
-        };
-    </script>
-
-    <style>
-        /* 鼠标指针 */
-        body {
-            cursor: url(https://pic2.imgdb.cn/item/64528b7d0d2dde5777b39418.png),
-                auto;
+    function fuckyou() {
+      window.close(); //关闭当前窗口(防抽)
+      window.location = "about:blank"; //将当前窗口跳转置空白页
+    }
+    //禁止Ctrl+U
+    var arr = [123, 17, 18];
+    (document.oncontextmenu = new Function("event.returnValue=false;")), //禁用右键
+      (window.onkeydown = function (e) {
+        var keyCode = e.keyCode || e.which || e.charCode;
+        var ctrlKey = e.ctrlKey || e.metaKey;
+        console.log(keyCode + "--" + keyCode);
+        if (ctrlKey && keyCode == 85) {
+          e.preventDefault();
         }
-
-        a {
-            cursor: url(" https://pic2.imgdb.cn/item/64528b6d0d2dde5777b389f0.png"),
-                auto;
+        if (arr.indexOf(keyCode) > -1) {
+          e.preventDefault();
         }
+      });
 
-        a:active {
-            cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/work.cur),
-                alias;
-        }
+    function ck() {
+      console.profile();
+      console.profileEnd();
+      //我们判断一下profiles里面有没有东西，如果有，肯定有人按F12了，没错！！
+      if (console.clear) {
+        console.clear();
+      }
+      if (typeof console.profiles == "object") {
+        return console.profiles.length > 0;
+      }
+    }
 
-        /* body {
+    function hehe() {
+      if (
+        (window.console &&
+          (console.firebug ||
+            (console.table && /firebug/i.test(console.table())))) ||
+        (typeof opera == "object" &&
+          typeof opera.postError == "function" &&
+          console.profile.length > 0)
+      ) {
+        fuckyou();
+      }
+      if (
+        typeof console.profiles == "object" &&
+        console.profiles.length > 0
+      ) {
+        fuckyou();
+      }
+    }
+    hehe();
+    window.onresize = function () {
+      if (window.outerHeight - window.innerHeight > 200)
+        //判断当前窗口内页高度和窗口高度，如果差值大于200，那么呵呵
+        fuckyou();
+    };
+
+    document.onkeydown = function (event) {
+      if (
+        event.keyCode == 112 || //屏蔽 F1
+        event.keyCode == 113 || //屏蔽 F2
+        event.keyCode == 114 || //屏蔽 F3
+        event.keyCode == 115 || //屏蔽 F4
+        // (event.keyCode == 116) || //屏蔽 F5
+        event.keyCode == 117 || //屏蔽 F6
+        event.keyCode == 118 || //屏蔽 F7
+        event.keyCode == 119 || //屏蔽 F8
+        event.keyCode == 120 || //屏蔽 F9
+        event.keyCode == 121 || //屏蔽 F10
+        event.keyCode == 122 || //屏蔽 F11
+        event.keyCode == 123
+      ) {
+        //屏蔽 F12
+        return false;
+      }
+    };
+    window.onhelp = function () {
+      return false;
+    };
+  </script>
+  <script>
+    //按键触发
+    document.onkeydown = function () {
+      //禁止ctrl+s
+      if (event.ctrlKey && window.event.keyCode == 83) {
+        return false;
+      }
+    };
+  </script>
+
+  <style>
+    /* 鼠标指针 */
+    body {
+      cursor: url(https://img.gejiba.com/images/e579d7ede5236c13ca9439f2fc8a4310.png),
+        auto;
+    }
+
+    a {
+      cursor: url("https://img.gejiba.com/images/c9537a1cd0ad66a8e9c0e376541305b4.png"),
+        auto;
+    }
+
+    Button:hover {
+      cursor: url("https://img.gejiba.com/images/c9537a1cd0ad66a8e9c0e376541305b4.png"),
+        auto;
+    }
+
+
+    a:active {
+      cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/work.cur),
+        alias;
+    }
+
+    /* body {
             background-image: url("https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png");
             background-size: cover;
             background-position: center center;
@@ -187,966 +193,1115 @@
             padding: 0;
             height: 100vh;
         } */
-        body {
-			margin: 0;
-			padding: 0;
-			background: url(https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png) no-repeat center center fixed;
-			-webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
+    body {
+      margin: 0;
+      padding: 0;
+      background: url(https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
       height: 100vh;
-		}
-		.containerBG {
-  position: fixed;
-  bottom: 70px;
-  right: 0;
-  width: 100px;
-  height: 30px;
-  background-color: rgba(128, 128, 128, 0.5); /* 半透明灰色 */
-  border: 1px solid #000;
-  text-align: center;
-  line-height: 30px;
-  cursor: pointer;
-  color: aliceblue;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
+    }
 
-.containerBG:hover {
-  background-color: rgba(255, 255, 255, 0.8); /* 鼠标悬停时发亮 */
-color: rgb(13, 14, 13);
-font-weight: bold;
-}
-.containerBG1 {
-  position: fixed;
-  bottom: 40px;
-  right: 0;
-  width: 100px;
-  height: 30px;
-  background-color: rgba(128, 128, 128, 0.5); /* 半透明灰色 */
-  border: 1px solid #000;
-  text-align: center;
-  line-height: 30px;
-  cursor: pointer;
-  color: aliceblue;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-.containerBG1:hover {
-  background-color: rgba(255, 255, 255, 0.8); /* 鼠标悬停时发亮 */
-color: rgb(13, 14, 13);
-font-weight: bold;
-}
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
+    .containerBG {
+      position: fixed;
+      bottom: 70px;
+      right: 0;
+      width: 100px;
+      height: 30px;
+      background-color: rgba(128, 128, 128, 0.5);
+      /* 半透明灰色 */
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      color: aliceblue;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
 
-        /* 定义谷歌浏览器图标 */
-        .chrome-icon {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background-image: url("https://pic2.imgdb.cn/item/645290920d2dde5777b9eaa2.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
+    .containerBG:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+      /* 鼠标悬停时发亮 */
+      color: rgb(13, 14, 13);
+      font-weight: bold;
+    }
 
-        /* 定义文件夹图标 */
-        .item span {
-            color: black;
-            font-family: "Comic Sans MS", cursive, sans-serif;
-        }
+    .containerBG1 {
+      position: fixed;
+      bottom: 40px;
+      right: 0;
+      width: 100px;
+      height: 30px;
+      background-color: rgba(128, 128, 128, 0.5);
+      /* 半透明灰色 */
+      border: 1px solid #000;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      color: aliceblue;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
 
-        .folder-icon {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            background-image: url("https://pic2.imgdb.cn/item/64528f550d2dde5777b8ede2.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
+    .containerBG1:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+      /* 鼠标悬停时发亮 */
+      color: rgb(13, 14, 13);
+      font-weight: bold;
+    }
 
-        /* 定义文件图标 */
-        .file-icon {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background-image: url("https://pic2.imgdb.cn/item/645290920d2dde5777b9eaa2.png");
-            background-size: contain;
-            background-repeat: no-repeat;
-            vertical-align: middle;
-            margin-right: 5px;
-        }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
 
-        /* 定义文件夹和文件的样式 */
-        .item {
-            cursor: pointer;
-            margin-bottom: 5px;
-            padding-left: 20px;
-        }
+    /* 定义谷歌浏览器图标 */
+    .chrome-icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-image: url("https://pic2.imgdb.cn/item/645290920d2dde5777b9eaa2.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
 
-        /* 定义文件夹和文件的悬停样式
+    /* 定义文件夹图标 */
+    .item span {
+      color: black;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+
+    .folder-icon {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      background-image: url("https://pic2.imgdb.cn/item/64528f550d2dde5777b8ede2.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    /* 定义文件图标 */
+    .file-icon {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-image: url("https://pic2.imgdb.cn/item/645290920d2dde5777b9eaa2.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      margin-right: 5px;
+    }
+
+    /* 定义文件夹和文件的样式 */
+    .item {
+      cursor: pointer;
+      margin-bottom: 5px;
+      padding-left: 20px;
+    }
+
+    /* 定义文件夹和文件的悬停样式
 		.item:hover {
 			background-color: #3aeb0e;
 		} */
 
-        /* 定义文件夹和文件的展开样式 */
-        /* .item.open {
+    /* 定义文件夹和文件的展开样式 */
+    /* .item.open {
 			background-color: #e0e0e0;
 		} */
 
-        /* 定义文件夹和文件的子项容器 */
-        .children {
-            display: none;
-            margin-left: 20px;
-            padding-left: 20px;
-            border-left: 1px solid #ccc;
-            box-shadow: none;
-        }
+    /* 定义文件夹和文件的子项容器 */
+    .children {
+      display: none;
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 1px solid #ccc;
+      box-shadow: none;
+    }
 
-        /* 定义文件夹和文件的子项容器的展开样式 */
-        .item.open>.children {
-            display: block;
-        }
+    /* 定义文件夹和文件的子项容器的展开样式 */
+    .item.open>.children {
+      display: block;
+    }
 
-        a:hover {
-            color: red;
-        }
+    a:hover {
+      color: red;
+    }
 
-        a {
-            text-decoration: none;
-            color: black;
-        }
-    </style>
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- 顶部栏 -->
-    <style>
-        /* 顶部黑色半透明网页顶栏样式 */
-        .top-bar {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1;
-        }
+  <!-- 顶部栏 -->
+  <style>
+    /* 顶部黑色半透明网页顶栏样式 */
+    .top-bar {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
 
-        .top-bar-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
+    .top-bar-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
 
-        .logo img {
-            margin-right: 10px;
-            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-        }
+    .logo img {
+      margin-right: 10px;
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    }
 
-        .nav-links a {
-            color: #fff;
-            margin-left: 20px;
-            margin-right: 30px;
-            text-decoration: none;
-        }
+    .nav-links a {
+      color: #fff;
+      margin-left: 20px;
+      margin-right: 30px;
+      text-decoration: none;
+    }
 
-        .nav-links a:first-child {
-            margin-left: 0;
-        }
+    .nav-links a:first-child {
+      margin-left: 0;
+    }
 
-        /* 弹窗样式 */
-        .modal-container {
-            background-color: rgba(255, 255, 255, 0.8);
-            display: none;
-            height: 100%;
-            left: 0;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 2;
-        }
+    /* 弹窗样式 */
+    .modal-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      display: none;
+      height: 100%;
+      left: 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
 
-        .modal {
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-            left: 50%;
-            position: fixed;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            z-index: 3;
-        }
+    .modal {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+      left: 50%;
+      position: fixed;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      z-index: 3;
+    }
 
-        .modal-content {
-            padding: 20px;
-        }
+    .modal-content {
+      padding: 20px;
+    }
 
-        .close-button {
-            background-color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            padding: 10px;
-            position: absolute;
-            right: 20px;
-            top: 20px;
-        }
+    .close-button {
+      background-color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 10px;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
 
-        .show .menu-icon {
-            display: block;
-        }
+    .show .menu-icon {
+      display: block;
+    }
 
-        .menu-icon {
-            display: block;
-            cursor: pointer;
-        }
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+    }
 
-        @media (min-width: 600px) {
-            .text {
-                display: block;
-                margin-left: 10px;
-            }
-        }
+    @media (min-width: 600px) {
+      .text {
+        display: block;
+        margin-left: 10px;
+      }
+    }
 
-        @media (max-width: 600px) {
-            .logo {
-                flex-direction: column;
-                align-items: center;
-            }
+    @media (max-width: 600px) {
+      .logo {
+        flex-direction: column;
+        align-items: center;
+      }
 
-            .text {
-                display: block;
-                margin-top: 5px;
-            }
-        }
+      .text {
+        display: block;
+        margin-top: 5px;
+      }
+    }
 
-        /* 文字特效 */
-        .typing {
-            color: white;
+    /* 文字特效 */
+    .typing {
+      color: white;
 
-            width: 5em;
-            height: 1.5em;
-            border-right: 1px solid transparent;
-            animation: typing 1s steps(21, end), blink-caret 1s step-end infinite;
-            font-family: Consolas, Monaco;
-            word-break: break-all;
-            overflow: hidden;
-        }
+      width: 5em;
+      height: 1.5em;
+      border-right: 1px solid transparent;
+      animation: typing 1s steps(21, end), blink-caret 1s step-end infinite;
+      font-family: Consolas, Monaco;
+      word-break: break-all;
+      overflow: hidden;
+    }
 
-        /* 打印效果 */
-        @keyframes typing {
-            from {
-                width: 0;
-            }
+    /* 打印效果 */
+    @keyframes typing {
+      from {
+        width: 0;
+      }
 
-            to {
-                width: 5em;
-            }
-        }
+      to {
+        width: 5em;
+      }
+    }
 
-        /* 光标 */
-        @keyframes blink-caret {
+    /* 光标 */
+    @keyframes blink-caret {
 
-            from,
-            to {
-                border-color: transparent;
-            }
+      from,
+      to {
+        border-color: transparent;
+      }
 
-            50% {
-                border-color: currentColor;
-            }
-        }
+      50% {
+        border-color: currentColor;
+      }
+    }
 
-        .nav-links a:hover {
-            color: red;
-            /* 新增 */
-        }
-    </style>
-    <div class="top-bar">
-        <div class="top-bar-content">
-            <div class="logo">
-                <img src="https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg" alt="Logo" width="50" height="50" />
-                <span class="text typing">坤坤的电脑</span>
-            </div>
+    .nav-links a:hover {
+      color: red;
+      /* 新增 */
+    }
+  </style>
+  <div class="top-bar">
+    <div class="top-bar-content">
+      <div class="logo">
+        <img src="https://pic2.imgdb.cn/item/64527fac0d2dde5777a64f84.jpg" alt="Logo" width="50" height="50" />
+        <span class="text typing">坤坤的电脑</span>
+      </div>
 
-            <div class="nav-links">
-                <a href="https://calos985.github.io/A.github.io/" target="_blank">Home</a>
-                <a href="#" class="about-link">About</a>
-                <a href="https://calos985.github.io/" target="_blank">Contact</a>
-            </div>
-        </div>
+      <div class="nav-links">
+        <a href="https://calos985.github.io/A.github.io/" target="_blank">Home</a>
+        <a href="#" class="about-link">About</a>
+        <a href="https://calos985.github.io/" target="_blank">Contact</a>
+      </div>
     </div>
+  </div>
 
-    <div class="modal-container">
-        <div class="modal">
-            <div class="modal-content">
-                <h2>About</h2>
-                <p>哎呦，你干嘛！唉唉哟..........！</p>
-                <button class="close-button">关闭</button>
-            </div>
-        </div>
+  <div class="modal-container">
+    <div class="modal">
+      <div class="modal-content">
+        <h2>About</h2>
+        <p>哎呦，你干嘛！唉唉哟..........！</p>
+        <button class="close-button">关闭</button>
+      </div>
     </div>
+  </div>
+  <script>
+    const aboutLink = document.querySelector(".about-link");
+    const modalContainer = document.querySelector(".modal-container");
+    const closeButton = document.querySelector(".close-button");
+
+    aboutLink.addEventListener("click", () => {
+      modalContainer.style.display = "block";
+    });
+
+    closeButton.addEventListener("click", () => {
+      modalContainer.style.display = "none";
+    });
+    const menuIcon = document.querySelector(".menu-icon");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuIcon.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  </script>
+  <div class="container">
+    <div class="containerBG" onclick="changeBackground()">切换壁纸</div>
+
     <script>
-        const aboutLink = document.querySelector(".about-link");
-        const modalContainer = document.querySelector(".modal-container");
-        const closeButton = document.querySelector(".close-button");
-
-        aboutLink.addEventListener("click", () => {
-            modalContainer.style.display = "block";
-        });
-
-        closeButton.addEventListener("click", () => {
-            modalContainer.style.display = "none";
-        });
-        const menuIcon = document.querySelector(".menu-icon");
-        const navLinks = document.querySelector(".nav-links");
-
-        menuIcon.addEventListener("click", () => {
-            navLinks.classList.toggle("show");
-        });
-    </script>
-    <div class="container">
-      <div class="containerBG" onclick="changeBackground()">切换壁纸</div>
-
-	<script>
-		var backgrounds = [
-       'https://img.gejiba.com/images/2cb0de46722bab95a5caab6eae0ad859.jpg',
-    
+      var backgrounds = [
+        'https://pic2.imgdb.cn/item/645280230d2dde5777a6dbee.png',
+        'https://img.gejiba.com/images/2136e45161e50f03711ca437f190cc6f.jpg',
+        'https://img.gejiba.com/images/00ca50f912a3696c2637726232833b47.jpg',
+        'https://img.gejiba.com/images/a6dab3c57e496f84398aba53b5e5df8b.jpg',
+        'https://img.gejiba.com/images/aca90952f4b60dab121c8bb125cad6ce.png',
+        'https://img.gejiba.com/images/5b9a42ab0b6b6944febdd9d10f551f47.png',
+        'https://img.gejiba.com/images/41f75b28afb06e3e2fa902acea06e7e1.png',
+        'https://img.gejiba.com/images/e45748a628c5da15afa2a995ae8277f1.jpg',
+        'https://img.gejiba.com/images/70af26b64395bd7662bceeadbf4cb55a.jpg',
+        'https://img.gejiba.com/images/62d66d9d0c73a0ff6358d68d82bd7f0a.jpg',
+        'https://img.gejiba.com/images/84d2142c803133a6a08fa3af2af2c41b.jpg',
+        'https://img.gejiba.com/images/2cb0de46722bab95a5caab6eae0ad859.jpg',
         'https://img.gejiba.com/images/288540a7458cd57bfec8e467dec77efa.jpg',
-         'https://img.gejiba.com/images/ed5fdcca97b91e8869fa30869b9d32b9.png',
-         'https://img.gejiba.com/images/3477e6280440ef6146103ebc318109c0.png',
-'https://img.gejiba.com/images/a84c6c1742590af9a0c92da7920f581d.jpg',
-'https://img.gejiba.com/images/b1a17fd9d07bcce240a990e81cf5b081.jpg',
-'https://img.gejiba.com/images/7730752ae3f5aa69495a80711bc1eb80.jpg',
-'https://img.gejiba.com/images/382974afd46b769f519a4b993fb17cfc.jpg',
-'https://img.gejiba.com/images/fcdd2375d873a43d89f82d850d2870f8.jpg',
-'https://img.gejiba.com/images/ac078cfd17fdf80b313d0b95580c260f.png',
-'https://img.gejiba.com/images/ec8be42cb8200371aadaf53c84266a28.jpg',
-'https://img.gejiba.com/images/180d8ca9220eb014dee9775a1ae4a527.jpg',
-'https://img.gejiba.com/images/236b8cc0483060b894268795c9e35203.png',
-'https://img.gejiba.com/images/7af7463f6dd4b974ef52bbb5997d8bb7.jpg',
-'https://img.gejiba.com/images/bd156392ed444d93ccae4cd8f0c29fde.jpg',
-'https://img.gejiba.com/images/266ad4eefb7dea0e35d75ad3ab99d16e.jpg',
-'https://img.gejiba.com/images/b7b055db25c24002092b43d6df99328a.png',
-'https://img.gejiba.com/images/e14a396d924b5365fa96eefb5b25e912.png',
-'https://img.gejiba.com/images/568567152e3f66039a73d6a010e75ee0.png',
-'https://img.gejiba.com/images/422cf01ca3148f7b9ce1b7ee919a1811.png',
-'https://img.gejiba.com/images/e2683c70e19f92196861163272fe8b39.jpg',
-'https://img.gejiba.com/images/ee2a189f15f9e79b62432ea7934f87b5.png',
-'https://img.gejiba.com/images/e02980d8fff7d0895e02d3bd3cb0b1d8.jpg',
-'https://img.gejiba.com/images/769059595af779fa6af0271a515d17c0.jpg',
-'https://img.gejiba.com/images/d2f5ccb36c09246b886520aa1ae13e58.jpg',
-'https://img.gejiba.com/images/3c0b9999e8f3f3e967d00448f1e0f922.jpg',
-'https://img.gejiba.com/images/1e14104d9a69c26bf585ad51d3bbc364.jpg',
-'https://img.gejiba.com/images/300ab8d94dbd297bfa06f501e46cf46c.png',
-'https://img.gejiba.com/images/6936bbb6e9ec54713db9425c844cd94d.png',
-'https://img.gejiba.com/images/0df1e856539ea1bffc823efcd35e9d51.jpg',
-'https://img.gejiba.com/images/054727d3b1f09ad91c11a2c0974f0145.jpg',
-'https://img.gejiba.com/images/a1714de8b25a256c2035463cefd8ec91.jpg',
-'https://img.gejiba.com/images/aba85f90c24b91e85a6353492ecb9006.png',
-'https://img.gejiba.com/images/475528f1879d9aa5bcc1c80e4a0aa374.jpg',
-'https://img.gejiba.com/images/a8fbc392aa76da878ab0e0549196cfeb.jpg',
-        ]; // 背景图片URL数组
-		var currentBackground = 0; // 当前背景图片的索引
+        'https://img.gejiba.com/images/ed5fdcca97b91e8869fa30869b9d32b9.png',
+        'https://img.gejiba.com/images/3477e6280440ef6146103ebc318109c0.png',
+        'https://img.gejiba.com/images/b1a17fd9d07bcce240a990e81cf5b081.jpg',
+        'https://img.gejiba.com/images/7730752ae3f5aa69495a80711bc1eb80.jpg',
+        'https://img.gejiba.com/images/382974afd46b769f519a4b993fb17cfc.jpg',
+        'https://img.gejiba.com/images/fcdd2375d873a43d89f82d850d2870f8.jpg',
+        'https://img.gejiba.com/images/ac078cfd17fdf80b313d0b95580c260f.png',
+        'https://img.gejiba.com/images/ec8be42cb8200371aadaf53c84266a28.jpg',
+        'https://img.gejiba.com/images/180d8ca9220eb014dee9775a1ae4a527.jpg',
+        'https://img.gejiba.com/images/236b8cc0483060b894268795c9e35203.png',
+        'https://img.gejiba.com/images/7af7463f6dd4b974ef52bbb5997d8bb7.jpg',
+        'https://img.gejiba.com/images/bd156392ed444d93ccae4cd8f0c29fde.jpg',
+        'https://img.gejiba.com/images/266ad4eefb7dea0e35d75ad3ab99d16e.jpg',
+        'https://img.gejiba.com/images/b7b055db25c24002092b43d6df99328a.png',
+        'https://img.gejiba.com/images/e14a396d924b5365fa96eefb5b25e912.png',
+        'https://img.gejiba.com/images/568567152e3f66039a73d6a010e75ee0.png',
+        'https://img.gejiba.com/images/422cf01ca3148f7b9ce1b7ee919a1811.png',
+        'https://img.gejiba.com/images/e2683c70e19f92196861163272fe8b39.jpg',
+        'https://img.gejiba.com/images/ee2a189f15f9e79b62432ea7934f87b5.png',
+        'https://img.gejiba.com/images/e02980d8fff7d0895e02d3bd3cb0b1d8.jpg',
+        'https://img.gejiba.com/images/769059595af779fa6af0271a515d17c0.jpg',
+        'https://img.gejiba.com/images/d2f5ccb36c09246b886520aa1ae13e58.jpg',
+        'https://img.gejiba.com/images/3c0b9999e8f3f3e967d00448f1e0f922.jpg',
+        'https://img.gejiba.com/images/1e14104d9a69c26bf585ad51d3bbc364.jpg',
+        'https://img.gejiba.com/images/300ab8d94dbd297bfa06f501e46cf46c.png',
+        'https://img.gejiba.com/images/6936bbb6e9ec54713db9425c844cd94d.png',
+        'https://img.gejiba.com/images/0df1e856539ea1bffc823efcd35e9d51.jpg',
+        'https://img.gejiba.com/images/054727d3b1f09ad91c11a2c0974f0145.jpg',
+        'https://img.gejiba.com/images/a1714de8b25a256c2035463cefd8ec91.jpg',
+        'https://img.gejiba.com/images/aba85f90c24b91e85a6353492ecb9006.png',
+        'https://img.gejiba.com/images/475528f1879d9aa5bcc1c80e4a0aa374.jpg',
+        'https://img.gejiba.com/images/a8fbc392aa76da878ab0e0549196cfeb.jpg',
+        'https://img.gejiba.com/images/dfb0fdb2ee3aeede8c500b44f0134a75.png',
+        'https://img.gejiba.com/images/569bf1d518cd914c024932b5835fcfc8.png',
+        'https://img.gejiba.com/images/b59f1cb81233447b099e083d24ffba18.jpg',
+        'https://img.gejiba.com/images/a84c6c1742590af9a0c92da7920f581d.jpg',
+        'https://img.gejiba.com/images/a84742803fe8c87a86f73325e9c76ebb.png'
+      ]; // 背景图片URL数组
+      var currentBackground = 0; // 当前背景图片的索引
 
-		function changeBackground() {
-			currentBackground++;
-			if (currentBackground >= backgrounds.length) {
-				currentBackground = 0;
-			}
-			document.body.style.backgroundImage = 'url(' + backgrounds[currentBackground] + ')';
-		}
-	</script>
-      <div class="containerBG1" onclick="downloadBackground()">下载壁纸</div>
-
-      <script>
-          function downloadBackground() {
-              var link = document.createElement('a');
-              link.download = 'background.jpg';
-              link.href = document.body.style.backgroundImage.replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0];
-              link.click();
-          }
-      </script>
-        <!-- 页面主体内容 -->
-
-        <!-- 第一个文件夹 -->
-        <div class="item folder" onclick="toggle(this)">
-            <span class="folder-icon"></span>
-            <span><a href="#">IKUN文件夹</a></span>
-            <div class="children">
-                <!-- 第一个子文件夹 -->
-                <div class="item folder" onclick="toggle(this, event)">
-                    <span class="folder-icon"></span>
-                    <span><a href="#">IKUN万岁</a></span>
-                    <div class="children">
-                        <!-- 第一个网址文件 -->
-                        <div class="item file">
-                            <span class="file-icon"></span>
-                            <a href="https://www.google.com/">Google</a>
-                        </div>
-                        <!-- 第二个网址文件 -->
-                        <div class="item file">
-                            <span class="file-icon"></span>
-                            <a href="https://www.baidu.com/">百度</a>
-                        </div>
-                    </div>
-                    <!-- 上面是子文件夹区域 -->
-                    <!-- 第一个网址文件 -->
-                    <div class="item file">
-                        <span class="file-icon"></span>
-                        <a href="https://www.google.com/">Google</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      function changeBackground() {
+        currentBackground++;
+        if (currentBackground >= backgrounds.length) {
+          currentBackground = 0;
+        }
+        document.body.style.backgroundImage = 'url(' + backgrounds[currentBackground] + ')';
+      }
+    </script>
+    <div class="containerBG1" onclick="downloadBackground()">下载壁纸</div>
 
     <script>
-        // 切换文件夹和文件的展开状态
-        function toggle(item) {
-            if (item.classList.contains("folder")) {
-                item.classList.toggle("open");
-            }
-        }
-        function toggle(item, event) {
-            if (event && event.stopPropagation) {
-                event.stopPropagation();
-            }
-            if (item.classList.contains("folder")) {
-                item.classList.toggle("open");
-            }
-        }
+      function downloadBackground() {
+        var link = document.createElement('a');
+        link.download = 'background.jpg';
+        link.href = document.body.style.backgroundImage.replace(/url\((['"])?(.*?)\1\)/gi, '$2').split(',')[0];
+        link.click();
+      }
     </script>
-    <!-- 底部栏 -->
-    <style>
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 40px;
-            background-color: rgba(155, 154, 241, 0.685);
-            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-            display: flex;
-        }
+    <!-- 页面主体内容 -->
 
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100%;
-            align-items: center;
-        }
-
-        .container:last-child {
-            display: flex;
-            align-items: center;
-            /* 垂直方向上居中对齐 */
-            width: 146px;
-            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-            border-radius: 5px;
-            background: linear-gradient(to bottom right, #ffffff, #ffa500);
-        }
-
-        .container:last-child span {
-            margin-left: 5px;
-        }
-
-        .icon-container {
-            width: 54px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            display: flex;
-        }
-
-        .icon-container1 {
-            width: 54px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            display: flex;
-        }
-
-        .icon-container:hover {
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-        }
-
-        .icon-container img {
-            padding: 5x;
-
-        }
-
-        .icon-container img {
-            width: 35px;
-            height: 35px;
-        }
-
-        .icon-container1 img {
-            padding: 5x;
-
-        }
-
-        .icon-container1 img {
-            width: 35px;
-            height: 35px;
-        }
-    </style>
-    <footer>
-        <div class="container">
-            <div class="icon-container" onclick="togglePopup()">
-                <img src="https://pic2.imgdb.cn/item/64531d490d2dde57772c7806.png" alt="Icon 1" />
+    <!-- 第一个文件夹 -->
+    <div class="item folder" onclick="toggle(this)">
+      <span class="folder-icon"></span>
+      <span><a href="#">IKUN文件夹</a></span>
+      <div class="children">
+        <!-- 第一个子文件夹 -->
+        <div class="item folder" onclick="toggle(this, event)">
+          <span class="folder-icon"></span>
+          <span><a href="#">搜索引擎</a></span>
+          <div class="children">
+            <!-- 第一个网址文件 -->
+            <div class="item file">
+              <span class="file-icon"></span>
+              <a target="_blank" href="https://www.google.com/">Google</a>
             </div>
-        </div>
-        <div class="container">
-            <div class="icon-container">
-                <img src="https://pic2.imgdb.cn/item/6453e9110d2dde577752990a.png" alt="Icon 1" />
+            <!-- 第二个网址文件 -->
+            <div class="item file">
+              <span class="file-icon"></span>
+              <a target="_blank" href="https://www.baidu.com/">百度</a>
             </div>
-        </div>
-        <div class="container">
-            <div class="icon-container">
-                <img src="https://pic2.imgdb.cn/item/6453e8960d2dde5777522268.png" alt="Icon 1" />
-            </div>
-        </div>
-        <div class="container">
-            <div class="icon-container">
-                <img src="https://pic2.imgdb.cn/item/6453bec40d2dde57771cf138.png" alt="Icon 1" />
-            </div>
-        </div>
-        <div class="container">
-            <div class="icon-container">
-                <img src="https://pic2.imgdb.cn/item/6453e4150d2dde57774d6f66.png" alt="Icon 1" />
-            </div>
-        </div>
-        <div class="container">
-            <div class="icon-container">
-                <img src="https://pic2.imgdb.cn/item/6453e4db0d2dde57774e4029.png" alt="Icon 1" />
-            </div>
-        </div>
-        <div class="container" onclick="togglePopup1()">
-            <div class="icon-container1">
-                <img src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png" alt="Icon 1" />
-            </div>
+          </div>
+          <!-- 上面是子文件夹区域 -->
 
         </div>
-
-    </footer>
-    <!-- 微信弹出框设计 -->
-    <!-- 弹出窗口样式 -->
-    <style>
-        .popup1 {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 280px;
-            height: 380px;
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: rgba(0, 0, 0, .4) 0px 2px 4px, rgba(0, 0, 0, .3) inset -1px -3px #fff, inset -1.2em -1.2em #f3f4f7,
-                inset .5em .5em #fff;
-            z-index: 999;
-            display: none;
-        }
-
-        .popup-active {
-            display: flex;
-        }
-
-        .popup1 span {
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            width: 20px;
-            height: 20px;
-            background-color: #ccc;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            color: #fff;
-        }
-
-        .popup1 span:hover {
-            background-color: rgba(155, 154, 241, 0.685);
-        }
-
-        .popup-content {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-        }
-
-        .popup-section {
-            flex-grow: 1;
-        }
-
-        .popup-section:first-of-type {
-            height: 30px;
-            color: #888;
-            padding: 6px;
-            font-size: 14px;
-        }
-
-        .popup-section:nth-of-type(2) {
-            display: flex;
-            flex-direction: column;
-
-            align-items: center;
-        }
-
-        .popup-section:nth-of-type(2) img {
-            width: 80px;
-            height: 80px;
-
-            border-radius: 5px;
-        }
-
-        .text-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 1 px;
-        }
-
-        .text-container p {
-            font-size: 20px;
-            text-align: center;
-        }
-
-        .popup-section:nth-of-type(3) {
-            display: flex;
-            justify-content: center;
-        }
-
-        .enter-button {
-            width: 176px;
-            height: 34px;
-            background-color: rgb(11, 216, 11);
-            color: white;
-            font-size: 14px;
-            border: none;
-            border-radius: 5px;
-
-            padding: 8px;
-        }
-
-        .enter-button:hover {
-            cursor: pointer;
-            background-color: darkgreen;
-        }
-
-        .text-container1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        .text-container1 a {
-            font-size: 14px;
-            text-decoration: none;
-            color: rgb(43, 89, 126);
-            margin: 0 20px;
-            margin-bottom: 30px;
-        }
-
-        .text-container1 a:hover {
-            color: darkgreen;
-            text-decoration: underline;
-            color: darkgreen;
-        }
-
-        /* 打字机效果 */
-        .typing-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        .typing-text {
-            font-family: Consolas, Monaco, monospace;
-            font-size: 2em;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: .15em solid rgb(228, 2, 209);
-            animation:
-                typing 3s steps(40, end),
-                blink-caret .75s step-end infinite;
-                color: #fcfafb;
-                font-weight: bold;
-        }
-
-        /* 响应式布局 */
-        @media screen and (max-width: 768px) {
-            .typing-text {
-                font-size: 1.5em;
-            }
-        }
-
-        @media screen and (max-width: 576px) {
-            .typing-text {
-                font-size: 1em;
-            }
-        }
-
-        /* 打字机效果 */
-        @keyframes typing {
-            from {
-                width: 0
-            }
-
-            to {
-                width: 100%
-            }
-        }
-
-        /* 光标闪烁 */
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: #fff
-            }
-        }
-    </style>
-
-    <!-- 弹出窗口 -->
-    <div class="popup1 popup-active"> <span onclick="togglePopup1()">X</span>
-        <div class="popup-content">
-            <div class="popup-section">微信</div>
-            <div class="popup-section">
-                <img src="https://pic2.imgdb.cn/item/6453d0f00d2dde577735a415.png" alt="your-image" />
-                <div class="text-container">
-                    <p>坤坤子</p>
-                </div>
+        <!-- 第一个子文件夹 -->
+        <div class="item folder" onclick="toggle(this, event)">
+          <span class="folder-icon"></span>
+          <span><a href="#">MUGEN文件</a></span>
+          <div class="children">
+            <!-- 第一个网址文件 -->
+            <div class="item file">
+              <span class="file-icon"></span>
+              <a target="_blank" href="https://pan.baidu.com/s/10erHVp4stogtyvpr9TUy1g?pwd=6666 ">蔡徐坤篮球场场景</a>
+            </div>
+            <!-- 第二个网址文件 -->
+            <div class="item file">
+              <span class="file-icon"></span>
+              <a target="_blank" href="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/">全女格斗发布页</a>
             </div>
 
-            <div class="popup-section"><button onclick="openPopup()" class="enter-button">进入微信</button></div>
-            <div class="text-container1">
-                <a href="#">切换账号</a>
-                <a href="#">仅传输文件</a>
+            <div class="item file">
+              <span class="file-icon"></span>
+              <a target="_blank"
+                href="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/CALOS.html">MUGEN答疑指引</a>
             </div>
+          </div>
+          <!-- 上面是子文件夹区域 -->
+
         </div>
+        <!-- 第一个网址文件 -->
+
+        <div class="item file">
+          <span class="file-icon"></span>
+          <a target="_blank" href="https://huggingface.co/spaces/ysharma/ChatGPT4">ChatGPT4免费版</a>
+        </div>
+        <div class="item file">
+          <span class="file-icon"></span>
+          <a target="_blank" href="https://openmao.panchuang.net/#/">ChatGPT国内接口版本</a>
+        </div>
+
+        <div class="item file">
+          <span class="file-icon"></span>
+          <a target="_blank" href="https://mkipo4-3000.csb.app/">我自己做的反向代理版本GPT[3.5]</a>
+        </div>
+        <div class="item file">
+          <span class="file-icon"></span>
+          <a target="_blank" href="https://github.com/aiboboxx/clashfree">不会科学上网?</a>
+        </div>
+      </div>
     </div>
-    <!-- JavaScript脚本 -->
-    <script> function togglePopup1() { var popup = document.querySelector('.popup1'); popup.classList.toggle('popup-active'); } </script>
+  </div>
+  <script>
+    // 切换文件夹和文件的展开状态
+    function toggle(item) {
+      if (item.classList.contains("folder")) {
+        item.classList.toggle("open");
+      }
+    }
+    function toggle(item, event) {
+      if (event && event.stopPropagation) {
+        event.stopPropagation();
+      }
+      if (item.classList.contains("folder")) {
+        item.classList.toggle("open");
+      }
+    }
+  </script>
+  <!-- 底部栏 -->
+  <style>
+    footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background-color: rgba(155, 154, 241, 0.685);
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      display: flex;
+    }
 
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      align-items: center;
+    }
 
-    <!-- 警告弹窗 -->
-    <div id="popup3" class="popup3">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <div class="content">
-            <img src="https://pic2.imgdb.cn/item/6453e0150d2dde5777491404.png" alt="图片">
-            <div class="typing-container">
-                <div class="typing-text">
-                    此时，坤坤子迅速冲上来，并坐在你的腿上，阻止了你！
-                </div>
-            </div>
+    .container:last-child {
+      display: flex;
+      align-items: center;
+      /* 垂直方向上居中对齐 */
+      width: 146px;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+      border-radius: 5px;
+      background: linear-gradient(to bottom right, #ffffff, #ffa500);
+    }
 
-        </div>
+    .container:last-child span {
+      margin-left: 5px;
+    }
+
+    .icon-container {
+      width: 54px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      display: flex;
+    }
+
+    .icon-container1 {
+      width: 54px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      display: flex;
+    }
+
+    .icon-container:hover {
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    }
+
+    .icon-container img {
+      padding: 5x;
+
+    }
+
+    .icon-container img {
+      width: 35px;
+      height: 35px;
+    }
+
+    .icon-container1 img {
+      padding: 5x;
+
+    }
+
+    .icon-container1 img {
+      width: 35px;
+      height: 35px;
+    }
+  </style>
+  <footer>
+    <div class="container">
+      <div class="icon-container" onclick="togglePopup()">
+        <img src="https://pic2.imgdb.cn/item/64531d490d2dde57772c7806.png" alt="Icon 1" />
+      </div>
     </div>
-    <style>
-        .popup3 {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .popup3 .content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        .popup3 .content img {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 20px;
-        }
-
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
-            font-weight: bold;
-            color: #fff;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-    <script>
-        function openPopup() {
-            document.getElementById("popup3").style.display = "block";
-        }
-
-        function closePopup() {
-            document.getElementById("popup3").style.display = "none";
-        }
-
-    </script>
-    <!-- 弹出框设计 -->
-    <style>
-        .container1 {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 50px;
-            background-color: #fff;
-            border: 1px solid #000;
-            border-radius: 10px 0 0 0;
-            z-index: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* 弹出框 */
-
-        .popup-container {
-            display: none;
-            position: fixed;
-            bottom: 40px;
-            /* Updated */
-            left: 5px;
-            width: 392px;
-            height: 465px;
-            background: linear-gradient(to bottom,
-                    rgb(127, 157, 180),
-                    rgb(40, 66, 105),
-                    rgb(166, 204, 235));
-            /* Updated */
-            /* border: 1px solid #000; */
-            border-radius: 10px 10px 10px 0;
-            z-index: 2;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-            padding: 10px;
-        }
-
-        @media (max-width: 600px) {
-            .popup-container {
-                transform: scale(0.7);
-
-                bottom: -30px;
-                /* Updated */
-                left: -60px;
-            }
-        }
-
-        .popup-container .left {
-            width: 66.67%;
-            height: auto;
-            margin-right: 10px 10px 10px 10px;
-            /* Added */
-            background-color: #fff;
-            /* Added */
-            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-            border-radius: 5px;
-            display: flex;
-            /* Added */
-            flex-direction: column;
-            /* Added */
-            padding: 4px;
-        }
-
-        .popup-container .left .link {
-            height: 39px;
-
-            display: flex;
-            align-items: center;
-            border-radius: 3px;
-        }
-
-        .popup-container .left .link:hover {
-            color: #000;
-            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.493), rgba(9, 119, 209, 0.473));
-            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
-                rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
-                rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-        }
-
-        .popup-container .left .link img {
-            margin-right: 10px;
-            width: 40px;
-            height: 40px;
-        }
-
-        .popup-container .right {
-            width: 33.33%;
-            height: 100%;
-        }
-
-        .popup-container.show {
-            display: flex;
-        }
-    </style>
-    <div class="popup-container" id="popup">
-        <div class="left">
-            <a href="" id="link" class="link"><img
-                    src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png">微信（马保国:你不讲武德）</a>
-            <a href="" id="link" class="link"><img
-                    src="https://pic2.imgdb.cn/item/6453e9110d2dde577752990a.png">IE浏览器</a>
-
-            <a href="" id="link" class="link"><img
-                    src="https://pic2.imgdb.cn/item/6453e8960d2dde5777522268.png">chrome浏览器</a>
-            <a href="" id="link" class="link"><img
-                    src="https://pic2.imgdb.cn/item/6453e84d0d2dde577751e20d.png">Facebook</a>
-            <a href="" id="link" class="link"><img
-                    src="https://pic2.imgdb.cn/item/6453e7ff0d2dde5777519737.png">Steam</a>
-            <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/6453e75b0d2dde577750f90c.png">QQ</a>
-            <a href="" id="link" class="link"><img
-                    src="https://pic2.imgdb.cn/item/6453bec40d2dde57771cf138.png">百度网盘</a>
-        </div>
-        <div class="right"></div>
+    <div class="container">
+      <div class="icon-container">
+        <img src="https://pic2.imgdb.cn/item/6453e9110d2dde577752990a.png" alt="Icon 1" />
+      </div>
     </div>
-    <script>
-        function togglePopup() {
-            var popup = document.getElementById("popup");
-            popup.classList.toggle("show");
-        }
+    <div class="container">
+      <div class="icon-container">
+        <img src="https://pic2.imgdb.cn/item/6453e8960d2dde5777522268.png" alt="Icon 1" />
+      </div>
+    </div>
+    <div class="container">
+      <div class="icon-container">
+        <img src="https://pic2.imgdb.cn/item/6453bec40d2dde57771cf138.png" alt="Icon 1" />
+      </div>
+    </div>
+    <div class="container">
+      <div class="icon-container">
+        <img src="https://pic2.imgdb.cn/item/6453e4150d2dde57774d6f66.png" alt="Icon 1" />
+      </div>
+    </div>
+    <div class="container">
+      <div class="icon-container">
+        <img src="https://pic2.imgdb.cn/item/6453e4db0d2dde57774e4029.png" alt="Icon 1" />
+      </div>
+    </div>
+    <div class="container" onclick="togglePopup1()">
+      <div class="icon-container1">
+        <img src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png" alt="Icon 1" />
+      </div>
 
-    </script>
+    </div>
+
+  </footer>
+  <!-- 微信弹出框设计 -->
+  <!-- 弹出窗口样式 -->
+  <style>
+    .popup1 {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 280px;
+      height: 380px;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: rgba(0, 0, 0, .4) 0px 2px 4px, rgba(0, 0, 0, .3) inset -1px -3px #fff, inset -1.2em -1.2em #f3f4f7,
+        inset .5em .5em #fff;
+      z-index: 999;
+      display: none;
+    }
+
+    .popup-active {
+      display: flex;
+    }
+
+    .popup1 span {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 20px;
+      height: 20px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .popup1 span:hover {
+      background-color: rgba(155, 154, 241, 0.685);
+    }
+
+    .popup-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .popup-section {
+      flex-grow: 1;
+    }
+
+    .popup-section:first-of-type {
+      height: 30px;
+      color: #888;
+      padding: 6px;
+      font-size: 14px;
+    }
+
+    .popup-section:nth-of-type(2) {
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+    }
+
+    .popup-section:nth-of-type(2) img {
+      width: 80px;
+      height: 80px;
+
+      border-radius: 5px;
+    }
+
+    .text-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1 px;
+    }
+
+    .text-container p {
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .popup-section:nth-of-type(3) {
+      display: flex;
+      justify-content: center;
+    }
+
+    .enter-button {
+      width: 176px;
+      height: 34px;
+      background-color: rgb(11, 216, 11);
+      color: white;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+
+      padding: 8px;
+    }
+
+    .enter-button:hover {
+      cursor: pointer;
+      background-color: darkgreen;
+    }
+
+    .text-container1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .text-container1 a {
+      font-size: 14px;
+      text-decoration: none;
+      color: rgb(43, 89, 126);
+      margin: 0 20px;
+      margin-bottom: 30px;
+    }
+
+    .text-container1 a:hover {
+      color: darkgreen;
+      text-decoration: underline;
+      color: darkgreen;
+    }
+
+    /* 打字机效果 */
+    .typing-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .typing-text {
+      font-family: Consolas, Monaco, monospace;
+      font-size: 2em;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: .15em solid rgb(228, 2, 209);
+      animation:
+        typing 3s steps(40, end),
+        blink-caret .75s step-end infinite;
+      color: #fcfafb;
+      font-weight: bold;
+    }
+
+    /* 响应式布局 */
+    @media screen and (max-width: 768px) {
+      .typing-text {
+        font-size: 1.5em;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      .typing-text {
+        font-size: 1em;
+      }
+    }
+
+    /* 打字机效果 */
+    @keyframes typing {
+      from {
+        width: 0
+      }
+
+      to {
+        width: 100%
+      }
+    }
+
+    /* 光标闪烁 */
+    @keyframes blink-caret {
+
+      from,
+      to {
+        border-color: transparent
+      }
+
+      50% {
+        border-color: #fff
+      }
+    }
+  </style>
+
+  <!-- 弹出窗口 -->
+  <div class="popup1 popup-active"> <span onclick="togglePopup1()">X</span>
+    <div class="popup-content">
+      <div class="popup-section">微信</div>
+      <div class="popup-section">
+        <img src="https://pic2.imgdb.cn/item/6453d0f00d2dde577735a415.png" alt="your-image" />
+        <div class="text-container">
+          <p>坤坤子</p>
+        </div>
+      </div>
+
+      <div class="popup-section"><button onclick="openPopup()" class="enter-button">进入微信</button></div>
+      <div class="text-container1">
+        <a href="#">切换账号</a>
+        <a href="#">仅传输文件</a>
+      </div>
+    </div>
+  </div>
+  <!-- JavaScript脚本 -->
+  <script> function togglePopup1() { var popup = document.querySelector('.popup1'); popup.classList.toggle('popup-active'); } </script>
+
+
+  <!-- 警告弹窗 -->
+  <div id="popup3" class="popup3">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <div class="content">
+      <img src="https://pic2.imgdb.cn/item/6453e0150d2dde5777491404.png" alt="图片">
+      <div class="typing-container">
+        <div class="typing-text">
+          此时，坤坤子迅速冲上来，并坐在你的腿上，阻止了你！
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <style>
+    .popup3 {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .popup3 .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .popup3 .content img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    function openPopup() {
+      document.getElementById("popup3").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup3").style.display = "none";
+    }
+
+  </script>
+  <!-- 弹出框设计 -->
+  <style>
+    .container1 {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border: 1px solid #000;
+      border-radius: 10px 0 0 0;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 弹出框 */
+
+    .popup-container {
+      display: none;
+      position: fixed;
+      bottom: 40px;
+      /* Updated */
+      left: 5px;
+      width: 392px;
+      height: 465px;
+      background: linear-gradient(to bottom,
+          rgb(127, 157, 180),
+          rgb(40, 66, 105),
+          rgb(166, 204, 235));
+      /* Updated */
+      /* border: 1px solid #000; */
+      border-radius: 10px 10px 10px 0;
+      z-index: 2;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      padding: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .popup-container {
+        transform: scale(0.7);
+
+        bottom: -30px;
+        /* Updated */
+        left: -60px;
+      }
+    }
+
+    .popup-container .left {
+      width: 66.67%;
+      height: auto;
+      margin-right: 10px 10px 10px 10px;
+      /* Added */
+      background-color: #fff;
+      /* Added */
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      border-radius: 5px;
+      display: flex;
+      /* Added */
+      flex-direction: column;
+      /* Added */
+      padding: 4px;
+    }
+
+    .popup-container .left .link {
+      height: 39px;
+
+      display: flex;
+      align-items: center;
+      border-radius: 3px;
+    }
+
+    .popup-container .left .link:hover {
+      color: #000;
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.493), rgba(9, 119, 209, 0.473));
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    }
+
+    .popup-container .left .link img {
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+    }
+
+    .popup-container .right {
+      width: 33.33%;
+      height: 100%;
+    }
+
+    .popup-container.show {
+      display: flex;
+    }
+  </style>
+  <!-- 右边部分 -->
+  <style>
+.popup-container .right {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.popup-container .right .upper {
+  flex: 0 0 73px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.popup-container .right .upper a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 8px;
+  overflow: hidden; /* 为了使图片在圆角区域也被裁剪 */
+  /* 添加渐变背景，从左上角的白色渐变到右下角的蓝色 */
+  background: linear-gradient(to bottom right, white, rgb(97, 148, 196));
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.popup-container .right .upper a img {
+  width: 53px;
+  height: 53px;
+  /* 添加1px的边框 */
+  border: 1px solid;
+}
+
+
+.popup-container .right .lower {
+  flex: 1 1 auto;
+}
+
+
+.popup-container .right .lower a {
+  height: 32px;
+margin-left: 10px;
+display: flex;
+align-items: center;
+border-radius: 3px;
+font-size: 12px;
+padding-left: 5px;
+color: #fff;
+}
+
+.popup-container .right .lower a:hover {
+ 
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.493), rgba(9, 119, 209, 0.473));
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      
+    }
+    hr {
+    border: none;
+    height: 1px;
+    color: black;
+    background-color: black;
+    width: 50%; /* 设置宽度小于100% */
+    margin: 0 auto; /* 使用自动边距来居中 */
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+
+  </style>
+  <div class="popup-container" id="popup">
+    <div class="left">
+      <a href="" id="link" class="link"><img
+          src="https://pic2.imgdb.cn/item/645353e50d2dde577773e341.png">微信（马保国:你不讲武德）</a>
+      <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/6453e9110d2dde577752990a.png">IE浏览器</a>
+
+      <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/6453e8960d2dde5777522268.png">chrome浏览器</a>
+      <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/6453e84d0d2dde577751e20d.png">Facebook</a>
+      <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/6453e7ff0d2dde5777519737.png">Steam</a>
+      <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/6453e75b0d2dde577750f90c.png">QQ</a>
+      <a href="" id="link" class="link"><img src="https://pic2.imgdb.cn/item/6453bec40d2dde57771cf138.png">百度网盘</a>
+    </div>
+    <div class="right">
+      <div class="upper">
+        <a href="#"><img src="https://pic1.imgdb.cn/item/646d77740d2dde57779926ad.jpg" alt="image"></a>
+      </div>
+  <div class="lower">  
+    <a href="#">Administrator</a>
+    <a href="#">文档</a>
+    <a href="#">图片</a>
+    <a href="#">音乐</a>
+    <hr>
+    <a href="#">游戏</a>
+    <a href="#">计算机</a>
+    <hr>
+    <a href="#">控制面板</a>
+    <a href="#">设备和打印机</a>
+    <a href="#">默认程序</a>
+    <a href="#">帮助和支持</a>
+    
+  </div>
+    </div>
+  </div>
+  <script>
+    function togglePopup() {
+      var popup = document.getElementById("popup");
+      popup.classList.toggle("show");
+    }
+
+  </script>
 
 
 </body>
