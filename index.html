@@ -2424,105 +2424,124 @@ http://www.desktx.com/cursors/ */
     </script>
 <!-- 验证 -->
 <style>
-  #overlay {
-      display: none;
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0,0,0,0.5);
-      z-index: 2;
-      cursor: pointer;
-  }
-
-  #popup {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      padding: 20px;
-      z-index: 3;
-      text-align: center;
-      width: auto;
-  }
-
-  #popup img {
-      width: 100%;
-      max-width: 400px;
-  }
-
-  #button-container {
-      margin-top: 20px;
-      display: flex;
-      justify-content: space-between;
-  }
-
-  #button-container button {
-      margin-top: 10px;
-  }
-</style>
-
-<div id="overlay">
-  <div id="popup">
-      <img width="auto" id="qrcode" src="https://img.gejiba.com/images/1648048f135180a6160415949ed2e66f.png">
-      <div id="info-container" style="width: 100%; text-align: center; margin-top: 20px;">
-          为了长期维护资源和结交志同道合的兄弟，请来公众号汇合！
-      </div>
-      <div id="info-container" style="width: 100%; text-align: center; margin-top: 20px;">
-	  公众号输入暗号以获取暗号，并将暗号填写在下方输入框中！即可解锁访问！
-      </div>
-      <div id="input-container" style="display: flex; justify-content: center; margin-top: 20px;">
-          <input id="code-input" type="text" placeholder="在此填写暗号....">
-      </div>
-      <p id="error-message" style="color: red; display: none;">暗号错误!你是内鬼！</p>
-      <div id="button-container">
-          <button id="close-button">关闭</button>
-          <button id="submit-button">确定</button>
-      </div>
-  </div>
-</div>
-
-
-
-<script>
-var overlay = document.getElementById('overlay');
-var codeInput = document.getElementById('code-input');
-var errorMessage = document.getElementById('error-message');
-var verified = false;
-
-var verificationElements = document.querySelectorAll('.verification');
-
-verificationElements.forEach(function(element) {
-    element.addEventListener('click', function(e) {
-        if (!verified) {
-            e.preventDefault();
-            overlay.style.display = 'block';
-        }
-    });
-});
-
-document.getElementById('close-button').addEventListener('click', function() {
-    overlay.style.display = 'none';
-    codeInput.value = '';
-    errorMessage.style.display = 'none';
-});
-
-document.getElementById('submit-button').addEventListener('click', function() {
-    if (codeInput.value === '12345') {
-        verified = true;
-        overlay.style.display = 'none';
-        errorMessage.style.display = 'none';
-    } else {
-        errorMessage.style.display = 'block';
+    #overlay {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 2;
+        cursor: pointer;
     }
-    codeInput.value = '';
-});
+  
+    #popup {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        padding: 20px;
+        z-index: 3;
+        text-align: center;
+        width: 70%; /* 手机端宽度 */
+        border-radius: 10px; /* 设置圆角 */
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* 设置阴影 */
+        font-size: 70%; /* 手机端字体大小 */
+        
+    }
 
-</script>
+    /* 电脑端样式 */
+    @media (min-width: 768px) {
+        #popup {
+            width: 30%; /* 电脑端宽度 */
+            font-size: 100%; /* 电脑端字体大小 */
+        }
+    }
+  
+    #popup img {
+        width: 100%;
+        max-width: 400px;
+    }
+  
+    #button-container {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+  
+    #button-container button {
+        margin-top: 10px;
+    }
+
+
+    #qrcode {
+        border-radius: 5px;  /* 圆角 */
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);  /* 阴影 */
+    }
+  </style>
+  
+  <div id="overlay">
+    <div id="popup">
+        <img width="auto" id="qrcode" src="https://img.gejiba.com/images/1648048f135180a6160415949ed2e66f.png">
+        <div id="info-container" style="width: 100%; text-align: center; margin-top: 20px;">
+            为了长期维护资源和结交志同道合的兄弟，请来公众号汇合！
+        </div>
+        <div id="info-container" style="width: 100%; text-align: center; margin-top: 20px;">
+        公众号输入暗号以获取暗号，并将暗号填写在下方输入框中！即可解锁访问！
+        </div>
+        <div  id="input-container" style="display: flex; justify-content: center; margin-top: 20px;">
+            <input id="code-input" type="text" placeholder="在此填写暗号....">
+        </div>
+        <p id="error-message" style="color: red; display: none;">暗号错误!你是内鬼！</p>
+        <div id="button-container">
+            <button id="close-button">关闭</button>
+            <button id="submit-button">确定</button>
+        </div>
+    </div>
+  </div>
+  
+  
+  
+  
+  <script>
+  var overlay = document.getElementById('overlay');
+  var codeInput = document.getElementById('code-input');
+  var errorMessage = document.getElementById('error-message');
+  var verified = false;
+  
+  var verificationElements = document.querySelectorAll('.verification');
+  
+  verificationElements.forEach(function(element) {
+      element.addEventListener('click', function(e) {
+          if (!verified) {
+              e.preventDefault();
+              overlay.style.display = 'block';
+          }
+      });
+  });
+  
+  document.getElementById('close-button').addEventListener('click', function() {
+      overlay.style.display = 'none';
+      codeInput.value = '';
+      errorMessage.style.display = 'none';
+  });
+  
+  document.getElementById('submit-button').addEventListener('click', function() {
+      if (codeInput.value === '12345') {
+          verified = true;
+          overlay.style.display = 'none';
+          errorMessage.style.display = 'none';
+      } else {
+          errorMessage.style.display = 'block';
+      }
+      codeInput.value = '';
+  });
+  
+  </script>
 <div >
     </script>
     <!-- 音乐播放器 -->
