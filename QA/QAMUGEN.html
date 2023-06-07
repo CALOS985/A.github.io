@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url("https://rsms.me/inter/inter.css");
+        :root {
+          --color-light: rgb(245, 247, 246);
+          --color-dark: #212121;
+          --color-signal: #fab700;
+          --color-background: var(--color-light);
+          --color-text: var(--color-dark);
+          --color-accent: var(--color-signal);
+          --size-bezel: .5rem;
+          --size-radius: 4px;
+          line-height: 1.4;
+          font-family: "Inter", sans-serif;
+          font-size: calc(.6rem + .4vw);
+          color: var(--color-text);
+          background: var(--color-background);
+          font-weight: 300;
+          padding: 0 calc(var(--size-bezel) * 3);
+        }
+
+        h1, h2, h3 {
+          font-weight: 900;
+        }
+
+        mark {
+          background: var(--color-accent);
+          color: var(--color-text);
+          font-weight: bold;
+          padding: 0 0.2em;
+        }
+
+        .card {
+          background: var(--color-background);
+          padding: calc(4 * var(--size-bezel));
+          margin-top: calc(4 * var(--size-bezel));
+          border-radius: var(--size-radius);
+          border: 3px solid var(--color-shadow, currentColor);
+          box-shadow: 0.5rem 0.5rem 0 var(--color-shadow, currentColor);
+        }
+        .card--inverted {
+          --color-background: var(--color-dark);
+          color: var(--color-light);
+          --color-shadow: var(--color-accent);
+        }
+        .card--accent {
+          --color-background: var(--color-signal);
+          --color-accent: var(--color-light);
+          color: var(--color-dark);
+        }
+        .card *:first-child {
+          margin-top: 0;
+        }
+
+        .l-design-widht {
+          max-width: 40rem;
+          padding: 1rem;
+        }
+
+        .input {
+          position: relative;
+        }
+        .input__label {
+          position: absolute;
+          left: 0;
+          top: 0;
+          padding: calc(var(--size-bezel) * 0.75) calc(var(--size-bezel) * .5);
+          margin: calc(var(--size-bezel) * 0.75 + 3px) calc(var(--size-bezel) * .5);
+          background: pink;
+          white-space: nowrap;
+          transform: translate(0, 0);
+          transform-origin: 0 0;
+          background: var(--color-background);
+          transition: transform 120ms ease-in;
+          font-weight: bold;
+          line-height: 1.2;
+        }
+        .input__field {
+          box-sizing: border-box;
+          display: block;
+          width: 100%;
+          border: 3px solid currentColor;
+          padding: calc(var(--size-bezel) * 1.5) var(--size-bezel);
+          color: currentColor;
+          background: transparent;
+          border-radius: var(--size-radius);
+        }
+        .input__field:not(:-moz-placeholder-shown) + .input__label {
+          transform: translate(0.25rem, -65%) scale(0.8);
+          color: var(--color-accent);
+        }
+        .input__field:not(:-ms-input-placeholder) + .input__label {
+          transform: translate(0.25rem, -65%) scale(0.8);
+          color: var(--color-accent);
+        }
+        .input__field:focus + .input__label, .input__field:not(:placeholder-shown) + .input__label {
+          transform: translate(0.25rem, -65%) scale(0.8);
+          color: var(--color-accent);
+        }
+
+        .button-group {
+          margin-top: calc(var(--size-bezel) * 2.5);
+        }
+
+        button {
+          color: currentColor;
+          padding: var(--size-bezel) calc(var(--size-bezel) * 2);
+          background: var(--color-accent);
+          border: none;
+          border-radius: var(--size-radius);
+          font-weight: 900;
+        }
+        button[type=reset] {
+          background: var(--color-background);
+          font-weight: 200;
+        }
+
+        button + button {
+          margin-left: calc(var(--size-bezel) * 2);
+        }
+
+        .icon {
+          display: inline-block;
+          width: 1em;
+          height: 1em;
+          margin-right: 0.5em;
+        }
+
+        .hidden {
+          display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 输入框效果 -->
+    <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        button {
+    cursor: pointer;
+  }
+        #chatbox {
+          height: 500px;
+          width: 300px;
+          border: 1px solid black;
+          overflow-y: scroll;
+        }
+    
+        #chatbox .message {
+          display: flex;
+          margin: 10px;
+        }
+    
+        #chatbox .message .avatar {
+          width: 30px;
+          height: 30px;
+        }
+    
+        #chatbox .message .text {
+          max-width: 200px;
+          padding: 5px;
+          border-radius: 10px;
+          margin-left: 10px;
+        }
+    
+        #chatbox .message.user .text {
+          background-color: #007bff;
+          color: white;
+        }
+    
+        #chatbox .message.bot .text {
+          background-color: #e0e0e0;
+          color: black;
+        }
+    
+        #inputbox {
+          width: 250px;
+        }
+    
+        #chat-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      </style>
+      <script>
+        var responses = {
+          "名字": "我叫mugen助手"
+        };
+    
+        function sendMessage() {
+          var inputbox = document.getElementById('inputbox');
+          var message = inputbox.value;
+          inputbox.value = '';
+    
+          var chatbox = document.getElementById('chatbox');
+    
+          var userMessageDiv = document.createElement('div');
+          userMessageDiv.className = 'message user';
+          userMessageDiv.innerHTML = `
+            <img class="avatar" src="https://pic.imgdb.cn/item/646d77740d2dde57779926ad.jpg">
+            <div class="text">${message}</div>
+          `;
+          chatbox.appendChild(userMessageDiv);
+    
+          var matchedKeyword = false;
+          var matchedKeyword = false;
+var botResponse = '';
+
+for (var keyword in responses) {
+  if (message.includes(keyword)) {
+    botResponse = responses[keyword];
+    matchedKeyword = true;
+    break;
+  }
+}
+
+if (matchedKeyword) {
+  var chatbox = document.getElementById('chatbox');
+  var botMessageDiv = document.createElement('div');
+  botMessageDiv.className = 'message bot';
+  botMessageDiv.innerHTML = `
+    <img class="avatar" src="https://pic.imgdb.cn/item/6480815c1ddac507cc31f63f.png">
+    <div class="text">${botResponse}</div>
+  `;
+  chatbox.appendChild(botMessageDiv);
+} else {
+  var chatbox = document.getElementById('chatbox');
+  var botMessageDiv = document.createElement('div');
+  botMessageDiv.className = 'message bot';
+  botMessageDiv.innerHTML = `
+    <img class="avatar" src="https://pic.imgdb.cn/item/6480815c1ddac507cc31f63f.png">
+    <div class="text">抱歉，暂时没有该问题的回复，请<a href="https://calos985.github.io/A.github.io/" target="_blank">点击此处联系作者</a>。</div>
+  `;
+  chatbox.appendChild(botMessageDiv);
+}
+
+
+    
+          chatbox.scrollTop = chatbox.scrollHeight;
+        }
+        function resetChat() {
+  var chatbox = document.getElementById('chatbox');
+  chatbox.innerHTML = '';
+}
+
+      </script>
+
+
+        <div id="chat-container" class="card">
+            <div id="chatbox"></div>
+          <h2><svg class="icon" aria-hidden="true">
+            <use xlink:href="#icon-coffee" href="#icon-coffee" /></svg>提问他吧！</h2>
+          <label class="input">
+            <input  id="inputbox" class="input__field" type="text" placeholder=" " onkeydown="if(event.keyCode==13) sendMessage()"/>
+            <span class="input__label">问点MUGEN问题?</span>
+          </label>
+          <div class="button-group">
+            <button onclick="sendMessage()">提问</button>
+            <button type="reset" onclick="resetChat()">复位</button>
+
+          </div>
+        </div>
+      
+      
+      <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
+        <symbol id="icon-coffee" viewBox="0 0 20 20">
+          <title>icon-coffee</title>
+          <path fill="currentColor" d="M15,17H14V9h3a3,3,0,0,1,3,3h0A5,5,0,0,1,15,17Zm1-6v3.83A3,3,0,0,0,18,12a1,1,0,0,0-1-1Z"/>
+          <rect fill="currentColor" x="1" y="7" width="15" height="12" rx="3" ry="3"/>
+          <path fill="var(--color-accent)" d="M7.07,5.42a5.45,5.45,0,0,1,0-4.85,1,1,0,0,1,1.79.89,3.44,3.44,0,0,0,0,3.06,1,1,0,1,1-1.79.89Z"/>
+          <path fill="var(--color-accent)" d="M3.07,5.42a5.45,5.45,0,0,1,0-4.85,1,1,0,0,1,1.79.89,3.44,3.44,0,0,0,0,3.06,1,1,0,1,1-1.79.89Z"/>
+          <path fill="var(--color-accent)" d="M11.07,5.42a5.45,5.45,0,0,1,0-4.85,1,1,0,0,1,1.79.89,3.44,3.44,0,0,0,0,3.06,1,1,0,1,1-1.79.89Z"/>
+        </symbol>
+      </svg>
+</body>
+</html>
