@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-     <meta name=keywords content="MUGEN自助问答系统">
+    <meta name=keywords content="MUGEN自助问答系统">
     <meta name=description content=这是个回答MUGEN问题的聊天模拟。>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="responses.json" id="responses-data"></script>
+
     <title>MUGEN问题自助</title>
     <!-- 按键屏蔽 -->
     <!-- 禁止F12 -->
@@ -395,36 +397,44 @@ span {
           chatbox.appendChild(userMessageDiv);
     
           var matchedKeyword = false;
-          var matchedKeyword = false;
 var botResponse = '';
 
-for (var keyword in responses) {
-  if (message.includes(keyword)) {
-    botResponse = responses[keyword];
-    matchedKeyword = true;
-    break;
-  }
-}
+fetch('responses.json')
+  .then(response => response.json())
+  .then(data => {
+    var responses = data;
+  
+    for (var keyword in responses) {
+      if (message.includes(keyword)) {
+        botResponse = responses[keyword];
+        matchedKeyword = true;
+        break;
+      }
+    }
+  
+    if (matchedKeyword) {
+      var chatbox = document.getElementById('chatbox');
+      var botMessageDiv = document.createElement('div');
+      botMessageDiv.className = 'message bot';
+      botMessageDiv.innerHTML = `
+        <img class="avatar" src="https://pic.imgdb.cn/item/6480815c1ddac507cc31f63f.png">
+        <div class="text">${botResponse}</div>
+      `;
+      chatbox.appendChild(botMessageDiv);
+    } else {
+      var chatbox = document.getElementById('chatbox');
+      var botMessageDiv = document.createElement('div');
+      botMessageDiv.className = 'message bot';
+      botMessageDiv.innerHTML = `
+        <img class="avatar" src="https://pic.imgdb.cn/item/6480815c1ddac507cc31f63f.png">
+        <div class="text">抱歉，暂时没有该问题的回复，请<a href="https://calos985.github.io/A.github.io/" target="_blank">点击此处联系作者</a>。</div>
+      `;
+      chatbox.appendChild(botMessageDiv);
+    }
+  });
 
-if (matchedKeyword) {
-  var chatbox = document.getElementById('chatbox');
-  var botMessageDiv = document.createElement('div');
-  botMessageDiv.className = 'message bot';
-  botMessageDiv.innerHTML = `
-    <img class="avatar" src="https://pic.imgdb.cn/item/6480815c1ddac507cc31f63f.png">
-    <div class="text">${botResponse}</div>
-  `;
-  chatbox.appendChild(botMessageDiv);
-} else {
-  var chatbox = document.getElementById('chatbox');
-  var botMessageDiv = document.createElement('div');
-  botMessageDiv.className = 'message bot';
-  botMessageDiv.innerHTML = `
-    <img class="avatar" src="https://pic.imgdb.cn/item/6480815c1ddac507cc31f63f.png">
-    <div class="text">抱歉，暂时没有该问题的回复，请<a href="https://calos985.github.io/A.github.io/" target="_blank">点击此处联系作者</a>。</div>
-  `;
-  chatbox.appendChild(botMessageDiv);
-}
+
+
 
 
     
