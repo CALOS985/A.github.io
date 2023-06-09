@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url('https://pic.imgdb.cn/item/64828d331ddac507cc149c9d.png');
+            background-repeat: repeat;
+            margin: 0;
+            padding: 0;
+        }
+
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            font-size: 20px;
+            z-index: 100;
+        }
+
+        #player {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .enemy {
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .text-overlay {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="score">0</div>
+    <script>
+        var playerSize = 50; // 玩家初始尺寸
+        var score = 0;
+        var player = document.createElement('img');
+        player.src = 'https://pic.imgdb.cn/item/627274ab09475431298aa586.jpg'; // 玩家图片的 URL
+        player.width = player.height = playerSize;
+        player.id = 'player';
+        document.body.appendChild(player);
+
+        var enemies = [
+            { url: 'https://pic.imgdb.cn/item/627277bf094754312992c7c3.jpg', text: '全女大橙子' },
+            { url: 'https://pic.imgdb.cn/item/627274ab09475431298aa586.jpg', text: '大龄剩女懒鬼' },
+            { url: 'https://pic.imgdb.cn/item/627279db0947543129985053.jpg', text: '快乐社会二傻哈' },
+            { url: 'https://pic.imgdb.cn/item/647ea15c1ddac507cc32e28f.jpg', text: '割韭菜主播小生鸽' },
+            { url: 'https://pic.imgdb.cn/item/647be8cbf024cca173f7df12.jpg', text: 'SB繁' },
+            { url: 'https://img.gejiba.com/images/e5e9233c178afcfabf9a5f829eb3faab.jpg', text: '逼王蓝蔷薇' },
+            { url: 'https://pic.imgdb.cn/item/627278dc094754312995ae68.jpg', text: '杰刚-队长' }
+        ];
+
+        document.addEventListener('mousemove', function(event) {
+            var x = event.clientX - playerSize / 2;
+            var y = event.clientY - playerSize / 2;
+            player.style.left = x + 'px';
+            player.style.top = y + 'px';
+        });
+
+        function createEnemy() {
+            var enemySize = Math.floor(Math.random() * 50) + 20; // 随机生成敌人的尺寸
+            var enemyData = enemies[Math.floor(Math.random() * enemies.length)]; // 随机选择敌人的图片和文字
+            
+            var enemyContainer = document.createElement('div');
+            enemyContainer.style.position = 'absolute';
+            enemyContainer.style.textAlign = 'center';
+
+            var enemyLabel = document.createElement('div');
+            enemyLabel.textContent = enemyData.text;
+            enemyLabel.style.color = 'white';
+
+            var enemy = document.createElement('img');
+            enemy.src = enemyData.url;
+            enemy.width = enemy.height = enemySize;
+            enemy.className = 'enemy';
+
+            enemyContainer.appendChild(enemyLabel);
+            enemyContainer.appendChild(enemy);
+
+            document.body.appendChild(enemyContainer);
+
+            var maxX = window.innerWidth - enemySize;
+            var maxY = window.innerHeight - enemySize;
+
+            var x = Math.floor(Math.random() * maxX);
+            var y = Math.floor(Math.random() * maxY);
+
+            var dx = (Math.random() - 0.5) * 10; // 随机水平移动速度
+            var dy = (Math.random() - 0.5) * 10; // 随机垂直移动速度
+
+            var intervalID = setInterval(function() {
+                x += dx;
+                y += dy;
+
+                if (x < 0 || x > maxX) {
+                    dx = -dx;
+                }
+
+                if (y < 0 || y > maxY) {
+                    dy = -dy;
+                }
+
+                enemyContainer.style.left = x + 'px';
+                enemyContainer.style.top = y + 'px';
+
+                // 检查碰撞
+                var playerRect = player.getBoundingClientRect();
+                var enemyRect = enemy.getBoundingClientRect();
+                if (playerRect.left < enemyRect.right &&
+                    playerRect.right > enemyRect.left &&
+                    playerRect.top < enemyRect.bottom &&
+                    playerRect.bottom > enemyRect.top) {
+                    if (playerSize > enemySize) {
+                        playerSize += enemySize;
+                        player.style.width = player.style.height = playerSize + 'px';
+                        enemyContainer.parentNode.removeChild(enemyContainer);
+                        clearInterval(intervalID); // 清除该敌人的移动定时器
+                        score++; // 增加分数
+                        document.getElementById('score').innerText = score;
+
+                        var textOverlay = document.createElement('div');
+                        textOverlay.className = 'text-overlay';
+                        textOverlay.textContent = '成功找到MUGEN垃圾合伙人';
+                        textOverlay.style.left = (x + enemySize / 2 - 100) + 'px';
+                        textOverlay.style.top = (y + enemySize / 2 - 20) + 'px';
+                        document.body.appendChild(textOverlay);
+                        setTimeout(function() {
+                            document.body.removeChild(textOverlay);
+                        }, 1000); // 一秒后移除文字
+                    } else {
+                        alert('您已阵亡！');
+                        if (confirm('是否再来一次？')) {
+                            location.reload(); // 游戏重新开始
+                        } else {
+                            clearInterval(intervalID); // 清除该敌人的移动定时器
+                            enemyContainer.parentNode.removeChild(enemyContainer); // 移除敌人
+                        }
+                    }
+                }
+            }, 100);
+        }
+
+        // 创建敌人
+        for (var i = 0; i < 10; i++) {
+            createEnemy();
+        }
+    </script>
+</body>
+</html>
