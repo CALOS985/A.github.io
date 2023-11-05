@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>按钮示例</title>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+        body {
+    background: linear-gradient(to right, #ffafbd, #ffc3a0, #ffe38a);
+    animation: changeBackground 10s ease infinite;
+}
+
+@keyframes changeBackground {
+    0% {
+        background: linear-gradient(to right, #ffafbd, #ffc3a0, #ffe38a);
+    }
+    50% {
+        background: linear-gradient(to right, #ffe38a, #b5e7a0, #86e7b8);
+    }
+    100% {
+        background: linear-gradient(to right, #86e7b8, #63a4ff, #7b61ff);
+    }
+}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		.content {
+			display: none;
+			margin-top: 10px;
+			text-align: center;
+		}
+		
+		.btn {
+			display: inline-block;
+			padding: 5px 10px;
+			border: none;
+			background-color: #101113;
+			color: #fff;
+			cursor: pointer;
+            border-radius: 15px;
+		}
+		
+		.btn:hover {
+			background-color: #0069d9;
+		}
+		
+		.btn:focus {
+			outline: none;
+		}
+		
+		.btn:before {
+			content: '+';
+			margin-right: 5px;
+		}
+		
+		.btn.active:before {
+			content: '-';
+		}
+		
+		table {
+			margin-top: 10px;
+			border-collapse: collapse;
+			text-align: center;
+			width: 100%;
+			/* max-width: 500px; */
+		}
+		
+		th, td {
+			padding: 5px 10px;
+			border: 1px solid #ddd;
+			font-size: 16px;
+			word-break: break-all;
+		}
+		
+		@media (max-width: 500px) {
+			th, td {
+				font-size: 8px;
+				word-break: break-word;
+			}
+            img {
+                width: 15PX;
+                height: 15px;
+            }
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<button class="btn" onclick="toggleContent()">展开网络蛀虫名单</button>
+		<div class="content" id="content">
+            <table >
+                <tr>
+                    <th colspan="8">MUGEN倒卖狗与网络喷子通缉名单</th>
+
+                </tr>
+                <tr>
+                    <td>通缉人员网名</td>
+                    <td>通缉人员性别</td>
+                    <td>通缉人员QQ</td>
+                    <td>
+                        <p>通缉人员</p>
+                        <p>手机号</p>
+                    </td>
+                    <td>
+                        <p>通缉人员</p>
+                        <p> 哔哩哔哩UID</p>
+                    </td>
+                    <td>人员性质</td>
+                    <td>常用头像</td>
+                    <td>所在地区</td>
+                </tr>
+                <tr>
+                    <td>懒鬼</td>
+                    <td>女</td>
+                    <td>
+                        <p>大号：185010215</p>
+                        <p>小号：1063780522</p>
+                    </td>
+                    <td>
+                        <p>广东佛山移动13590605436</p>
+                        <p> 广东东莞移动13712194844</p>
+                    </td>
+                    <td>哔哩哔哩UID:404217244
+                    </td>
+                    <td>口臭，卖整合</td>
+                    <td><img style="width: 30px;height: 30px;"
+                            src="https://pic.imgdb.cn/item/627274ab09475431298aa586.jpg">
+                    </td>
+                    <td>广东阳江或佛山或东莞</td>
+                </tr>
+                <tr>
+                    <td>MUGEN天台華</td>
+                    <td>男</td>
+                    <td>110830288</td>
+                    <td>江苏连云港电信15351828110</td>
+                    <td>哔哩哔哩UID:587317694
+                    </td>
+                    <td>欺骗萌新，无良奸商主播</td>
+                    <td><img style="width: 30px;height: 30px;"
+                            src="https://pic.imgdb.cn/item/627278060947543129938b10.jpg">
+                    </td>
+                    <td>江苏双金或连云港</td>
+                </tr>
+                <tr>
+                    <td>全女大橙子</td>
+                    <td>男</td>
+                    <td>365167082</td>
+                    <td>未更新</td>
+                    <td>哔哩哔哩UID:58214212
+                    </td>
+                    <td>靠卖MUGEN全女格斗获利巨大，数额已经构成违法</td>
+                    <td><img style="width: 30px;height: 30px;"
+                            src="https://pic.imgdb.cn/item/627277bf094754312992c7c3.jpg">
+                    </td>
+                    <td>山东烟台</td>
+                </tr>
+                <tr>
+                    <td>刻骨铭心</td>
+                    <td>男</td>
+                    <td>1121336380 </td>
+                    <td>山东菏泽电信17362266673</td>
+                    <td>尚未注册</td>
+                    <td>喜欢在各种QQ群发不雅照片，不良言论</td>
+                    <td><img style="width: 30px;height: 30px;"
+                            src="https://pic.imgdb.cn/item/6272781c094754312993c5c2.jpg">
+                    </td>
+                    <td>山东菏泽</td>
+                </tr>
+                <tr>
+                    <td>伊祈怒我</td>
+                    <td>男</td>
+                    <td>211960964
+                    </td>
+                    <td>未更新</td>
+                    <td>尚未注册</td>
+                    <td>无故加群退群</td>
+                    <td><img style="width: 30px;height: 30px;"
+                            src="https://pic.imgdb.cn/item/627275e509475431298dd9ab.jpg">
+                    </td>
+                    <td>等待更新</td>
+                </tr>
+                <tr>
+                    <td>兔耳男神</td>
+                    <td>男</td>
+                    <td>3373298792
+                    </td>
+                    <td>天津联通15510928223</td>
+                    <td>尚未注册</td>
+                    <td>纯属懒狗，不乐意学习，不停烦别人</td>
+                    <td><img style="width: 30px;height: 30px;"
+                            src="https://pic.imgdb.cn/item/627276f6094754312990abc6.jpg">
+                    </td>
+                    <td>天津静海</td>
+                </tr>
+                <tr>
+                    <td>杰刚-队长
+                    </td>
+                    <td>男</td>
+                    <td>
+                        未更新
+                    </td>
+                    <td>未更新</td>
+                    <td>UID:385070321</td>
+                    <td>无脑喷子，造谣的煞笔</td>
+                    <td><img style="width: 30px;height: 30px;"
+                            src="https://pic.imgdb.cn/item/627278dc094754312995ae68.jpg">
+                    </td>
+                    <td>待更新</td>
+                </tr>
+                <tr>
+                    <td>快乐社会哈
+                    </td>
+                    <td>男</td>
+                    <td>2029317070
+                    </td>
+                    <td>未更新</td>
+                    <td>UID:1531984928</td>
+                    <td>和懒鬼一样，老分流怪，窃取各种作者人物</td>
+                    <td><img style="width: 30px;height: 30px;"
+                            src="https://pic.imgdb.cn/item/627279db0947543129985053.jpg">
+                    </td>
+                    <td>待更新</td>
+                </tr>
+                <tr>
+                    <td>蓝蔷薇
+                    </td>
+                    <td>男</td>
+                    <td>煞笔不配收录
+                    </td>
+                    <td>未更新</td>
+                    <td>UID:317032788
+                    </td>
+                    <td>
+                        <p>此人以前带人过来我这里骂人</p>
+                        <p>性格似小学生般狂傲</p>
+                        <p>JUS人物圈逼王1号</p>
+                        <p>表面上正直，内心极度黑暗，还背后说我是卖整合的去背后抹黑我，自己不知道坑那些主播多少钱。</p>
+                    </td>
+                    <td><img style="width: 30px;height: 30px;"
+                            src="https://img.gejiba.com/images/e5e9233c178afcfabf9a5f829eb3faab.jpg">
+                    </td>
+                    <td>待更新</td>
+                </tr>
+            </table>
+		</div>
+	</div>
+	
+    <script>
+	function toggleContent() {
+	  var content = document.querySelector('.content');
+	  var btn = document.querySelector('.btn');
+	  
+	  if (content.style.display === 'none' || content.style.display === '') {
+	    content.style.display = 'block';
+	    btn.classList.add('active');
+	  } else {
+	    content.style.display = 'none';
+	    btn.classList.remove('active');
+	  }
+	  
+	  content.scrollIntoView({ behavior: 'smooth' });
+    }
+    </script>
+</body>
+</html>
