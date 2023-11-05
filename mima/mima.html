@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUGEN密码教学</title>
+    <link rel="shortcut icon" href="https://pic.imgdb.cn/item/62618f38239250f7c5391c92.png">
+    <style>
+body {
+  background: radial-gradient(circle, #5a5656 20%, #181718 80%);
+  background-size: 200%;
+  animation: wave 10s ease infinite;
+}
+
+@keyframes wave {
+  0% {
+    background-position-x: 0%;
+  }
+  50% {
+    background-position-x: 100%;
+  }
+  100% {
+    background-position-x: 0%;
+  }
+}
+
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            position: fixed;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+        }
+        .pagination a {
+            color: #333;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            margin: 0 5px;
+            border-radius: 5px;
+        }
+        .pagination a.active {
+            background-color: #333;
+            color: #fff;
+        }
+        .content {
+            margin-top: 50px;
+            text-align: center;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+    </style>
+</head>
+<body>
+    <div class="content"></div>
+    <div class="pagination">
+        <a href="#" class="active">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+    </div>
+
+
+    <script>
+        var pages = [
+          "<img src='https://img.gejiba.com/images/ade90765f5adaef77cac6834af2d38cb.jpg'/>",
+          "<img src='https://img.gejiba.com/images/454cb97289062f9546207538bd2d826c.jpg'/>",
+          "<img src='https://img.gejiba.com/images/4a0c96df70c08a711a1786a893bd1a7f.jpg'/>",
+          "<img src='https://img.gejiba.com/images/dba4c0cffe43caae4bf9db7998d653de.jpg'/>",
+          "<img src='https://picsum.photos/800/600'/>"
+        ];
+
+        var pagination = document.querySelector(".pagination");
+        var links = pagination.querySelectorAll("a");
+
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener("click", function(e) {
+                e.preventDefault();
+                // 移除所有链接的active类
+                for (var j = 0; j < links.length; j++) {
+                    links[j].classList.remove("active");
+                }
+                // 将当前链接添加active类
+                this.classList.add("active");
+                // 获取当前链接的页码
+                var page = parseInt(this.textContent);
+                // 显示对应页码的内容
+                var content = document.querySelector(".content");
+                content.innerHTML = pages[page - 1];
+            });
+        }
+
+        // 默认显示第一页的
+        var content = document.querySelector(".content");
+        content.innerHTML = pages[0];
+    </script>
+</body>
+</html>
+
+
