@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>卡洛斯</title>
+    <link rel="shortcut icon" href="https://pic.imgdb.cn/item/62618f38239250f7c5391c92.png">
+</head>
+<!-- config -->
+<link rel="manifest" href="/manifest.json" />
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Raleway:200');
+
+
+
+    .body {
+        height: 100vh;
+    }
+
+    #box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 400px;
+        height: 200px;
+        color: white;
+        font-family: 'Raleway';
+        font-size: 2.5rem;
+    }
+
+    .gradient-border {
+        --borderWidth: 3px;
+        background: #1D1F20;
+        position: relative;
+        border-radius: var(--borderWidth);
+    }
+
+    .gradient-border:after {
+        content: '';
+        position: absolute;
+        top: calc(-1 * var(--borderWidth));
+        left: calc(-1 * var(--borderWidth));
+        height: calc(100% + var(--borderWidth) * 2);
+        width: calc(100% + var(--borderWidth) * 2);
+        background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+        border-radius: calc(2 * var(--borderWidth));
+        z-index: -1;
+        animation: animatedgradient 3s ease alternate infinite;
+        background-size: 300% 300%;
+    }
+
+
+    @keyframes animatedgradient {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    a:hover {
+        background-color: rgb(233, 229, 223);
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+    }
+
+    /* body { */
+    /* margin: 0; */
+    /* vh 是view height 既视窗高度的意思，100就是100%占满窗口高度 */
+    /* height: 100vh; */
+    /* background-color: rgb(245, 242, 238);}  */
+
+
+    /* * {
+        border: 1px solid #333;
+    } */
+
+    .flex {
+        display: flex;
+    }
+
+    /* 占满比例 */
+    .flex1 {
+        flex: 1;
+    }
+
+    /* 竖向 */
+    .column {
+        flex-direction: column;
+    }
+
+    /* 阴影 */
+    .yinYing {
+        box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+    }
+
+    /* 白色背景 */
+    .baiSe {
+        background-color: rgb(255, 255, 255);
+        font-size: 60;
+        color: rgb(131, 129, 128);
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* 上下左右外边距 */
+    .mg8 {
+        margin: 8px;
+    }
+
+    /* 右外边距 */
+    .mgr8 {
+        margin-right: 8px;
+    }
+
+    /* 上外边距 */
+    .mgt8 {
+        margin-top: 8px;
+    }
+
+    .juzhong {
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background: #1D1F20;
+    }
+
+    /* 一个文字区域 */
+    textarea {
+        color: #db990a;
+        font-size: 20px;
+        border: 10px solid rgb(0, 0, 0);
+        padding: 2rem 1rem;
+        min-height: 3em;
+        resize: both;
+        background: #ffd73e33;
+        border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232d3561' /%3E%3Cstop offset='25%25' stop-color='%23c05c7e' /%3E%3Cstop offset='50%25' stop-color='%23f3826f' /%3E%3Cstop offset='100%25' stop-color='%23ffb961' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E") 1;
+    }
+
+
+    /* 选中效果1 */
+    .selectEffect {
+        display: block;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #555555;
+        vertical-align: middle;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    }
+
+    /* 选中效果1 */
+    .selectEffect:focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+    }
+
+    /* 选中效果2 */
+    .box {
+        position: relative;
+
+        overflow: hidden;
+        background-color: yellow;
+        margin: 50px;
+        border: 3px solid #4390df;
+    }
+
+    .box:before {
+        position: absolute;
+        display: block;
+        border-top: 28px solid #4390df;
+        border-left: 28px solid transparent;
+        right: 0;
+        top: 0;
+        content: "";
+        z-index: 101;
+    }
+
+    .box:after {
+        position: absolute;
+        display: block;
+        content: "\e013";
+        top: 0;
+        right: 0;
+        font-family: Glyphicons Halflings;
+        font-size: 10pt;
+        font-weight: normal;
+        z-index: 102;
+        color: #fff;
+    }
+
+    /* 选中效果3 */
+    .svg-wrapper {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        width: 320px;
+    }
+
+    .shape {
+        stroke-dasharray: 140 540;
+        stroke-dashoffset: -474;
+        stroke-width: 8px;
+        fill: transparent;
+        stroke: #19f6e8;
+        border-bottom: 5px solid black;
+        transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+    }
+
+    .text {
+        font-family: 'Roboto Condensed';
+        font-size: 22px;
+        line-height: 32px;
+        letter-spacing: 8px;
+        color: #fff;
+        top: -48px;
+        position: relative;
+    }
+
+    .svg-wrapper:hover .shape {
+        stroke-width: 2px;
+        stroke-dashoffset: 0;
+        stroke-dasharray: 760;
+    }
+
+    /* 手机端适配 */
+    @media (max-width: 600px) {}
+</style>
+<script>
+    function changeImage() {
+        element = document.getElementById('myimage')
+        if (element.src.match("bulbon")) {
+            element.src = "https://pic.imgdb.cn/item/62cef054f54cd3f9379f036c.gif";
+        } else {
+            element.src = "https://pic.imgdb.cn/item/62cef065f54cd3f9379f1a8a.gif";
+        }
+    }
+
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+            navigator.serviceWorker.register("sw.js");
+        });
+        const button = document.querySelector('button');
+
+        button.onclick = function () {
+            let name = prompt('What is your name?');
+            alert('Hello ' + name + ', nice to see you!');
+        }
+    }
+</script>
+
+<body style="border: 0;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+    <div class="flex  column">
+        <!-- 头像栏 -->
+        <div class="gradient-border" id="box" style="  z-index: 2;width: 100%;height: 160px;background-color: #1D1F20;display: flex;align-items: center;justify-content:
+        center;" class="gradient-border" id="box">
+            <img src=" https://img.gejiba.com/images/4ae72bde330c5d06de5f6e8c9712ba5c.png" alt="1" border="0"
+                width="80px" height="80px">
+        </div>
+
+        <!-- 内容区 -->
+        <div class=" flex flex1 column gradient-border"
+            style=" width: auto; font-family: 'Raleway';color: white; z-index: 1; overflow: auto;  margin: 10px;padding: 30px;max-width: 700px;min-height: 70vh;letter-spacing: 1px;line-height: 1.7;background-color: rgb(28, 224, 21);">
+
+
+            <!-- 上方介绍   -->
+            <div class="flex column " style=" align-items: center;
+             justify-content: center;">
+
+                <textarea resize>有关MUGEN的发布请滑到网页底部！🎇</textarea>
+                <!-- [卡洛斯也是需要恰饭滴][我是阿里云盘官方推广V4达人，通过下方二维码购买阿里云盘会员可享受五折优惠
+                原本超级会员年卡需要288，现在只要288-90=198，一年阿里云盘会员带回家
+                百度网盘开一年超级会员需要298且提高容量必须提高VIP等级，但是阿里云盘开了年费直接送你20T，比百度网盘满级会员还多4T。相当于直接就是百度网盘的满级VIP待遇。
+                如果你因为我整理资源很辛苦，又没有合适的回报手段，可以购买阿里云盘支持我，对你对我都有好处，何乐而不为呢。] -->
+
+
+
+            </div>
+
+            <!-- 恰饭图 -->
+            <div style=" text-align: center;" class="juzhong">
+                <p>
+                    <!-- <img src="https://pic.imgdb.cn/item/62b178a609475431296f1578.png" width="250" height="250"> -->
+                    <img loading="lazy" id="myimage" onclick="changeImage()"
+                        src="https://pic.imgdb.cn/item/62cef054f54cd3f9379f036c.gif" width="100" height="180">
+                <P>点亮智慧</P>
+                </p>
+            </div>
+
+            <!-- 打赏处 -->
+            <div>
+                <a style="text-align: center;" class="box " href="https://calos985.github.io/A.github.io/QA/QAMUGEN.html
+                    " target="_blank">
+                    MUGEN自助回答机器人</a>
+            </div>
+
+            <div style="margin-top: 40px; background: rgb(20,20,20);
+             text-align: center;height: 60px;" class="svg-wrapper ">
+
+                <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="shape" height="60" width="320" />
+                    <div class="text">-----THANK YOU </div>
+
+                </svg>
+
+            </div>
+        </div>
+        <!-- 链接区 -->
+        <div style=" width: auto ; margin: 10px;padding: 30px;min-height: 70vh;letter-spacing: 1px;line-height: 1.7;background-color: #1D1F20;justify-content: center;align-items: center;"
+            class="flex flex1 column gradient-border ">
+            <!-- 欢迎列表 -->
+            <div>
+                <ul style="display: flex ;flex-direction: column;align-items: center;">
+                    <li style="font-size: 16px;   line-height: 100px; color: #eee; ">
+                        <img src=" https://img.gejiba.com/images/4ae72bde330c5d06de5f6e8c9712ba5c.png" alt="1"
+                            border="0" width="30px" height="30px">你好这里是卡洛斯MUGEN发布指引
+                    </li>
+                    <li style="font-size: 16px;   line-height: 100px; color: #eee; ">
+                        <img src=" https://img.gejiba.com/images/4ae72bde330c5d06de5f6e8c9712ba5c.png" alt="1"
+                            border="0" width="30px" height="30px">欢迎你来到这里
+                    </li>
+                </ul>
+            </div>
+            <!-- 通缉 -->
+
+            <!-- 教程区 -->
+            <div class="flex flex1 column shouji" style="padding: auto; text-align: center;">
+                <div style="width: auto;height: 100px;">
+                    <a class="box" href="https://calos985.github.io/A.github.io/" target="_blank">
+                        资源库</a>
+                </div>
+                <div style="width: auto;height: 100px;">
+                    <a class="box" href="https://calos985.github.io/E.github.io/" target="_blank">
+                        MUGEN密码导航</a>
+                </div>
+
+                <div style="width: auto;height: 100px;">
+                    <a class="box" href="https://www.yuque.com/docs/share/741a11ac-c9e5-4c5d-a39a-6da3b05a6876?#"
+                        target="_blank">
+                        MUGEN新手教学</a>
+                </div>
+                <div style="width: auto;height: 100px;">
+                    <a class="box" href="https://calos985.github.io/A.github.io/tongji/tongji.html"
+                        target="_blank">
+                        网络蛀虫名单</a>
+                </div>
+ <div style="width: auto;height: 100px;">
+                    <a class="box" href="https://calos985.github.io/A.github.io/mugenmaijia/mugenmaijia.html"
+                        target="_blank">
+                        MUGEN某宝某鱼卖家汇总</a>
+                </div>
+                <div style="width: auto;height: 100px;">
+                    <a class="box" href=" https://qxmugen.com/member/44648" target="_blank">
+                        MUGEN制作历史作品</a>
+                </div>
+
+                <div style="width: auto;height: 100px;">
+                    <a class="box" href="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/" target="_blank">
+                        橙子全女格斗【失效待补】</a>
+                </div>
+
+                <div style="width: auto;height: 100px;">
+                    <a class="box" href="https://calos985.github.io/A.github.io/mima/mima.html"
+                        target="_blank">
+                        找密码图文演示</a>
+                </div>
+
+                <div style="width: auto;height: 100px;">
+                    <a class="box" href="https://calos985.github.io/A.github.io/lianxi/lianxi.html"
+                        target="_blank">
+                        与我联系</a>
+                </div>
+
+            </div>
+
+
+
+            <!-- 备案信息 -->
+            <div class="gradient-border"
+                style="z-index: 1; width: 100%;height: 160px;background-color: #eee;display: flex;align-items: center;justify-content: center;flex-direction: row;">
+                <ul>
+                    <li>
+                        <p><a href="https://calos985.github.io/" target="_blank">站长博客</a></p>
+                    </li>
+                    <li>
+                        <p>声明：这只是个MUGEN发布地，站长卡洛斯</p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
