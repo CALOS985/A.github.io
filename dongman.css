@@ -452,7 +452,17 @@
         }
   
         /* <!-- 导航 --> */
-       
+       #jinzhi {
+  cursor: not-allowed;
+}
+
+#jinzhi:hover::after {
+  content: "暂不可用";
+  display: inline-block;
+  margin-left: 10px;  /* 调整文字与元素的距离，根据需要调整值 */
+  color: red;  /* 可以根据需要调整文字颜色 */
+}
+
           body {
             background: #eee;
   
