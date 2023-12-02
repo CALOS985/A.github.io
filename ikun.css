@@ -330,7 +330,7 @@ a {
             align-items: center;
         }
 
-        .container:last-child {
+        .container:nth-child(7) {
             display: flex;
             align-items: center;
             /* 垂直方向上居中对齐 */
@@ -340,7 +340,7 @@ a {
             background: linear-gradient(to bottom right, #ffffff, #ffa500);
         }
 
-        .container:last-child span {
+        .container:nth-child(7) span {
             margin-left: 5px;
         }
 
