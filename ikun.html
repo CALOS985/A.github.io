@@ -407,7 +407,7 @@
       width: 50px;
       height: 50px;
      
-      overflow: hidden; /* 防止图片溢出容器 */
+     /* overflow: hidden; 防止图片溢出容器 */
   }
    /* 鼠标悬停时的容器样式 */
    .containerMUGEN:hover {
@@ -422,11 +422,40 @@
       height: 100%;
       object-fit: cover; /* 图片保持纵横比并填充整个容器 */
   }
+  /* 气泡样式 */
+  .tooltipMUGEN {
+            display: none;
+            width: 150PX;
+            position: absolute;
+            left: 50px; /* 负值使气泡左移，调整位置 */
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* 鼠标悬停时显示气泡 */
+        .containerMUGEN:hover .tooltipMUGEN {
+            display: block;
+        }
 </style>
+<!-- 浮动气泡 -->
+<script>
+    // 如果需要在JavaScript中添加交互行为，可以在这里添加
+    // 例如，点击时执行某个动作
+    document.getElementById('openPopupBtnMUGEN').addEventListener('click', function() {
+        // 执行某些操作
+        alert('容器被点击了！');
+    });
+</script>
 <div class="containerMUGEN" id="openPopupBtnMUGEN">
   <!-- 图片 -->
   <img src="https://pic.imgdb.cn/item/6480815c1ddac507cc31f63f.png" alt="MUGEN">
+  <div class="tooltipMUGEN">加载较慢，建议魔法</div>
 </div>
+
   <!-- 嵌入MUGEN问答CSS -->
   <style>
       /* 设置弹出窗口样式 */
@@ -445,9 +474,10 @@
   /* 在电脑端（宽度大于等于768px）的样式 */
   @media (min-width: 768px) {
     #popupMUGEN {
-                width: 400PX;
-                left: 30%;
-                height: 85%;
+               top: 8%;
+               left: 15%;
+               width: 80%;
+               height: 80%;
                 /* 其他电脑端样式属性 */
             }
         }
@@ -481,7 +511,7 @@
       <!-- 嵌入MUGEN问答 -->
       <div id="popupMUGEN">
           <div id="closeBtnMUGEN" onclick="closePopupMUGEN()">关闭</div>
-          <iframe  src="https://calos985.github.io/A.github.io/QA/QAMUGEN.html" frameborder="0" sandbox="allow-popups"></iframe>
+          <iframe  src="https://mugenarchive.com/forums/downloads.php?do=cat&id=1-characters" frameborder="0" sandbox="allow-popups"></iframe>
       </div>
       <script>
           // 获取触发弹出窗口的按钮
