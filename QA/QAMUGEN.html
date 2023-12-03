@@ -287,11 +287,11 @@ span {
           color: var(--color-accent);
         }
 
-        .button-group {
+        .buttonQA-group {
           margin-top: calc(var(--size-bezel) * 2.5);
         }
 
-        button {
+        buttonQA {
           color: currentColor;
           padding: var(--size-bezel) calc(var(--size-bezel) * 2);
           background: var(--color-accent);
@@ -299,12 +299,12 @@ span {
           border-radius: var(--size-radius);
           font-weight: 900;
         }
-        button[type=reset] {
+        buttonQA[type=reset] {
           background: var(--color-background);
           font-weight: 200;
         }
 
-        button + button {
+        buttonQA + buttonQA {
           margin-left: calc(var(--size-bezel) * 2);
         }
 
@@ -329,7 +329,7 @@ span {
           align-items: center;
           height: 100vh;
         }
-        button {
+        buttonQA {
     cursor: pointer;
   }
         #chatbox {
@@ -456,9 +456,9 @@ fetch('responses.json')
             <input  id="inputbox" class="input__field" type="text" placeholder=" " onkeydown="if(event.keyCode==13) sendMessage()"/>
             <span class="input__label">问点MUGEN问题?</span>
           </label>
-          <div class="button-group">
-            <button onclick="sendMessage()">提问</button>
-            <button type="reset" onclick="resetChat()">复位</button>
+          <div class="buttonQA-group">
+            <buttonQA onclick="sendMessage()">提问</buttonQA>
+            <buttonQA type="reset" onclick="resetChat()">复位</buttonQA>
 
           </div>
         </div>
