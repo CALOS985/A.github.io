@@ -397,7 +397,183 @@
             }
         }
     </script>
-
+<!-- MUGEN图标 -->
+<style>
+    /* 容器样式 */
+    .containerMUGEN {
+        position: fixed;
+        bottom: 100px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+       
+        overflow: hidden; /* 防止图片溢出容器 */
+    }
+     /* 鼠标悬停时的容器样式 */
+     .containerMUGEN:hover {
+            border-color: rgb(20, 20, 20); /* 鼠标悬停时显示边框 */
+            background-color: rgba(255, 255, 255, 0.2); /* 鼠标悬停时背景变为半透明白色 */
+            cursor: url("https://img.gejiba.com/images/c9537a1cd0ad66a8e9c0e376541305b4.png"),
+        auto;
+        }
+    /* 图片样式 */
+    .containerMUGEN img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 图片保持纵横比并填充整个容器 */
+    }
+</style>
+<div class="containerMUGEN" id="openPopupBtnMUGEN">
+    <!-- 图片 -->
+    <img src="https://pic.imgdb.cn/item/6480815c1ddac507cc31f63f.png" alt="MUGEN">
+</div>
+    <!-- 嵌入MUGEN问答CSS -->
+    <style>
+        /* 设置弹出窗口样式 */
+        #popupMUGEN {
+            display: none;
+            position: fixed;
+            top: 8%;
+            left: 15%;
+            width: 80%;
+            height: 90%;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+        }
+    
+        /* 设置关闭按钮样式 */
+        #closeBtnMUGEN {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+        }
+    
+        /* 设置iframe样式 */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            font-weight:bold;
+        }
+    </style>
+    
+        <!-- 嵌入千寻网页 -->
+        <div id="popupMUGEN">
+            <div id="closeBtnMUGEN" onclick="closePopupMUGEN()">关闭</div>
+            <iframe  src="https://calos985.github.io/A.github.io/QA/QAMUGEN.html" frameborder="0" sandbox="allow-popups"></iframe>
+        </div>
+        <script>
+            // 获取触发弹出窗口的按钮
+            var openPopupBtnMUGEN = document.getElementById('openPopupBtnMUGEN');
+        
+            // 获取弹出窗口
+            var popupMUGEN = document.getElementById('popupMUGEN');
+        
+            // 给按钮添加点击事件
+            openPopupBtnMUGEN.addEventListener('click', function() {
+                openPopupMUGEN();
+            });
+        
+            // 打开弹出窗口
+            function openPopupMUGEN() {
+                popupMUGEN.style.display = 'block';
+           
+            }
+        
+            // 关闭弹出窗口
+            function closePopupMUGEN() {
+                popupMUGEN.style.display = 'none';
+            }
+            
+        </script>
+      <style>
+        #popupMUGEN {
+            position: absolute;
+           
+            cursor: default;
+        }
+    
+        #closeBtnMUGEN {
+            cursor: pointer;
+        }
+    
+        .draggable {
+            cursor: move;
+        }
+    </style>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var popupMUGEN = document.getElementById("popupMUGEN");
+            var closeBtnMUGEN = document.getElementById("closeBtnMUGEN");
+    
+            closeBtnMUGEN.onmousedown = function (e) {
+                e.preventDefault();
+                dragElement(popupMUGEN, e);
+            };
+    
+            popupMUGEN.onmouseover = function (e) {
+                showDraggableIcon(e);
+            };
+    
+            popupMUGEN.onmouseout = function () {
+                hideDraggableIcon();
+            };
+    
+            function closePopupMUGEN() {
+                popupMUGEN.style.display = "none";
+            }
+    
+            function dragElement(elmnt, e) {
+                var pos1 = e.clientX;
+                var pos2 = e.clientY;
+                var pos3 = 0;
+                var pos4 = 0;
+    
+                document.onmouseup = closeDragElement;
+                document.onmousemove = elementDrag;
+    
+                function elementDrag(e) {
+                    e.preventDefault();
+                    pos3 = pos1 - e.clientX;
+                    pos4 = pos2 - e.clientY;
+                    pos1 = e.clientX;
+                    pos2 = e.clientY;
+    
+                    elmnt.style.top = elmnt.offsetTop - pos4 + "px";
+                    elmnt.style.left = elmnt.offsetLeft - pos3 + "px";
+                }
+    
+                function closeDragElement() {
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
+    
+            function showDraggableIcon(e) {
+                var edgeDistance = 20;
+                var rect = popupMUGEN.getBoundingClientRect();
+    
+                if (
+                    e.clientX < rect.left + edgeDistance ||
+                    e.clientX > rect.right - edgeDistance ||
+                    e.clientY < rect.top + edgeDistance ||
+                    e.clientY > rect.bottom - edgeDistance
+                ) {
+                    popupMUGEN.classList.add("draggable");
+                } else {
+                    popupMUGEN.classList.remove("draggable");
+                }
+            }
+    
+            function hideDraggableIcon() {
+                popupMUGEN.classList.remove("draggable");
+            }
+        });
+    </script>
     <footer>
         <div class="container">
             <div class="icon-container" onclick="togglePopup()">
@@ -446,6 +622,7 @@
             </div>
         </div>
     </footer>
+
 <!-- 嵌入B站网页CSS -->
 <style>
     /* 设置弹出窗口样式 */
@@ -481,8 +658,21 @@
     <!-- 嵌入B站网页 -->
     <div id="popupBLI">
         <div id="closeBtnBLI" onclick="closePopupBLI()">关闭</div>
-        <iframe src="https://www.bilibili.com/" frameborder="0"></iframe>
+        <iframe id="myIframe" src="https://www.bilibili.com/" frameborder="0" ></iframe>
     </div>
+    <!-- 阻止新标签页 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var iframe = document.getElementById("myIframe"); // 请将 "yourIframeId" 替换为您的 iframe 的实际 ID
+    
+            iframe.onload = function() {
+                iframe.contentWindow.document.querySelectorAll('a').forEach(function(link) {
+                    link.setAttribute('target', '_self');
+                });
+            };
+        });
+    </script>
+    
     <script>
         // 获取触发弹出窗口的按钮
         var openPopupBtnBLI = document.getElementById('openPopupBtnBLI');
@@ -498,12 +688,14 @@
         // 打开弹出窗口
         function openPopupBLI() {
             popupBLI.style.display = 'block';
+          
         }
     
         // 关闭弹出窗口
         function closePopupBLI() {
             popupBLI.style.display = 'none';
         }
+        
     </script>
     <!-- 嵌入千寻网页CSS -->
 <style>
@@ -537,10 +729,11 @@
         font-weight:bold;
     }
 </style>
+
     <!-- 嵌入千寻网页 -->
     <div id="popupQX">
         <div id="closeBtnQX" onclick="closePopupQX()">关闭</div>
-        <iframe src="https://qxmugen.com/" frameborder="0"></iframe>
+        <iframe id="myIframe" src="https://qxmugen.com/" frameborder="0" sandbox="allow-popups"></iframe>
     </div>
     <script>
         // 获取触发弹出窗口的按钮
@@ -557,13 +750,103 @@
         // 打开弹出窗口
         function openPopupQX() {
             popupQX.style.display = 'block';
+       
         }
     
         // 关闭弹出窗口
         function closePopupQX() {
             popupQX.style.display = 'none';
         }
+        
     </script>
+  <style>
+    #popupQX {
+        position: absolute;
+       
+        cursor: default;
+    }
+
+    #closeBtnQX {
+        cursor: pointer;
+    }
+
+    .draggable {
+        cursor: move;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var popupQX = document.getElementById("popupQX");
+        var closeBtnQX = document.getElementById("closeBtnQX");
+
+        closeBtnQX.onmousedown = function (e) {
+            e.preventDefault();
+            dragElement(popupQX, e);
+        };
+
+        popupQX.onmouseover = function (e) {
+            showDraggableIcon(e);
+        };
+
+        popupQX.onmouseout = function () {
+            hideDraggableIcon();
+        };
+
+        function closePopupQX() {
+            popupQX.style.display = "none";
+        }
+
+        function dragElement(elmnt, e) {
+            var pos1 = e.clientX;
+            var pos2 = e.clientY;
+            var pos3 = 0;
+            var pos4 = 0;
+
+            document.onmouseup = closeDragElement;
+            document.onmousemove = elementDrag;
+
+            function elementDrag(e) {
+                e.preventDefault();
+                pos3 = pos1 - e.clientX;
+                pos4 = pos2 - e.clientY;
+                pos1 = e.clientX;
+                pos2 = e.clientY;
+
+                elmnt.style.top = elmnt.offsetTop - pos4 + "px";
+                elmnt.style.left = elmnt.offsetLeft - pos3 + "px";
+            }
+
+            function closeDragElement() {
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+        }
+
+        function showDraggableIcon(e) {
+            var edgeDistance = 20;
+            var rect = popupQX.getBoundingClientRect();
+
+            if (
+                e.clientX < rect.left + edgeDistance ||
+                e.clientX > rect.right - edgeDistance ||
+                e.clientY < rect.top + edgeDistance ||
+                e.clientY > rect.bottom - edgeDistance
+            ) {
+                popupQX.classList.add("draggable");
+            } else {
+                popupQX.classList.remove("draggable");
+            }
+        }
+
+        function hideDraggableIcon() {
+            popupQX.classList.remove("draggable");
+        }
+    });
+</script>
+
+    
+    
     <!-- 弹出窗口 -->
     <div class="popup1 popup-active"> <span onclick="togglePopup1()">X</span>
         <div class="popup-content">
