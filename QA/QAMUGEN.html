@@ -291,7 +291,7 @@ span {
           margin-top: calc(var(--size-bezel) * 2.5);
         }
 
-        buttonQA {
+        button {
           color: currentColor;
           padding: var(--size-bezel) calc(var(--size-bezel) * 2);
           background: var(--color-accent);
@@ -299,12 +299,12 @@ span {
           border-radius: var(--size-radius);
           font-weight: 900;
         }
-        buttonQA[type=reset] {
+        button[type=reset] {
           background: var(--color-background);
           font-weight: 200;
         }
 
-        buttonQA + buttonQA {
+        button + button {
           margin-left: calc(var(--size-bezel) * 2);
         }
 
@@ -457,8 +457,8 @@ fetch('responses.json')
             <span class="input__label">问点MUGEN问题?</span>
           </label>
           <div class="buttonQA-group">
-            <buttonQA onclick="sendMessage()">提问</buttonQA>
-            <buttonQA type="reset" onclick="resetChat()">复位</buttonQA>
+            <button onclick="sendMessage()">提问</button>
+            <button type="reset" onclick="resetChat()">复位</button>
 
           </div>
         </div>
