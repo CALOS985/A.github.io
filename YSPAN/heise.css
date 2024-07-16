@@ -1,0 +1,489 @@
+body #menuList img {
+    filter: progid:DXImageTransform.Microsoft.Chroma(color=#D8E9EC)
+}
+
+body {
+    background: #140f0b url(WB.jpg) repeat scroll 0 0 !important
+}
+
+.ystop {
+    height: 200px !important;
+    background-attachment: scroll;
+    background-color: #000 !important;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    opacity: 0
+}
+
+.ystop h1 {
+    display: none
+}
+
+.ystop #sylj {
+    padding-top: 0 !important;
+    margin-top: 180px !important;
+    text-align: center
+}
+
+.ystop #sylj A {
+    display: inline-block;
+    padding: 2px;
+    color: #fff
+}
+
+.ckbt,
+.z_bt {
+    background: #4d4d4d url(zbobj.jpg) repeat 0 0 !important;
+    height: 24px
+}
+
+.tx3 {
+    height: 18px;
+    border: 1px solid;
+    border-color: #000 #000 #333;
+    color: #000;
+    background-color: #fff
+}
+
+.bt2,
+.tx3 {
+    font-size: 9pt
+}
+
+.bt2 {
+    border-width: 1px;
+    height: 20px;
+    background-color: #e2e2e2;
+    cursor: hand
+}
+
+#nr {
+    color: #000;
+    BORDER: #333 1px solid;
+    width: 220;
+    height: 55px;
+    background-color: #fff;
+    font-family: ����, Century Gothic, Arial, Helvetica;
+    font-size: 9pt
+}
+
+#buyh {
+    padding-top: 2px;
+    padding-bottom: 2px
+}
+
+.z_bt {
+    color: #fff;
+    padding: 0 0 0 1pc;
+    line-height: 24px;
+    height: 24px !important
+}
+
+.z_bo,
+.z_bt {
+    word-wrap: break-word;
+    overflow: hidden
+}
+
+.z_bo {
+    background-color: #f5f5f5;
+    width: 100%;
+    padding: 0;
+    display: block
+}
+
+.z_bo ul {
+    margin: 0;
+    padding: 1px;
+    background-color: #000;
+    list-style-type: none
+}
+
+.z_bo font,
+.z_bo li {
+    color: #b19d80 !important
+}
+
+.z_bo A {
+    color: #b19d80;
+    font-family: ����, Century Gothic, Arial, Helvetica;
+    text-decoration: none
+}
+
+.z_bo A:hover {
+    COLOR: #ff0;
+    TEXT-DECORATION: underline
+}
+
+#elady_tprotator1,
+.z_bo img {
+    display: inline-block;
+    width: expression(idzdy.clientWidth) !important;
+    height: auto !important;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray
+}
+
+#elady_tprotator1 {
+    background: transparent url(loading.gif) no-repeat scroll center center
+}
+
+.z_bo ul li img {
+    display: none;
+    width: auto;
+    height: auto;
+    border-width: 0
+}
+
+.z_bo ul li {
+    margin: 1px auto
+}
+
+.z_bo ul li A {
+    background: transparent url(http://zy.ys168.com/zy/b_old/tp/wjlx2/url.gif) no-repeat scroll top left;
+    height: 19px
+}
+
+.z_bo ul li A,
+.z_bo ul li font {
+    padding: 2px 0 0 18px;
+    font: 9pt/1pc
+}
+
+.z_bo ul li font {
+    background: transparent url(wj.gif) no-repeat scroll top left
+}
+
+div#idzdy {
+    margin: 2px 2px auto;
+    width: 302px !important;
+    width: 306px;
+    font-size: 9pt;
+    border: 2px solid #636363;
+    background-color: #000
+}
+
+#idzdy1 {
+    display: none !important
+}
+
+#laczts,
+#laczts P {
+    padding: 0;
+    margin: 0
+}
+
+#laczts font,
+#laczts span P A {
+    color: #fff
+        /*!important*/
+}
+
+#ysmenu1 {
+    border: 1px solid #fff !important;
+    background-color: #140f0b
+}
+
+#ysmenu1 p {
+    margin: 2px 0 0 1pc;
+    line-height: 20px;
+    color: #fff
+}
+
+#ysmenu1 label,
+.la1 {
+    color: #fff
+}
+
+#ysmenu1 A {
+    color: #b19d80;
+    text-decoration: none
+}
+
+#ysmenu1 A:hover {
+    color: #bd8e36;
+    TEXT-DECORATION: underline
+}
+
+.ysm0 {
+    border: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    background-color: #333;
+    color: #978463
+}
+
+.ysm0x {
+    border-bottom: 1px solid #fff
+}
+
+.ysm0x,
+.ysm1 {
+    border: 1px solid #fff;
+    background-color: #140f0b;
+    color: #fff
+}
+
+.ysm1 {
+    border-bottom: 1px solid #140f0b
+}
+
+#dzx {
+    border: 1px solid #b79c6f
+}
+
+#menuList li {
+    list-style-type: none;
+    border-bottom: 0 solid transparent;
+    line-height: 140%;
+    padding-left: 0
+}
+
+.menu {
+    border-left: 2px solid #b79c6f;
+    padding-left: 3px;
+    padding-bottom: 10px;
+    opacity: 0
+}
+
+#menuList li {
+    list-style-type: none;
+    border-bottom: 1px solid #a0a0a0;
+    line-height: 140%;
+    padding-left: 0
+}
+
+#menuList table {
+    display: none
+}
+
+#menuList li img {
+    width: 24px;
+    height: 24px;
+    margin: 1px 6px -3px;
+    cursor: auto
+}
+
+#menuList ul img {
+    width: 1pc;
+    height: 1pc;
+    margin: auto 1px auto auto;
+    cursor: url(http://zy.cccpan.com/tp/cur/edit1.cur)
+}
+
+#sutjbt2,
+.a1,
+.menu li span,
+span.s1,
+span.s1 font {
+    color: #060 !important
+}
+
+.s3 {
+    background-color: transparent !important
+}
+
+#table2 P,
+#table2 b,
+#table2 font,
+#table2 span {
+    color: #fff
+}
+
+#table2 P {
+    margin: 0
+}
+
+#shtm2,
+#shtm2 label,
+#sipt2,
+#sipt2 label {
+    background-color: transparent !important
+}
+
+#shtm1,
+#sipt1 {
+    background: #0030ce url(zbobj2.jpg) repeat-x 0 0 !important;
+    border-color: #0030ce !important
+}
+
+#sipt4 A.wj {
+    color: #000 !important
+}
+
+#sipt4 A.wj:hover {
+    color: red !important
+}
+
+#java_vbs_form {
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=75)
+}
+
+#buyh input,
+#idwj1 button,
+.BT2,
+.lynrc button {
+    border-width: 1px;
+    height: 20px;
+    background-color: #e2e2e2;
+    cursor: hand;
+    font-size: 9pt
+}
+
+#nr,
+.tx3 {
+    border: 1px solid #fff !important;
+    background-color: #140f0b !important;
+    color: #fff !important
+}
+
+.lynrc {
+    background-color: #000 !important;
+    border: 1px solid #fff;
+    color: #9acd32 !important
+}
+
+.lynrc b,
+.lynrc div {
+    color: #fff !important
+}
+
+.fgg1 #ysmenu1,
+.fgg1 .dqcd {
+    background-color: #140f0b
+}
+
+.fgg1 .cdq div {
+    background-color: #000;
+    border: 1px solid #fff !important;
+    color: #fff
+}
+
+.fgg1 .cdq .dqcd,
+.fgg1 .cdq div:hover {
+    background-color: #140f0b
+}
+
+.fgg1 .cdq .dqcd {
+    border-bottom: 1px solid #140f0b !important
+}
+
+.fgg2 #ysmenu1,
+.fgg2 .dqcd {
+    background-color: #140f0b
+}
+
+.fgg2 .cdq div {
+    background-color: #000;
+    border: 1px solid #fff !important;
+    color: #fff
+}
+
+.fgg2 .cdq .dqcd,
+.fgg2 .cdq div:hover {
+    background-color: #140f0b
+}
+
+.fgg2 .cdq .dqcd {
+    border-bottom: 1px solid #140f0b !important
+}
+
+.fgg3 #ysmenu1,
+.fgg3 .dqcd {
+    background-color: #140f0b
+}
+
+.fgg3 .cdq div {
+    background-color: #000;
+    border: 1px solid #fff !important;
+    color: #fff
+}
+
+.fgg3 .cdq .dqcd,
+.fgg3 .cdq div:hover {
+    background-color: #140f0b
+}
+
+.fgg3 .cdq .dqcd {
+    border-bottom: 1px solid #140f0b !important
+}
+
+.fgg4 #ysmenu1,
+.fgg4 .dqcd {
+    background-color: #140f0b
+}
+
+.fgg4 .cdq div {
+    background-color: #000;
+    border: 1px solid #fff !important;
+    color: #fff
+}
+
+.fgg4 .cdq .dqcd,
+.fgg4 .cdq div:hover {
+    background-color: #140f0b
+}
+
+.fgg4 .cdq .dqcd {
+    border-bottom: 1px solid #140f0b !important
+}
+
+.fgg5 #ysmenu1,
+.fgg5 .dqcd {
+    background-color: #140f0b
+}
+
+.fgg5 .cdq div {
+    background-color: #000;
+    border: 1px solid #fff !important;
+    color: #fff
+}
+
+.fgg5 .cdq .dqcd,
+.fgg5 .cdq div:hover {
+    background-color: #140f0b
+}
+
+.fgg5 .cdq .dqcd {
+    border-bottom: 1px solid #140f0b !important
+}
+
+.fgg6 #ysmenu1,
+.fgg6 .dqcd {
+    background-color: #140f0b
+}
+
+.fgg6 .cdq div {
+    background-color: #000;
+    border: 1px solid #fff !important;
+    color: #fff
+}
+
+.fgg6 .cdq .dqcd,
+.fgg6 .cdq div:hover {
+    background-color: #140f0b
+}
+
+.fgg6 .cdq .dqcd {
+    border-bottom: 1px solid #140f0b !important
+}
+
+#menuList li.gml {
+    padding: 3px 0
+}
+
+body {
+    scrollbar-3dLight-Color: #000;
+    scrollbar-Arrow-Color: #fff;
+    scrollbar-Base-Color: #000;
+    scrollbar-DarkShadow-Color: #000;
+    scrollbar-Face-Color: #000;
+    scrollbar-Highlight-Color: #fff;
+    scrollbar-Shadow-Color: #fff;
+    scrollbar-Track-Color: #b79c6f
+}
+
+#dzx {
+    position: relative;
+}
