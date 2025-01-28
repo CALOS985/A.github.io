@@ -1,1 +1,97 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"content="width=device-width, initial-scale=1.0"><title>Document</title></head><body><style>@charset"UTF-8";@property--α{syntax:"<angle>";initial-value:0deg;inherits:false}.card{position:relative;max-width:15em;aspect-ratio:3/2;border:solid 6px#0000;padding:0.75em;border-radius:1em;background:#edabab21}.card::before,.card::after{--full:conic-gradient(red 0 0);position:absolute;inset:-6px;border:inherit;border-radius:inherit;box-shadow:0 0 6em rgba(0,0,0,0.001);background:conic-gradient(from var(--α),#f94144,#f3722c,#f8961e,#f9844a,#f9c74f,#90be6d,#43aa8b,#4d908e,#277da1,#577590,#f94144)border-box;mask:var(--full)no-clip subtract,var(--full)padding-box;pointer-events:none;animation:α4s linear infinite;content:""}.card::after{filter:blur(2em)}@keyframesα{to{--α:1turn}}html,body,div{box-sizing:border-box;display:grid;place-items:center}html{min-height:100%}body{background:url(https:background-blend-mode:multiply;color:#dedede;font:300 clamp(.875em,5vw,2.5em)saira,sans-serif;text-align:center;text-wrap:balance}</style><div class="card"contenteditable>冤冤相报何时了，大家和谐共处吧</div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>和光同尘</title>
+</head>
+<body>
+    
+<style>
+    @charset "UTF-8";
+@property --α {
+  /* must register --α to animate it */
+  syntax: "<angle>";
+  initial-value: 0deg;
+  /* used only on pseudo, nowhere to be inherited, 
+   * better perf if set false, see 
+   * https://www.bram.us/2024/10/03/benchmarking-the-performance-of-css-property/ */
+  inherits: false;
+}
+.card {
+  /* needed for absolutely positioned pseudo */
+  position: relative;
+  /* set dimensions IF even necessary to set, 
+   * not given by content or parent layout */
+  max-width: 15em;
+  aspect-ratio: 3/2;
+  /* transparent, just to reserve the space */
+  border: solid 6px #0000;
+  padding: 0.75em;
+  /* space between border & text */
+  border-radius: 1em;
+  /* round corners */
+  /* (semi)transparent background, can be 
+   * a gradient with (semi)transparent stops */
+  background: #edabab21;
+  /* turn one pseudo layer into glow */
+}
+.card::before, .card::after {
+  /* full opaque coverage of its box */
+  --full: conic-gradient(red 0 0);
+  /* grid doesn't work for stacking 
+   * when a stacked item is text node */
+  position: absolute;
+  /* equal to the border-width with minus */
+  inset: -6px;
+  /* inherit parent box model & rounded corners */
+  border: inherit;
+  border-radius: inherit;
+  /* reserve no-clip space for glow */
+  box-shadow: 0 0 6em rgba(0, 0, 0, 0.001);
+  background: conic-gradient(from var(--α), #f94144, #f3722c, #f8961e, #f9844a, #f9c74f, #90be6d, #43aa8b, #4d908e, #277da1, #577590, #f94144) border-box;
+  /* make everything inside padding-box transparent
+   * by subtracting padding-box from no-clip box */
+  mask: var(--full) no-clip subtract, var(--full) padding-box;
+  /* don't get in the way of selecting text */
+  pointer-events: none;
+  /* animate gradient start angle */
+  animation: α 4s linear infinite;
+  content: "";
+}
+.card::after {
+  filter: blur(2em);
+}
+
+@keyframes α {
+  to {
+    --α: 1turn ;
+  }
+}
+/* layout & prettifying */
+html, body, div {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  background: url(https://images.unsplash.com/photo-1735542214686-a745d3684c39?w=1400) 5%/cover #212121;
+  background-blend-mode: multiply;
+  color: #dedede;
+  font: 300 clamp(.875em, 5vw, 2.5em) saira, sans-serif;
+  text-align: center;
+  text-wrap: balance;
+}
+</style>
+<div class="card" contenteditable>
+冤冤相报何时了，大家和谐共处吧
+  
+</div>
+
+</body>
+</html>
