@@ -472,50 +472,56 @@
             </div>
           </div>
         </div>
-        <!-- 作者打赏：微信与支付宝原图完整显示，点击可在新标签页查看大图 -->
+        <!-- 作者打赏：付款码横向排列、200×200 完整显示，点击打开本页放大弹窗 -->
         <section class="footer-support" aria-labelledby="support-title">
           <div class="support-copy">
             <span class="section-kicker">THANK YOU FOR YOUR SUPPORT</span>
             <h3 id="support-title">打赏作者</h3>
             <p>如果这里的收藏帮到了你，欢迎请卡洛斯喝杯咖啡。</p>
-            <small>自愿打赏，感谢你的支持。点击二维码可查看原图。</small>
+            <small>自愿打赏，感谢你的支持。点击二维码可放大查看。</small>
           </div>
-          <figure class="support-card">
-            <a
-              href="https://pic1.imgdb.cn/i/3bVudNhaBcKQ1pypjPMlsq.png"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="在新标签页查看微信支付二维码原图"
-            >
-              <img
-                src="https://pic1.imgdb.cn/i/3bVudNhaBcKQ1pypjPMlsq.png"
-                alt="卡洛斯的微信支付打赏二维码"
-                width="200"
-                height="200"
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-            <figcaption>微信支付<span>用微信扫一扫</span></figcaption>
-          </figure>
-          <figure class="support-card">
-            <a
-              href="https://pic1.imgdb.cn/i/7CxHM1JEpaV15HH2d442tD.png"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="在新标签页查看支付宝支付二维码原图"
-            >
-              <img
-                src="https://pic1.imgdb.cn/i/7CxHM1JEpaV15HH2d442tD.png"
-                alt="卡洛斯的支付宝支付打赏二维码"
-                width="200"
-                height="200"
-                loading="lazy"
-                decoding="async"
-              />
-            </a>
-            <figcaption>支付宝支付<span>用支付宝扫一扫</span></figcaption>
-          </figure>
+          <div class="support-cards" role="group" aria-label="作者打赏二维码">
+            <figure class="support-card">
+              <button
+                type="button"
+                class="support-zoom"
+                data-payment="微信支付"
+                aria-label="放大微信支付二维码"
+                aria-haspopup="dialog"
+                aria-controls="payment-dialog"
+              >
+                <img
+                  src="https://pic1.imgdb.cn/i/3bVudNhaBcKQ1pypjPMlsq.png"
+                  alt="卡洛斯的微信支付打赏二维码"
+                  width="200"
+                  height="200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+              <figcaption>微信支付<span>用微信扫一扫</span></figcaption>
+            </figure>
+            <figure class="support-card">
+              <button
+                type="button"
+                class="support-zoom"
+                data-payment="支付宝支付"
+                aria-label="放大支付宝支付二维码"
+                aria-haspopup="dialog"
+                aria-controls="payment-dialog"
+              >
+                <img
+                  src="https://pic1.imgdb.cn/i/7CxHM1JEpaV15HH2d442tD.png"
+                  alt="卡洛斯的支付宝支付打赏二维码"
+                  width="200"
+                  height="200"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+              <figcaption>支付宝支付<span>用支付宝扫一扫</span></figcaption>
+            </figure>
+          </div>
         </section>
         <div class="footer-bottom">
           <span
@@ -639,6 +645,35 @@
       async
       src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
     ></script>
+
+    <!-- 本页付款码放大弹窗：300×300 完整展示，支持关闭按钮、Esc 与遮罩关闭 -->
+    <dialog
+      id="payment-dialog"
+      class="payment-dialog"
+      aria-labelledby="payment-title"
+      aria-describedby="payment-help"
+    >
+      <button
+        type="button"
+        id="payment-close"
+        class="icon-button dialog-close"
+        aria-label="关闭付款二维码弹窗"
+        autofocus
+      >
+        <svg><use href="#i-close" /></svg>
+      </button>
+      <h2 id="payment-title">微信支付</h2>
+      <img
+        id="payment-image"
+        src="https://pic1.imgdb.cn/i/3bVudNhaBcKQ1pypjPMlsq.png"
+        alt="卡洛斯的微信支付打赏二维码"
+        width="300"
+        height="300"
+        loading="lazy"
+        decoding="async"
+      />
+      <p id="payment-help">自愿打赏，感谢你的支持。</p>
+    </dialog>
 
     <!-- 保留原有暗号验证，资源解锁后再次点击即可访问 -->
     <dialog id="verification-dialog" aria-labelledby="verification-title">

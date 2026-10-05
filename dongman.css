@@ -1227,7 +1227,7 @@ h2 {
 /* 作者打赏：白底保持二维码对比度，contain 完整显示，主题仅影响卡片。 */
 .footer-support {
   display: grid;
-  grid-template-columns: minmax(180px, 1fr) repeat(2, minmax(0, 220px));
+  grid-template-columns: minmax(180px, 1fr) minmax(0, 474px);
   align-items: center;
   gap: 20px;
   border-top: 1px solid var(--line);
@@ -1255,24 +1255,39 @@ h2 {
   border-radius: 14px;
   background: var(--surface);
   text-align: center;
-  min-width: 0;
+  flex: 0 0 226px;
+  width: 226px;
 }
-.support-card a {
+/* 固定尺寸横向付款码：窄屏在组件内滑动，不压缩二维码或撑宽整个页面。 */
+.support-cards {
+  display: flex;
+  gap: 20px;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 4px 1px 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+.support-zoom {
   display: block;
+  padding: 0;
+  width: 200px;
+  height: 200px;
   border-radius: 8px;
 }
-.support-card a:focus-visible {
+.support-zoom:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
 }
 .support-card img {
   display: block;
-  width: 100%;
-  height: auto;
+  width: 200px;
+  height: 200px;
   aspect-ratio: 1;
   object-fit: contain;
   background: #fff;
-  padding: 8px;
+  padding: 0;
   border-radius: 8px;
 }
 .support-card figcaption {
@@ -1723,6 +1738,32 @@ dialog > img {
   border: 6px solid white;
   border-radius: 8px;
 }
+/* 原生 dialog 进入浏览器顶层，放大二维码不受流星、播放器或看板娘遮挡。 */
+html.payment-modal-open {
+  overflow: hidden;
+}
+.payment-dialog {
+  width: min(360px, calc(100vw - 12px));
+  min-width: 302px;
+  max-width: calc(100vw - 12px);
+  padding: 38px 0 20px;
+  max-height: calc(100dvh - 12px);
+  overflow-y: auto;
+}
+.payment-dialog h2 {
+  margin: 0 0 16px;
+  font-size: 20px;
+}
+.payment-dialog > img {
+  width: 300px;
+  height: 300px;
+  padding: 0;
+  border: 0;
+  margin: 0 auto;
+}
+.payment-dialog > p:not(.section-kicker) {
+  margin: 16px 0 0;
+}
 dialog form {
   text-align: left;
 }
@@ -1971,17 +2012,14 @@ dialog .primary-button {
     padding-bottom: 26px;
     grid-template-columns: 1fr 1fr;
   }
-  /* 平板并排显示付款码，说明独占一行；二维码可点击查看原图。 */
+  /* 小屏说明独占一行；两张付款码始终横向排列，保持 200×200。 */
   .footer-support {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     gap: 14px;
     padding: 24px 0;
   }
   .support-copy {
     grid-column: 1 / -1;
-  }
-  .support-card {
-    padding: 10px;
   }
   .author {
     grid-column: 1 / -1;
@@ -2036,14 +2074,6 @@ dialog .primary-button {
   }
 }
 @media (max-width: 430px) {
-  /* 窄屏上下排列，避免付款码缩得太小而难以扫描。 */
-  .footer-support {
-    grid-template-columns: 1fr;
-  }
-  .support-card {
-    width: min(100%, 220px);
-    justify-self: center;
-  }
   .hero {
     display: block;
     position: relative;

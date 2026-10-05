@@ -852,6 +852,45 @@
     }
   });
 
+  /* ==================== 作者打赏弹窗：原图只用于本页 300×300 放大，不跳转 ==================== */
+  const paymentDialog = $("#payment-dialog");
+  let paymentOpener;
+  $(".support-cards").addEventListener("click", (event) => {
+    const button = event.target.closest(".support-zoom");
+    if (!button || paymentDialog.open) return;
+    const image = button.querySelector("img");
+    paymentOpener = button;
+    $("#payment-title").textContent = button.dataset.payment;
+    $("#payment-image").src = image.currentSrc || image.src;
+    $("#payment-image").alt = image.alt;
+    paymentDialog.showModal();
+    document.documentElement.classList.add("payment-modal-open");
+  });
+  $("#payment-close").addEventListener("click", () => paymentDialog.close());
+  // 弹窗只有一个可操作控件，Tab／Shift+Tab 循环停留在关闭按钮。
+  paymentDialog.addEventListener("keydown", (event) => {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      $("#payment-close").focus();
+    }
+  });
+  paymentDialog.addEventListener("click", (event) => {
+    if (event.target !== paymentDialog) return;
+    const rect = paymentDialog.getBoundingClientRect();
+    if (
+      event.clientX < rect.left ||
+      event.clientX > rect.right ||
+      event.clientY < rect.top ||
+      event.clientY > rect.bottom
+    )
+      paymentDialog.close();
+  });
+  // Esc 沿用原生关闭行为；所有关闭路径均恢复页面滚动及触发按钮焦点。
+  paymentDialog.addEventListener("close", () => {
+    document.documentElement.classList.remove("payment-modal-open");
+    paymentOpener?.focus({ preventScroll: true });
+  });
+
   /* ==================== 原版云朵式语录：从底部中央上漂、轻摇、淡出 ==================== */
   let quoteEnabled = store.get("calos-quotes", "true") !== "false";
   let quoteIndex = Math.floor(Math.random() * window.CALOS_DATA.quotes.length);
