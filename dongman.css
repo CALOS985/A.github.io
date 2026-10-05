@@ -1224,6 +1224,70 @@ h2 {
 .friend-links a:hover {
   color: var(--accent);
 }
+/* 作者打赏：白底保持二维码对比度，contain 完整显示，主题仅影响卡片。 */
+.footer-support {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) repeat(2, minmax(0, 220px));
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+}
+.support-copy h3 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+.support-copy p {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.9;
+}
+.support-copy small {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+.support-card {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  text-align: center;
+  min-width: 0;
+}
+.support-card a {
+  display: block;
+  border-radius: 8px;
+}
+.support-card a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.support-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  background: #fff;
+  padding: 8px;
+  border-radius: 8px;
+}
+.support-card figcaption {
+  margin-top: 12px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+}
+.support-card figcaption span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: normal;
+}
 .footer-bottom {
   border-top: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
   padding-top: 18px;
@@ -1907,6 +1971,18 @@ dialog .primary-button {
     padding-bottom: 26px;
     grid-template-columns: 1fr 1fr;
   }
+  /* 平板并排显示付款码，说明独占一行；二维码可点击查看原图。 */
+  .footer-support {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 24px 0;
+  }
+  .support-copy {
+    grid-column: 1 / -1;
+  }
+  .support-card {
+    padding: 10px;
+  }
   .author {
     grid-column: 1 / -1;
   }
@@ -1960,6 +2036,14 @@ dialog .primary-button {
   }
 }
 @media (max-width: 430px) {
+  /* 窄屏上下排列，避免付款码缩得太小而难以扫描。 */
+  .footer-support {
+    grid-template-columns: 1fr;
+  }
+  .support-card {
+    width: min(100%, 220px);
+    justify-self: center;
+  }
   .hero {
     display: block;
     position: relative;
