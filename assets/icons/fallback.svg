@@ -1,0 +1,2 @@
+<!-- 本地后备图标：不冒充目标网站的品牌标识，保证离线或图标失效时仍有完整图形。 -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#ffe0ed"/><g fill="none" stroke="#be386e" stroke-width="3"><rect x="13" y="17" width="38" height="30" rx="5"/><path d="M13 25h38M24 31l-6 6 6 5M39 31l6 6-6 5M35 30l-6 14"/></g><circle cx="19" cy="21" r="1.5" fill="#be386e"/><circle cx="25" cy="21" r="1.5" fill="#be386e"/></svg>

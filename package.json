@@ -1,0 +1,9 @@
+{
+  "name": "calos-collection",
+  "version": "2.0.0",
+  "private": true,
+  "description": "卡洛藏宝阁：可直接打开的轻量资源收藏门户",
+  "scripts": { "build": "node scripts/build.mjs" },
+  "devDependencies": { "esbuild": "0.25.12", "minisearch": "7.2.0" },
+  "engines": { "node": ">=20" }
+}
